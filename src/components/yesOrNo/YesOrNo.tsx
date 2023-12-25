@@ -60,4 +60,4 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
   );
 };
 
-export default withThemeProvider(YesOrNo, theme);
+export default React.memo(withThemeProvider(YesOrNo, theme));

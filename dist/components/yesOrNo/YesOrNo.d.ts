@@ -6,5 +6,5 @@ interface IYesOrNoProps {
     yesLabel?: string;
     noLabel?: string;
 }
-declare const _default: (props: IYesOrNoProps) => React.JSX.Element;
+declare const _default: React.MemoExoticComponent<(props: IYesOrNoProps) => React.JSX.Element>;
 export default _default;

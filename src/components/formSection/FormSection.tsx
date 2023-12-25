@@ -18,4 +18,4 @@ const Input: React.FunctionComponent<IFormSectionProps> = (
   return <div className={styles.formSectionContainer}>{props.children}</div>;
 };
 
-export default withThemeProvider(Input, theme);
+export default React.memo(withThemeProvider(Input, theme));

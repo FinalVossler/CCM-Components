@@ -5,11 +5,15 @@ import useStyles from "./input.styles";
 import { useTheme } from "react-jss";
 import withThemeProvider from "../../hoc/withThemeProvider";
 
-interface InputProps {
+export interface InputProps {
   label: string;
   placeholder: string;
   theme?: ITheme;
   fullWidth?: boolean;
+  value?: string | number;
+  type?: string;
+  onClick?: () => void;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
@@ -24,9 +28,16 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
     >
       <label className={styles.label}>{props.label}</label>
 
-      <input className={styles.input} placeholder={props.placeholder} />
+      <input
+        type={props.type || "text"}
+        className={styles.input}
+        placeholder={props.placeholder}
+        {...(props.value ? { value: props.value } : {})}
+        {...(props.onClick ? { onClick: props.onClick } : {})}
+        {...(props.onChange ? { onChange: props.onChange } : {})}
+      />
     </div>
   );
 };
 
-export default withThemeProvider(Input, theme);
+export default React.memo(withThemeProvider(Input, theme));
