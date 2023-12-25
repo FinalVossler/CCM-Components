@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { ITheme, theme } from "ccmtypes";
 import { useTheme } from "react-jss";
 
@@ -8,9 +8,10 @@ import withThemeProvider from "../../hoc/withThemeProvider";
 interface IFormSectionProps extends React.PropsWithChildren {
   title?: string;
   theme?: ITheme;
+  children: ReactNode;
 }
 
-const Input: React.FunctionComponent<IFormSectionProps> = (
+const FormSection: React.FunctionComponent<IFormSectionProps> = (
   props: IFormSectionProps
 ) => {
   const theme: ITheme = useTheme();
@@ -24,4 +25,4 @@ const Input: React.FunctionComponent<IFormSectionProps> = (
   );
 };
 
-export default React.memo(withThemeProvider(Input, theme));
+export default React.memo(withThemeProvider(FormSection, theme));
