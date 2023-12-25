@@ -1,10 +1,5 @@
-import React from "react";
+import Input from "./components/input";
+import FormSection from "./components/formSection";
+import YesOrNo from "./components/yesOrNo";
 
-interface IButton {
-  label?: string;
-}
-const Button = (props: IButton) => {
-  return <button>{props.label}</button>;
-};
-
-export default Button;
+export { Input, FormSection, YesOrNo };
