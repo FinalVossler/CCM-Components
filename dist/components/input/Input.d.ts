@@ -9,6 +9,7 @@ export interface InputProps {
     type?: string;
     onClick?: () => void;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
+    maxCharacters?: number;
 }
 declare const _default: React.MemoExoticComponent<(props: InputProps) => React.JSX.Element>;
 export default _default;

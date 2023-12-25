@@ -14,12 +14,24 @@ export interface InputProps {
   type?: string;
   onClick?: () => void;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  maxCharacters?: number;
 }
 
 const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
+  const [value, setValue] = React.useState(props.value || "");
+
   const theme: ITheme = useTheme();
   const styles = useStyles({ theme: props.theme || theme });
 
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (
+      props.maxCharacters &&
+      e.target.value.toString().length > props.maxCharacters
+    ) {
+      return;
+    }
+    setValue(e.target.value);
+  };
   return (
     <div
       className={
@@ -32,10 +44,17 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
         type={props.type || "text"}
         className={styles.input}
         placeholder={props.placeholder}
-        {...(props.value ? { value: props.value } : {})}
+        onChange={handleOnChange}
+        value={value}
         {...(props.onClick ? { onClick: props.onClick } : {})}
         {...(props.onChange ? { onChange: props.onChange } : {})}
       />
+
+      {props.maxCharacters && (
+        <span className={styles.maxCharacters}>
+          {value.toString().length + "/" + props.maxCharacters}
+        </span>
+      )}
     </div>
   );
 };

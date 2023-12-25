@@ -6,6 +6,7 @@ import useStyles from "./formSection.styles";
 import withThemeProvider from "../../hoc/withThemeProvider";
 
 interface IFormSectionProps extends React.PropsWithChildren {
+  title?: string;
   theme?: ITheme;
 }
 
@@ -15,7 +16,12 @@ const Input: React.FunctionComponent<IFormSectionProps> = (
   const theme: ITheme = useTheme();
   const styles = useStyles({ theme: props.theme || theme });
 
-  return <div className={styles.formSectionContainer}>{props.children}</div>;
+  return (
+    <div className={styles.formSectionContainer}>
+      {props.title && <h2 className={styles.title}>{props.title}</h2>}
+      <div className={styles.inputsContainer}>{props.children}</div>
+    </div>
+  );
 };
 
 export default React.memo(withThemeProvider(Input, theme));

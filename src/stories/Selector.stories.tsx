@@ -1,13 +1,13 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { theme } from "ccmtypes";
 
-import DatePicker from "../components/datePicker";
+import Selector from "../components/selector";
+import { theme } from "ccmtypes";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/DatePicker",
-  component: DatePicker,
+  title: "Example/Selector",
+  component: Selector,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
   },
@@ -19,11 +19,9 @@ const meta = {
       type: "string",
     },
     theme: {},
-    showTimeSelect: {
-      type: "boolean",
-    },
+    options: [],
   },
-} satisfies Meta<typeof DatePicker>;
+} satisfies Meta<typeof Selector>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -31,18 +29,45 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Basic: Story = {
   args: {
-    label: "Date de fin de cible",
-    placeholder: "fin cible",
+    label: "Unité",
+    placeholder: "Titre",
     theme,
-    showTimeSelect: false,
+    options: [
+      {
+        label: "Option 1",
+        value: "option1",
+      },
+      {
+        label: "Option 2",
+        value: "option2",
+      },
+      {
+        label: "Option 3",
+        value: "option3",
+      },
+    ],
   },
 };
 
-export const WithTime: Story = {
+export const Multi: Story = {
   args: {
-    label: "Résolution estimée",
-    placeholder: "estimation",
+    label: "Unité",
+    placeholder: "Titre",
     theme,
-    showTimeSelect: true,
+    isMulti: true,
+    options: [
+      {
+        label: "Option 1",
+        value: "option1",
+      },
+      {
+        label: "Option 2",
+        value: "option2",
+      },
+      {
+        label: "Option 3",
+        value: "option3",
+      },
+    ],
   },
 };

@@ -26,10 +26,19 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const RequestTitleInput: Story = {
+export const Basic: Story = {
   args: {
     label: "Titre de la réclamation",
-    placeholder: "",
+    placeholder: "Titre",
     theme,
+  },
+};
+
+export const MaxCharacters: Story = {
+  args: {
+    label: "Titre de la réclamation",
+    placeholder: "Titre",
+    theme,
+    maxCharacters: 30,
   },
 };

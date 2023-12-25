@@ -11,6 +11,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     padding: 12,
     minWidth: 270,
     flex: 1,
+    position: "relative",
   },
   fullWidthContainer: {
     extend: "inputContainer",
@@ -42,6 +43,12 @@ const useStyles = createUseStyles((theme: ITheme) => ({
       outline: "none",
       border: "1px solid " + theme.borderDefault,
     },
+  },
+  maxCharacters: {
+    position: "absolute",
+    right: 25,
+    top: 45,
+    color: theme.textMajor,
   },
 }));
 

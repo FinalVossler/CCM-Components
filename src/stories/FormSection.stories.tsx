@@ -5,6 +5,8 @@ import Input from "../components/input";
 import { theme } from "ccmtypes";
 import YesOrNo from "../components/yesOrNo";
 import FormSectionComponent from "../components/formSection";
+import DatePicker from "../components/datePicker";
+import Selector from "../components/selector";
 
 const FormSection = () => {
   return (
@@ -17,11 +19,11 @@ const FormSection = () => {
         position: "relative",
       }}
     >
-      <FormSectionComponent>
+      <FormSectionComponent title="Réclamation">
         <Input
           label="Titre de la réclamation"
           theme={theme}
-          placeholder=""
+          placeholder="Titre"
           fullWidth
         />
         <Input
@@ -35,14 +37,51 @@ const FormSection = () => {
       </FormSectionComponent>
 
       <FormSectionComponent>
-        <Input
-          label="Origine de la réclamation"
-          placeholder="Sélectionner"
-          theme={theme}
+        <DatePicker
+          label="Date d'envoi/réception"
+          placeholder="Date de fin cible"
         />
-        <Input label="Clients" placeholder="Sélectionner" theme={theme} />
-        <YesOrNo label="En attente de retour" />
-        <YesOrNo label="Demande justifiée" />
+
+        <Selector
+          label="Boite générique"
+          theme={theme}
+          placeholder="Titre"
+          options={[
+            {
+              value: "option1",
+              label: "Option 1",
+            },
+            {
+              value: "option2",
+              label: "Option 2",
+            },
+            {
+              value: "option3",
+              label: "Option 3",
+            },
+          ]}
+        />
+
+        <Selector
+          label="Unité"
+          theme={theme}
+          placeholder="Titre"
+          isMulti
+          options={[
+            {
+              value: "option1",
+              label: "Option 1",
+            },
+            {
+              value: "option2",
+              label: "Option 2",
+            },
+            {
+              value: "option3",
+              label: "Option 3",
+            },
+          ]}
+        />
       </FormSectionComponent>
 
       <FormSectionComponent>
@@ -55,6 +94,18 @@ const FormSection = () => {
         <YesOrNo label="En attente de retour" />
         <YesOrNo label="En attente de retour" />
         <YesOrNo label="Demande justifiée" />
+      </FormSectionComponent>
+
+      <FormSectionComponent>
+        <YesOrNo label="A/R client" />
+        <DatePicker label="Date de fin cible" placeholder="Date de fin cible" />
+        <YesOrNo label="Impact de conformité" />
+
+        <Input
+          label="Origine de la réclamation"
+          placeholder="Sélectionner"
+          theme={theme}
+        />
       </FormSectionComponent>
     </div>
   );
@@ -77,6 +128,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const FourInputs: Story = {
+export const Form: Story = {
   args: {},
 };
