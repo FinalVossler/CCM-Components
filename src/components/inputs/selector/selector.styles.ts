@@ -12,6 +12,11 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     minWidth: 270,
     flex: 1,
     position: "relative",
+
+    "& svg": {
+      color: theme.textPrimary,
+      cursor: "pointer",
+    },
   },
   label: {
     marginBottom: 4,

@@ -10,34 +10,35 @@ interface IYesOrNoProps {
   theme?: ITheme;
   yesLabel?: string;
   noLabel?: string;
+  value?: boolean;
 }
 
 const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
   props: IYesOrNoProps
 ) => {
-  const yesRef = React.useRef<HTMLInputElement>(null);
-  const noRef = React.useRef<HTMLInputElement>(null);
+  const [isYesChecked, setIsYesChecked] = React.useState(props.value === true);
+  const [isNoChecked, setIsNoChecked] = React.useState(props.value === false);
 
   const theme: ITheme = useTheme();
   const styles = useStyles({ theme: props.theme || theme });
 
   const handleYesClick = () => {
-    yesRef.current.checked = !yesRef.current.checked;
-
-    if (yesRef.current.checked) {
-      noRef.current.checked = false;
+    const newValue: boolean = !isYesChecked;
+    setIsYesChecked(newValue);
+    if (newValue && isNoChecked) {
+      setIsNoChecked(false);
     }
   };
 
   const handleNoClick = () => {
-    noRef.current.checked = !noRef.current.checked;
-
-    if (noRef.current.checked) {
-      yesRef.current.checked = false;
+    const newValue: boolean = !isNoChecked;
+    setIsNoChecked(newValue);
+    if (newValue && isYesChecked) {
+      setIsYesChecked(false);
     }
   };
 
-  const handleCheckboxClick = (e: React.MouseEvent<HTMLInputElement>) => {
+  const handleCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.stopPropagation();
   };
 
@@ -48,10 +49,10 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
       <div className={styles.checkboxesContainer}>
         <div className={styles.checkboxContainer} onClick={handleYesClick}>
           <input
-            onClick={handleCheckboxClick}
             type="checkbox"
             className={styles.checkbox}
-            ref={yesRef}
+            checked={isYesChecked}
+            onChange={handleCheckboxClick}
           />
           <span className={styles.dot}></span>
           <label className={styles.yesOrNoLabel}>
@@ -61,10 +62,10 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
 
         <div className={styles.checkboxContainer} onClick={handleNoClick}>
           <input
-            onClick={handleCheckboxClick}
+            onChange={handleCheckboxClick}
             type="checkbox"
             className={styles.checkbox}
-            ref={noRef}
+            checked={isNoChecked}
           />
           <span className={styles.dot}></span>
           <label className={styles.yesOrNoLabel}>{props.noLabel || "No"}</label>
