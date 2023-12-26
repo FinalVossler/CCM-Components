@@ -22,6 +22,7 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
   const styles = useStyles({ theme: props.theme || theme });
 
   const handleYesClick = () => {
+    console.log("yes click", yesRef.current.checked);
     yesRef.current.checked = !yesRef.current.checked;
 
     if (yesRef.current.checked) {
@@ -37,13 +38,22 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
     }
   };
 
+  const handleCheckboxClick = (e: React.MouseEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+  };
+
   return (
     <div className={styles.yesOrNoContainer}>
       <label className={styles.label}>{props.label}</label>
 
       <div className={styles.checkboxesContainer}>
         <div className={styles.checkboxContainer} onClick={handleYesClick}>
-          <input type="checkbox" className={styles.checkbox} ref={yesRef} />
+          <input
+            onClick={handleCheckboxClick}
+            type="checkbox"
+            className={styles.checkbox}
+            ref={yesRef}
+          />
           <span className={styles.dot}></span>
           <label className={styles.yesOrNoLabel}>
             {props.yesLabel || "Yes"}
@@ -51,7 +61,12 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
         </div>
 
         <div className={styles.checkboxContainer} onClick={handleNoClick}>
-          <input type="checkbox" className={styles.checkbox} ref={noRef} />
+          <input
+            onClick={handleCheckboxClick}
+            type="checkbox"
+            className={styles.checkbox}
+            ref={noRef}
+          />
           <span className={styles.dot}></span>
           <label className={styles.yesOrNoLabel}>{props.noLabel || "No"}</label>
         </div>
