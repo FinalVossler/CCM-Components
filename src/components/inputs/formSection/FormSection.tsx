@@ -3,7 +3,7 @@ import { ITheme, theme } from "ccmtypes";
 import { useTheme } from "react-jss";
 
 import useStyles from "./formSection.styles";
-import withThemeProvider from "../../hoc/withThemeProvider";
+import withThemeProvider from "../../../hoc/withThemeProvider";
 
 interface IFormSectionProps extends React.PropsWithChildren {
   title?: string;

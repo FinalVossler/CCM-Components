@@ -5,7 +5,7 @@ import { useTheme } from "react-jss";
 import makeAnimated from "react-select/animated";
 
 import useStyles from "./selector.styles";
-import withThemeProvider from "../../hoc/withThemeProvider";
+import withThemeProvider from "../../../hoc/withThemeProvider";
 
 export interface ISelectorOption {
   value: string;

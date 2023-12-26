@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Selector from "../components/selector";
+import Selector from "../components/inputs/selector";
 import { theme } from "ccmtypes";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

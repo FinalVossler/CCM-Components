@@ -1,9 +1,9 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Input from "../components/yesOrNo";
+import Input from "../components/inputs/yesOrNo";
 import { theme } from "ccmtypes";
-import YesOrNo from "../components/yesOrNo";
+import YesOrNo from "../components/inputs/yesOrNo";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

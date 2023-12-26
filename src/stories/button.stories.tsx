@@ -1,13 +1,14 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Input from "../components/inputs/input";
 import { theme } from "ccmtypes";
+import Button from "../components/button";
+import { ButtonTypeEnum } from "../components/button/Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/Input",
-  component: Input,
+  title: "Example/Button",
+  component: Button,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
   },
@@ -20,25 +21,24 @@ const meta = {
     },
     theme: {},
   },
-} satisfies Meta<typeof Input>;
+} satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Basic: Story = {
+export const Confirm: Story = {
   args: {
-    label: "Titre de la réclamation",
-    placeholder: "Titre",
+    label: "Clôturer la demande",
     theme,
+    buttonType: ButtonTypeEnum.Confirm,
   },
 };
 
-export const MaxCharacters: Story = {
+export const Cancel: Story = {
   args: {
-    label: "Titre de la réclamation",
-    placeholder: "Titre",
+    label: "Annuler la demande",
     theme,
-    maxCharacters: 30,
+    buttonType: ButtonTypeEnum.Cancel,
   },
 };

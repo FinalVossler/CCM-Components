@@ -24,3 +24,13 @@
 # To begin testing your component with storybook:
 
 - `npx storybook@latest init`
+
+# Questions:
+
+- Il se passe quoi quand on hover sur un bouton (animation ?)
+- Le design des paginations des tables
+- Le design d'un input lorsqu'il est disabled
+- Le design d'un bouton lorsqu'il est disabled
+- Le design des inputs en erreurs
+- Vous n'avez pas à développer le design des dates picker et des sélecteurs
+- Est ce que les colonnes seront resizables

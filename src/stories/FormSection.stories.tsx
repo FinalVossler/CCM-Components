@@ -1,12 +1,12 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Input from "../components/input";
+import Input from "../components/inputs/input";
 import { theme } from "ccmtypes";
-import YesOrNo from "../components/yesOrNo";
-import FormSectionComponent from "../components/formSection";
-import DatePicker from "../components/datePicker";
-import Selector from "../components/selector";
+import YesOrNo from "../components/inputs/yesOrNo";
+import FormSectionComponent from "../components/inputs/formSection";
+import DatePicker from "../components/inputs/datePicker";
+import Selector from "../components/inputs/selector";
 
 const FormSection = () => {
   return (

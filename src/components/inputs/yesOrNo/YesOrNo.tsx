@@ -3,7 +3,7 @@ import { ITheme, theme } from "ccmtypes";
 
 import useStyles from "./yesOrNo.styles";
 import { useTheme } from "react-jss";
-import withThemeProvider from "../../hoc/withThemeProvider";
+import withThemeProvider from "../../../hoc/withThemeProvider";
 
 interface IYesOrNoProps {
   label: string;

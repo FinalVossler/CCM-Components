@@ -1,6 +1,6 @@
 {
   "name": "ccminputs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "keywords": [],
   "author": "Hamza Khalifa",
@@ -61,7 +61,7 @@
     }
   },
   "dependencies": {
-    "ccmtypes": "^1.0.5",
+    "ccmtypes": "^1.0.6",
     "react-datepicker": "^4.25.0",
     "react-jss": "^10.10.0",
     "react-select": "^5.8.0"
