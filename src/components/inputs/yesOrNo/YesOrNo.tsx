@@ -22,7 +22,6 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
   const styles = useStyles({ theme: props.theme || theme });
 
   const handleYesClick = () => {
-    console.log("yes click", yesRef.current.checked);
     yesRef.current.checked = !yesRef.current.checked;
 
     if (yesRef.current.checked) {
