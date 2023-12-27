@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {
   args: {
     label: "Unité",
-    placeholder: "Titre",
+    placeholder: "Unité",
     theme,
     options: [
       {
@@ -52,7 +52,7 @@ export const Basic: Story = {
 export const Multi: Story = {
   args: {
     label: "Unité",
-    placeholder: "Titre",
+    placeholder: "Unité",
     theme,
     isMulti: true,
     options: [

@@ -65,6 +65,7 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
         onMenuOpen={handleMenuOpen}
         onMenuClose={handleMenuClose}
         menuIsOpen={menuIsOpen}
+        placeholder={props.placeholder}
         styles={{
           container: (styles) => ({ ...styles, width: "100%" }),
           control: (styles, { isFocused }) => {
