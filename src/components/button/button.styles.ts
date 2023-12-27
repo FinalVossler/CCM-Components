@@ -13,11 +13,14 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     cursor: "pointer",
     color: theme.textPrimary,
     backgroundColor: theme.textReverse,
+    border: "2px solid " + theme.borderSuccess,
 
     "&:hover": {
       backgroundColor: theme.backgroundPrimary,
       border: "2px solid " + theme.backgroundPrimary,
       color: theme.textReverse,
+
+      "& svg": {},
     },
   },
   cancelButton: {
@@ -28,7 +31,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     "&:hover": {
       color: theme.textReverse,
       backgroundColor: theme.textDanger,
-      borderColor: theme.textDanger,
+      borderColor: theme.backgroundDanger,
     },
   },
 }));

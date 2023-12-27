@@ -2,14 +2,13 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { theme } from "ccmtypes";
-import Button from "../components/button";
-import { ButtonTypeEnum } from "../components/button/Button";
-import PlusIcon from "../components/icons/PlusIcon";
+import Status from "../components/status";
+import { StatusTypeEnum } from "../components/status/Status";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/Button",
-  component: Button,
+  title: "Example/Status",
+  component: Status,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
   },
@@ -22,39 +21,40 @@ const meta = {
     },
     theme: {},
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof Status>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Confirm: Story = {
+export const Info: Story = {
   args: {
-    label: "Clôturer la demande",
+    label: "Info Here",
     theme,
-    buttonType: ButtonTypeEnum.Confirm,
+    statusType: StatusTypeEnum.Info,
   },
 };
 
-export const Cancel: Story = {
+export const Success: Story = {
   args: {
-    label: "Annuler la demande",
+    label: "Success",
     theme,
-    buttonType: ButtonTypeEnum.Cancel,
+    statusType: StatusTypeEnum.Success,
   },
 };
 
-export const WithPrefixedIcon: Story = {
+export const Danger: Story = {
   args: {
-    label: "Confirmer la demande",
+    label: "Danger",
     theme,
-    buttonType: ButtonTypeEnum.Confirm,
-    prefix: () => <PlusIcon style={{ position: "relative", top: 2 }} />,
-    hoverPrefix: () => (
-      <PlusIcon
-        color={theme.textReverse}
-        style={{ position: "relative", top: 2 }}
-      />
-    ),
+    statusType: StatusTypeEnum.Danger,
+  },
+};
+
+export const Warning: Story = {
+  args: {
+    label: "Warning",
+    theme,
+    statusType: StatusTypeEnum.Warning,
   },
 };

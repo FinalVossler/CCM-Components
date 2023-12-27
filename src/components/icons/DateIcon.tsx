@@ -1,10 +1,10 @@
 import React from "react";
 import IIconProps from "./IIconProps";
+import useComputeIconAdditionalProps from "./useComputeIconAdditionalProps";
 
 const DateIcon = (props: IIconProps) => {
-  const additionalProps = {
-    ...(props.className ? { className: props.className } : {}),
-  };
+  const additionalProps = useComputeIconAdditionalProps(props);
+
   return (
     <svg
       {...additionalProps}

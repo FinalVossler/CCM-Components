@@ -16,12 +16,20 @@ export interface IButtonProps {
   disabled?: boolean;
   onClick?: () => void;
   buttonType?: ButtonTypeEnum;
+  prefix?: React.FunctionComponent;
+  hoverPrefix?: React.FunctionComponent;
 }
 
 const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
+  const [isHovered, setIsHovered] = React.useState<boolean>(false);
+
   const theme: ITheme = useTheme();
   const styles = useStyles({ theme: props.theme || theme });
 
+  const handleOnMouseOver = () => setIsHovered(true);
+  const handleOnMouseOut = () => setIsHovered(false);
+
+  console.log("ishovered", isHovered);
   return (
     <button
       className={
@@ -30,8 +38,13 @@ const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
           [ButtonTypeEnum.Cancel]: styles.cancelButton,
         }[props.buttonType || ButtonTypeEnum.Confirm]
       }
+      onMouseOver={handleOnMouseOver}
+      onMouseOut={handleOnMouseOut}
     >
-      {props.label}
+      {((props.prefix && !isHovered && props.hoverPrefix) ||
+        (props.prefix && !props.hoverPrefix)) && <props.prefix />}
+      {props.hoverPrefix && isHovered && <props.hoverPrefix />}
+      <span style={{ marginLeft: props.prefix ? 10 : 0 }}>{props.label}</span>
     </button>
   );
 };

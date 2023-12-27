@@ -11,14 +11,15 @@ export interface ITableElement {
   id: string | number;
 }
 
-export interface ITableColumn {
+export interface ITableColumn<T> {
   title: string;
   name: string;
+  render?: React.FunctionComponent<{ element: T }>;
 }
 
 export interface ITableProps<T extends ITableElement> {
   theme?: ITheme;
-  columns: ITableColumn[];
+  columns: ITableColumn<T>[];
   data: T[];
   selectableElements?: boolean;
   height?: number;
@@ -164,7 +165,8 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
                   return (
                     <React.Fragment key={columnIndex}>
                       <td className={styles.tableColumn}>
-                        {element[column.name] || ""}
+                        {(!column.render && element[column.name]) || ""}
+                        {column.render && <column.render element={element} />}
                       </td>
                       <TableColumnResizer id={elementIndex + 10000} />
                     </React.Fragment>

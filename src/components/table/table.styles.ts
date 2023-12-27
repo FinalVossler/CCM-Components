@@ -15,7 +15,8 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     position: "sticky",
     top: -0.5,
     backgroundColor: theme.backgroundSectionMajor,
-    boxShadow: "1px 1px 10px 1px " + theme.backgroundSurface,
+    boxShadow: "0px 0px 1px 0px " + theme.textMajor,
+    zIndex: 1,
   },
   tableHeaderRow: {
     height: 48,

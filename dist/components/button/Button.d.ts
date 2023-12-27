@@ -10,6 +10,8 @@ export interface IButtonProps {
     disabled?: boolean;
     onClick?: () => void;
     buttonType?: ButtonTypeEnum;
+    prefix?: React.FunctionComponent;
+    hoverPrefix?: React.FunctionComponent;
 }
 declare const _default: React.MemoExoticComponent<(props: IButtonProps) => React.JSX.Element>;
 export default _default;

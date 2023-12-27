@@ -3,6 +3,9 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Table from "../components/table";
 import { theme } from "ccmtypes";
+import { ITableColumn } from "../components/table/Table";
+import Status from "../components/status";
+import { StatusTypeEnum } from "../components/status/Status";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -28,14 +31,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const data = [
+interface IData {
+  id: string;
+  title: string;
+  internalReference: string;
+  language: string;
+  game: string;
+  status: string;
+  openSince: string;
+  collaborator: string;
+}
+
+const getRandomStatus = () => {
+  const statuses = ["Error", "Warning", "In Progress", "Validated"];
+  return statuses[Math.floor(Math.random() * statuses.length)];
+};
+
+const data: IData[] = [
   {
     id: "1",
     title: "Andreas",
     internalReference: "France",
     language: "fr",
     game: "Chess",
-    status: "Ok",
+    status: "Validated",
     openSince: "12/10/2023",
     collaborator: "5",
   },
@@ -45,7 +64,7 @@ const data = [
     internalReference: "France",
     language: "fr",
     game: "Chess",
-    status: "Ok",
+    status: getRandomStatus(),
     openSince: "12/10/2023",
     collaborator: "5",
   },
@@ -55,12 +74,22 @@ const data = [
     internalReference: "France",
     language: "fr",
     game: "Chess",
-    status: "Ok",
+    status: getRandomStatus(),
+    openSince: "12/10/2023",
+    collaborator: "5",
+  },
+  {
+    id: "4",
+    title: "Andreas",
+    internalReference: "France",
+    language: "fr",
+    game: "Chess",
+    status: getRandomStatus(),
     openSince: "12/10/2023",
     collaborator: "5",
   },
 ];
-const columns = [
+const columns: ITableColumn<IData>[] = [
   {
     name: "title",
     title: "Titre",
@@ -76,10 +105,34 @@ const columns = [
   {
     title: "Game",
     name: "game",
+    render: (props) => {
+      return (
+        <Status
+          statusType={StatusTypeEnum.Info}
+          label={props.element.game}
+        ></Status>
+      );
+    },
   },
   {
     title: "Statut",
     name: "status",
+    render: (props) => {
+      return (
+        <Status
+          statusType={
+            props.element.status === "Validated"
+              ? StatusTypeEnum.Success
+              : props.element.status === "Error"
+              ? StatusTypeEnum.Danger
+              : props.element.status === StatusTypeEnum.Warning
+              ? StatusTypeEnum.Warning
+              : StatusTypeEnum.Info
+          }
+          label={props.element.status}
+        ></Status>
+      );
+    },
   },
   {
     title: "Ouverte depuis",
@@ -115,19 +168,27 @@ export const Big: Story = {
     columns,
     data: Array.from({ length: 30 })
       .map((_, i) => i)
-      .reduce((acc: any[], _) => acc.concat(data), data),
+      .reduce(
+        (acc: any[], _) =>
+          acc.concat(data.map((el, i) => ({ ...el, id: acc.length + i }))),
+        data
+      ),
     theme,
   },
 };
 
 export const BigWithDefinedHeight: Story = {
   args: {
-    selectableElements: false,
+    selectableElements: true,
     columns,
     height: 350,
     data: Array.from({ length: 30 })
       .map((_, i) => i)
-      .reduce((acc: any[], _) => acc.concat(data), data),
+      .reduce(
+        (acc: any[], _) =>
+          acc.concat(data.map((el, i) => ({ ...el, id: acc.length + i }))),
+        data
+      ),
     theme,
   },
 };

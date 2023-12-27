@@ -34,3 +34,4 @@
 - Le design des inputs en erreurs
 - Vous n'avez pas à développer le design des dates picker et des sélecteurs
 - Est ce que les colonnes seront resizables
+- Ou trouver les îcones si on a besoin de plus que ce qui existe maintenant dans les maquettes
