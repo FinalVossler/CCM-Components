@@ -25,6 +25,7 @@ const FormSection = () => {
           theme={theme}
           placeholder="Titre"
           fullWidth
+          maxCharacters={40}
         />
         <Input
           label="Origine de la réclamation"

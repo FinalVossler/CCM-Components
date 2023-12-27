@@ -207,7 +207,11 @@ export const WithSearchForSomeColumns: Story = {
             placeholder: "Rechercher",
             minWidth: 100,
             suffixIcon: (props) => (
-              <SearchIcon {...props} color={theme.textMinor} />
+              <SearchIcon
+                {...props}
+                color={theme.textMinor}
+                style={{ position: "relative", top: -2 }}
+              />
             ),
           },
         };

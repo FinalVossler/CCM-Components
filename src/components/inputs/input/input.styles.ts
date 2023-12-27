@@ -44,20 +44,27 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     },
   },
   maxCharacters: {
-    position: "absolute",
-    right: 25,
-    top: 45,
     color: theme.textMajor,
+    marginRight: 5,
+    marginLeft: 5,
   },
   suffixIcon: {
-    position: "absolute",
-    right: 18,
-    top: 42,
     color: theme.textMajor,
+    marginRight: 5,
+    marginLeft: 5,
   },
-  suffixIconWithoutLabel: {
-    extend: "suffixIcon",
-    top: 4.5,
+  iconsContainer: {
+    position: "absolute",
+    right: 15,
+    top: 44,
+
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  iconsContainerWithoutLabel: {
+    extend: "iconsContainer",
+    top: 6,
     right: 5,
   },
 }));

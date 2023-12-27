@@ -58,27 +58,37 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
         {...(props.suffixIcon || props.maxCharacters
           ? {
               style: {
-                paddingRight: props.suffixIcon && props.maxCharacters ? 80 : 30,
+                paddingRight: props.suffixIcon && props.maxCharacters ? 80 : 35,
               },
             }
           : {})}
       />
 
-      {props.maxCharacters && (
-        <span
-          className={styles.maxCharacters}
-          style={{ ...(props.suffixIcon ? { right: 50 } : {}) }}
-        >
-          {value.toString().length + "/" + props.maxCharacters}
-        </span>
-      )}
-
-      {props.suffixIcon && (
-        <props.suffixIcon
+      {(props.suffixIcon || props.maxCharacters) && (
+        <div
           className={
-            props.label ? styles.suffixIcon : styles.suffixIconWithoutLabel
+            props.label
+              ? styles.iconsContainer
+              : styles.iconsContainerWithoutLabel
           }
-        />
+        >
+          {props.maxCharacters && (
+            <span
+              className={styles.maxCharacters}
+              style={{
+                ...(props.suffixIcon || !props.label
+                  ? { right: !props.label && props.suffixIcon ? 40 : 50 }
+                  : {}),
+              }}
+            >
+              {value.toString().length + "/" + props.maxCharacters}
+            </span>
+          )}
+
+          {props.suffixIcon && (
+            <props.suffixIcon className={styles.suffixIcon} />
+          )}
+        </div>
       )}
     </div>
   );

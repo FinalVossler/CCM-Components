@@ -49,16 +49,27 @@ export const WithSuffixIcon: Story = {
     label: "Titre de la réclamation",
     placeholder: "Titre",
     theme,
-    suffixIcon: (props) => <SearchIcon {...props} />,
+
+    suffixIcon: (props) => (
+      <SearchIcon {...props} style={{ top: -1.5, position: "relative" }} />
+    ),
   },
 };
 
-export const WithSuffixIconAndMaxCharacters: Story = {
+export const withoutLabelButWithMaxCharacters: Story = {
   args: {
-    label: "Titre de la réclamation",
     placeholder: "Titre",
     theme,
     maxCharacters: 30,
-    suffixIcon: (props) => <SearchIcon {...props} />,
+  },
+};
+
+export const withoutLabelButWithSuffixIcon: Story = {
+  args: {
+    placeholder: "Titre",
+    theme,
+    suffixIcon: (props) => (
+      <SearchIcon {...props} style={{ top: -1.5, position: "relative" }} />
+    ),
   },
 };
