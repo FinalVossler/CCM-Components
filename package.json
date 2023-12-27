@@ -1,6 +1,6 @@
 {
   "name": "ccmcomponents",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "keywords": [],
   "author": "Hamza Khalifa",
@@ -19,7 +19,8 @@
     "dev": "npm run watch",
     "test": "jest --watchAll",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "deploy": "npm run build && npm publish && git add . && git commit -m \"$MESSAGE\" && git push origin HEAD"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.6",

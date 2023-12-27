@@ -29,7 +29,6 @@ const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
   const handleOnMouseOver = () => setIsHovered(true);
   const handleOnMouseOut = () => setIsHovered(false);
 
-  console.log("ishovered", isHovered);
   return (
     <button
       className={
