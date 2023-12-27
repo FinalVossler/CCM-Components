@@ -10,7 +10,6 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     height: "calc(100vh * 2)",
     top: -100,
     left: -100,
-    // height: "100vh",
     backgroundColor: theme.backgroundSurface,
     opacity: 0.7,
   },
@@ -24,7 +23,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     flexDirection: "column",
     fontFamily: "Open Sans Regular",
     width: 306,
-    transition: "all .1s ease-in-out",
+    transition: "all .15s ease-in-out",
     overflow: "hidden",
   },
   sideBarClosedContainer: {
@@ -54,6 +53,12 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     width: 40,
     height: 40,
     cursor: "pointer",
+  },
+  sideBarTriggerIcon: {
+    transition: "transform .2s ease-in-out",
+  },
+  sideBarTriggerIconSideBarOpen: {
+    transform: "rotateZ(180deg)",
   },
   sideBarLine: {
     width: "100%",
@@ -94,10 +99,6 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     "&:hover": {
       backgroundColor: theme.textSuccess,
       color: theme.textReverse,
-
-      "& $sideBarOptionTitle": {
-        // color: theme.textReverse,
-      },
     },
   },
   sideBarOptionTitle: {

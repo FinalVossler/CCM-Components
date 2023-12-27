@@ -33,10 +33,13 @@ const SideBar: React.FunctionComponent<ISideBarProps> = (
   const styles = useStyles({ theme: props.theme || theme });
 
   const handleTriggerIsOpen = () => setIsOpen(!isOpen);
+  const handleCloseSideBar = () => setIsOpen(false);
 
   return (
     <React.Fragment>
-      {isOpen && <div className={styles.layer}></div>}
+      {isOpen && (
+        <div className={styles.layer} onClick={handleCloseSideBar}></div>
+      )}
 
       <div
         className={
@@ -48,7 +51,12 @@ const SideBar: React.FunctionComponent<ISideBarProps> = (
           className={styles.sideBarTriggerIconContainer}
           onClick={handleTriggerIsOpen}
         >
-          <SideBarIcon />
+          <SideBarIcon
+            className={
+              styles.sideBarTriggerIcon +
+              (isOpen ? " " + styles.sideBarTriggerIconSideBarOpen : "")
+            }
+          />
         </div>
         <div className={styles.sideBarLine}></div>
         {props.sideBarSections.map((section, sectionIndex) => {
