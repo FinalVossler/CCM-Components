@@ -64,7 +64,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     width: "100%",
     borderBottom: "1px solid " + theme.textMinor,
     marginTop: 16,
-    marginBottom: 30,
+    marginBottom: 10,
   },
   sideBarSectionContainer: {
     display: "flex",
@@ -97,7 +97,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     padding: 10,
 
     "&:hover": {
-      backgroundColor: theme.textSuccess,
+      backgroundColor: theme.borderDefaultMinor,
       color: theme.textReverse,
     },
   },
