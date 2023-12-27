@@ -10,6 +10,8 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     backgroundColor: theme.backgroundSurface,
     padding: 12,
     flex: 1,
+    borderRadius: 5,
+
     position: "relative",
     "& .react-datepicker": {
       boxShadow: "1px 1px 10px 1px black",

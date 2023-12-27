@@ -10,6 +10,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     backgroundColor: theme.backgroundSurface,
     padding: 12,
     flex: 1,
+    borderRadius: 5,
   },
   label: {
     marginBottom: 4,

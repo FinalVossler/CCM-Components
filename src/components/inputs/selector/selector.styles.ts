@@ -11,6 +11,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     padding: 12,
     flex: 1,
     position: "relative",
+    borderRadius: 5,
 
     "& svg": {
       color: theme.textPrimary,
