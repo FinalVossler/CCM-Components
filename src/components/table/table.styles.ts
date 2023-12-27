@@ -9,9 +9,14 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     width: "100%",
     border: "1px solid " + theme.textMinor,
     fontFamily: "Open Sans Regular",
+    borderCollapse: "collapse",
   },
-
-  tableHeader: {},
+  tableHeader: {
+    position: "sticky",
+    top: -0.5,
+    backgroundColor: theme.backgroundSectionMajor,
+    boxShadow: "1px 1px 10px 1px " + theme.backgroundSurface,
+  },
   tableHeaderRow: {
     height: 48,
   },
@@ -31,7 +36,10 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     borderRight: "none",
   },
 
-  tableBody: {},
+  tableBody: {
+    overflow: "auto",
+    marginTop: 30,
+  },
   tableRow: {
     height: 48,
     borderBottom: "1px solid " + theme.textMajor,

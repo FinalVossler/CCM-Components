@@ -15,6 +15,12 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
+    height: {
+      type: "number",
+    },
+    selectableElements: {
+      type: "boolean",
+    },
     theme: {},
   },
 } satisfies Meta<typeof Table>;
@@ -85,7 +91,7 @@ const columns = [
   },
 ];
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Basic: Story = {
+export const WithCheckboxes: Story = {
   args: {
     selectableElements: true,
     columns,
@@ -99,6 +105,29 @@ export const WithoutCheckboxes: Story = {
     selectableElements: false,
     columns,
     data,
+    theme,
+  },
+};
+
+export const Big: Story = {
+  args: {
+    selectableElements: false,
+    columns,
+    data: Array.from({ length: 30 })
+      .map((_, i) => i)
+      .reduce((acc: any[], _) => acc.concat(data), data),
+    theme,
+  },
+};
+
+export const BigWithDefinedHeight: Story = {
+  args: {
+    selectableElements: false,
+    columns,
+    height: 350,
+    data: Array.from({ length: 30 })
+      .map((_, i) => i)
+      .reduce((acc: any[], _) => acc.concat(data), data),
     theme,
   },
 };
