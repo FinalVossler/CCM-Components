@@ -35,3 +35,5 @@
 - Vous n'avez pas à développer le design des dates picker et des sélecteurs
 - Est ce que les colonnes seront resizables
 - Ou trouver les îcones si on a besoin de plus que ce qui existe maintenant dans les maquettes
+- Les données à afficher sur la vue kanban ne m'ont pas l'air claires (La section todo, etc..)
+- C'est intéressant pour nous d'avoir ces 3 types de vues (table, kanban et calendrier) pour les activités, demandes et emails ?

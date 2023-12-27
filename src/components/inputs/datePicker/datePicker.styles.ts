@@ -9,7 +9,6 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     alignItems: "flex-start",
     backgroundColor: theme.backgroundSurface,
     padding: 12,
-    minWidth: 270,
     flex: 1,
     position: "relative",
     "& .react-datepicker": {

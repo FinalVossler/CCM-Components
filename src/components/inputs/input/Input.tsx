@@ -4,9 +4,10 @@ import { ITheme, theme } from "ccmtypes";
 import useStyles from "./input.styles";
 import { useTheme } from "react-jss";
 import withThemeProvider from "../../../hoc/withThemeProvider";
+import IIconProps from "../../icons/IIconProps";
 
 export interface InputProps {
-  label: string;
+  label?: string;
   placeholder: string;
   theme?: ITheme;
   fullWidth?: boolean;
@@ -15,6 +16,8 @@ export interface InputProps {
   onClick?: () => void;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   maxCharacters?: number;
+  minWidth?: number;
+  suffixIcon?: React.FunctionComponent<IIconProps>;
 }
 
 const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
@@ -37,8 +40,12 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
       className={
         props.fullWidth ? styles.fullWidthContainer : styles.inputContainer
       }
+      style={{
+        minWidth: props.minWidth || 270,
+        ...(!props.label ? { padding: 0 } : {}),
+      }}
     >
-      <label className={styles.label}>{props.label}</label>
+      {props.label && <label className={styles.label}>{props.label}</label>}
 
       <input
         type={props.type || "text"}
@@ -48,12 +55,30 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
         value={value}
         {...(props.onClick ? { onClick: props.onClick } : {})}
         {...(props.onChange ? { onChange: props.onChange } : {})}
+        {...(props.suffixIcon || props.maxCharacters
+          ? {
+              style: {
+                paddingRight: props.suffixIcon && props.maxCharacters ? 60 : 30,
+              },
+            }
+          : {})}
       />
 
       {props.maxCharacters && (
-        <span className={styles.maxCharacters}>
+        <span
+          className={styles.maxCharacters}
+          style={{ ...(props.suffixIcon ? { right: 60 } : {}) }}
+        >
           {value.toString().length + "/" + props.maxCharacters}
         </span>
+      )}
+
+      {props.suffixIcon && (
+        <props.suffixIcon
+          className={
+            props.label ? styles.suffixIcon : styles.suffixIconWithoutLabel
+          }
+        />
       )}
     </div>
   );

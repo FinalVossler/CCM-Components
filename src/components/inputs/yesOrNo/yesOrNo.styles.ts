@@ -9,7 +9,6 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     alignItems: "flex-start",
     backgroundColor: theme.backgroundSurface,
     padding: 12,
-    minWidth: 170,
     flex: 1,
   },
   label: {

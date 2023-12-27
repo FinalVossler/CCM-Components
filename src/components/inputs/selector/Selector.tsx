@@ -19,6 +19,7 @@ interface ISelectorProps {
   theme?: ITheme;
   isMulti?: boolean;
   onChange?: (newValue: ISelectorOption) => void;
+  minWidth?: number;
 }
 
 const animatedComponents = makeAnimated();
@@ -49,7 +50,10 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
   };
 
   return (
-    <div className={styles.selectorContainer}>
+    <div
+      className={styles.selectorContainer}
+      style={{ minWidth: props.minWidth || 270 }}
+    >
       <label className={styles.label}>{props.label}</label>
 
       <Select

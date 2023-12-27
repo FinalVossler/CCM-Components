@@ -6,6 +6,7 @@ import Selector from "./components/inputs/selector";
 import Button from "./components/button";
 import Table from "./components/table";
 import Status from "./components/status";
+import SideBar from "./components/sideBar";
 
 export {
   Input,
@@ -16,4 +17,5 @@ export {
   Button,
   Table,
   Status,
+  SideBar,
 };

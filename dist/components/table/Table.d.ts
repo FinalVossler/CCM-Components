@@ -1,5 +1,6 @@
 import React from "react";
 import { ITheme } from "ccmtypes";
+import { InputProps } from "../inputs/input/Input";
 export interface ITableElement {
     id: string | number;
 }
@@ -9,6 +10,8 @@ export interface ITableColumn<T> {
     render?: React.FunctionComponent<{
         element: T;
     }>;
+    handleSearch?: (searchedText: string) => void;
+    searchInputProps?: InputProps;
 }
 export interface ITableProps<T extends ITableElement> {
     theme?: ITheme;

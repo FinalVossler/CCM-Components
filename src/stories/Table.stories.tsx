@@ -6,6 +6,7 @@ import { theme } from "ccmtypes";
 import { ITableColumn } from "../components/table/Table";
 import Status from "../components/status";
 import { StatusTypeEnum } from "../components/status/Status";
+import SearchIcon from "../components/icons/SearchIcon";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -181,6 +182,38 @@ export const BigWithDefinedHeight: Story = {
   args: {
     selectableElements: true,
     columns,
+    height: 350,
+    data: Array.from({ length: 30 })
+      .map((_, i) => i)
+      .reduce(
+        (acc: any[], _) =>
+          acc.concat(data.map((el, i) => ({ ...el, id: acc.length + i }))),
+        data
+      ),
+    theme,
+  },
+};
+
+export const WithSearchForSomeColumns: Story = {
+  args: {
+    selectableElements: true,
+    columns: columns.map((c) => {
+      const withSearch: boolean = Math.random() >= 0.5;
+      if (withSearch) {
+        return {
+          ...c,
+          handleSearch: () => {},
+          searchInputProps: {
+            placeholder: "Rechercher",
+            minWidth: 100,
+            suffixIcon: (props) => (
+              <SearchIcon {...props} color={theme.textMinor} />
+            ),
+          },
+        };
+      }
+      return c;
+    }),
     height: 350,
     data: Array.from({ length: 30 })
       .map((_, i) => i)

@@ -4,6 +4,7 @@ import { ITheme, theme } from "ccmtypes";
 import useStyles from "./button.styles";
 import { useTheme } from "react-jss";
 import withThemeProvider from "../../hoc/withThemeProvider";
+import IIconProps from "../icons/IIconProps";
 
 export enum ButtonTypeEnum {
   Confirm = "Confirm",
@@ -16,7 +17,7 @@ export interface IButtonProps {
   disabled?: boolean;
   onClick?: () => void;
   buttonType?: ButtonTypeEnum;
-  prefix?: React.FunctionComponent;
+  prefixIcon?: React.FunctionComponent<IIconProps>;
   hoverPrefix?: React.FunctionComponent;
 }
 
@@ -40,10 +41,12 @@ const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
       onMouseOver={handleOnMouseOver}
       onMouseOut={handleOnMouseOut}
     >
-      {((props.prefix && !isHovered && props.hoverPrefix) ||
-        (props.prefix && !props.hoverPrefix)) && <props.prefix />}
+      {((props.prefixIcon && !isHovered && props.hoverPrefix) ||
+        (props.prefixIcon && !props.hoverPrefix)) && <props.prefixIcon />}
       {props.hoverPrefix && isHovered && <props.hoverPrefix />}
-      <span style={{ marginLeft: props.prefix ? 10 : 0 }}>{props.label}</span>
+      <span style={{ marginLeft: props.prefixIcon ? 10 : 0 }}>
+        {props.label}
+      </span>
     </button>
   );
 };

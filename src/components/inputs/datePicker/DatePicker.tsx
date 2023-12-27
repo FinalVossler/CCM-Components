@@ -16,6 +16,7 @@ interface IDatePickerProps {
   showTimeSelect?: boolean;
   value?: Date;
   onChange?: (date: Date) => void;
+  minWidth?: number;
 }
 
 const DatePicker: React.FunctionComponent<IDatePickerProps> = (
@@ -40,7 +41,10 @@ const DatePicker: React.FunctionComponent<IDatePickerProps> = (
   const handleReset = () => setSelectedDate(null);
 
   return (
-    <div className={styles.datePickerContainer}>
+    <div
+      className={styles.datePickerContainer}
+      style={{ minWidth: props.minWidth || 270 }}
+    >
       <label className={styles.label}>{props.label}</label>
 
       <DateIcon className={styles.dateIcon} />

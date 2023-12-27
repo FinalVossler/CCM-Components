@@ -74,6 +74,11 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     paddingLeft: 18,
     fontSize: 14,
   },
+
+  tableSearchColumn: {
+    extend: "tableColumn",
+    paddingLeft: 0,
+  },
   checkbox: {
     border: "2px solid " + theme.textMinor,
     backgroundColor: theme.backgroundSurface,

@@ -9,7 +9,6 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     alignItems: "flex-start",
     backgroundColor: theme.backgroundSurface,
     padding: 12,
-    minWidth: 270,
     flex: 1,
     position: "relative",
   },
@@ -49,6 +48,17 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     right: 25,
     top: 45,
     color: theme.textMajor,
+  },
+  suffixIcon: {
+    position: "absolute",
+    right: 18,
+    top: 42,
+    color: theme.textMajor,
+  },
+  suffixIconWithoutLabel: {
+    extend: "suffixIcon",
+    top: 4.5,
+    right: 5,
   },
 }));
 

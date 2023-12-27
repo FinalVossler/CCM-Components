@@ -11,6 +11,7 @@ interface IYesOrNoProps {
   yesLabel?: string;
   noLabel?: string;
   value?: boolean;
+  minWidth?: number;
 }
 
 const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
@@ -43,7 +44,10 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
   };
 
   return (
-    <div className={styles.yesOrNoContainer}>
+    <div
+      className={styles.yesOrNoContainer}
+      style={{ minWidth: props.minWidth || 170 }}
+    >
       <label className={styles.label}>{props.label}</label>
 
       <div className={styles.checkboxesContainer}>

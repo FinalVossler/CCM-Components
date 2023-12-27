@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Input from "../components/inputs/input";
 import { theme } from "ccmtypes";
+import SearchIcon from "../components/icons/SearchIcon";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -40,5 +41,24 @@ export const MaxCharacters: Story = {
     placeholder: "Titre",
     theme,
     maxCharacters: 30,
+  },
+};
+
+export const WithSuffixIcon: Story = {
+  args: {
+    label: "Titre de la réclamation",
+    placeholder: "Titre",
+    theme,
+    suffixIcon: (props) => <SearchIcon {...props} />,
+  },
+};
+
+export const WithSuffixIconAndMaxCharacters: Story = {
+  args: {
+    label: "Titre de la réclamation",
+    placeholder: "Titre",
+    theme,
+    maxCharacters: 30,
+    suffixIcon: (props) => <SearchIcon {...props} />,
   },
 };

@@ -6,6 +6,8 @@ import ColumnResizer from "react-table-column-resizer";
 import withThemeProvider from "../../hoc/withThemeProvider";
 
 import useStyles from "./table.styles";
+import Input from "../inputs/input";
+import { InputProps } from "../inputs/input/Input";
 
 export interface ITableElement {
   id: string | number;
@@ -15,6 +17,8 @@ export interface ITableColumn<T> {
   title: string;
   name: string;
   render?: React.FunctionComponent<{ element: T }>;
+  handleSearch?: (searchedText: string) => void;
+  searchInputProps?: InputProps;
 }
 
 export interface ITableProps<T extends ITableElement> {
@@ -78,6 +82,7 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
   };
   //#endregion event listeners
 
+  console.log("props.columsn", props.columns);
   return (
     <div
       style={{
@@ -128,6 +133,32 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
         </thead>
 
         <tbody className={styles.tableBody}>
+          {props.columns.some((c) => Boolean(c.handleSearch)) && (
+            <tr className={styles.tableRow}>
+              {props.selectableElements && (
+                <React.Fragment>
+                  <td className={styles.tableColumn}></td>
+                  <TableColumnResizer
+                    id={Math.floor(Math.random() * 1000) + 1000}
+                  />
+                </React.Fragment>
+              )}
+              {props.columns.map((column, columnIndex) => {
+                return (
+                  <React.Fragment>
+                    <td className={styles.tableSearchColumn}>
+                      {Boolean(column.handleSearch) && (
+                        <Input {...column.searchInputProps} />
+                      )}
+                    </td>
+                    <TableColumnResizer
+                      id={columnIndex + Math.floor(Math.random() * 1000) + 1000}
+                    />
+                  </React.Fragment>
+                );
+              })}
+            </tr>
+          )}
           {props.data.map((element, elementIndex) => {
             return (
               <tr

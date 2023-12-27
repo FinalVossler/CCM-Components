@@ -49,7 +49,7 @@ export const WithPrefixedIcon: Story = {
     label: "Confirmer la demande",
     theme,
     buttonType: ButtonTypeEnum.Confirm,
-    prefix: () => <PlusIcon style={{ position: "relative", top: 2 }} />,
+    prefixIcon: () => <PlusIcon style={{ position: "relative", top: 2 }} />,
     hoverPrefix: () => (
       <PlusIcon
         color={theme.textReverse}

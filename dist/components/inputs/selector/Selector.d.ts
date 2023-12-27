@@ -11,6 +11,7 @@ interface ISelectorProps {
     theme?: ITheme;
     isMulti?: boolean;
     onChange?: (newValue: ISelectorOption) => void;
+    minWidth?: number;
 }
 declare const _default: React.MemoExoticComponent<(props: ISelectorProps) => React.JSX.Element>;
 export default _default;
