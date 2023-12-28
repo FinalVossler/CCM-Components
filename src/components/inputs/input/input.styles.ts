@@ -17,6 +17,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   erroredInputContainer: {
     "& $input": {
       borderColor: theme.textDanger,
+      color: theme.textDanger,
 
       borderWidth: 2,
       "&:focus": {

@@ -11,6 +11,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     padding: 12,
     flex: 1,
     borderRadius: 5,
+    fontFamily: "Open Sans Regular",
 
     position: "relative",
     "& .react-datepicker": {
@@ -72,6 +73,27 @@ const useStyles = createUseStyles((theme: ITheme) => ({
       },
     },
   },
+  erroredDatePicker: {
+    "& input": {
+      borderColor: theme.textDanger,
+      color: theme.textDanger,
+
+      borderWidth: 2,
+      "&:focus": {
+        borderWidth: 2,
+        borderColor: theme.textDanger,
+      },
+    },
+    "& $label": {
+      color: theme.textDanger,
+    },
+    "& path": {
+      fill: theme.textDanger + "!important",
+    },
+    "& div": {
+      borderColor: theme.textDanger,
+    },
+  },
   label: {
     marginBottom: 4,
     color: theme.textMajor,
@@ -94,6 +116,22 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     top: 45,
     zIndex: 1,
     fontSize: 30,
+  },
+  iconWhenNoLabel: {
+    top: 8.5,
+  },
+  error: {
+    color: theme.textDanger,
+    fontSize: 16,
+    paddingLeft: 3,
+    position: "absolute",
+    right: 12,
+    top: 12,
+  },
+  errorWhenNoLabel: {
+    extend: "error",
+    top: 4,
+    right: 70,
   },
 }));
 

@@ -46,3 +46,27 @@ export const WithTime: Story = {
     showTimeSelect: true,
   },
 };
+
+export const WithError: Story = {
+  args: {
+    label: "Résolution estimée",
+    placeholder: "estimation",
+    theme,
+    error: "Error message",
+  },
+};
+
+export const WithoutLabel: Story = {
+  args: {
+    placeholder: "estimation",
+    theme,
+  },
+};
+
+export const WithoutLabelButWithError: Story = {
+  args: {
+    placeholder: "estimation",
+    theme,
+    error: "Error message",
+  },
+};

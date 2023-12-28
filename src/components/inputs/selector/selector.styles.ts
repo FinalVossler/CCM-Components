@@ -12,10 +12,31 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     flex: 1,
     position: "relative",
     borderRadius: 5,
+    fontFamily: "Open Sans Regular",
 
     "& svg": {
       color: theme.textPrimary,
       cursor: "pointer",
+    },
+  },
+  erroredSelectorContainer: {
+    "& div": {
+      borderColor: theme.textDanger,
+
+      borderWidth: 2,
+      "&:focus": {
+        borderWidth: 2,
+        borderColor: theme.textDanger,
+      },
+    },
+    "& .css-1u9des2-indicatorSeparator": {
+      backgroundColor: theme.textDanger,
+    },
+    "& $label": {
+      color: theme.textDanger,
+    },
+    "& path": {
+      fill: theme.textDanger + "!important",
     },
   },
   label: {
@@ -25,6 +46,23 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     fontFamily: "Open Sans Regular",
     fontWeight: 600,
     fontStyle: "normal",
+  },
+  error: {
+    color: theme.textDanger,
+    fontSize: 16,
+    paddingLeft: 3,
+    position: "absolute",
+    right: 12,
+    top: 12,
+  },
+  errorWhenNoLabel: {
+    extend: "error",
+    top: 7,
+    right: 46,
+  },
+  errorWhenNoLabelButMultiAndSomethingSelected: {
+    extend: "errorWhenNoLabel",
+    right: 76,
   },
 }));
 

@@ -3,10 +3,8 @@ import IIconProps from "./IIconProps";
 import useComputeIconAdditionalProps from "./useComputeIconAdditionalProps";
 
 const SearchIcon = (props: IIconProps) => {
-  console.log("props", props);
   const additionalProps = useComputeIconAdditionalProps(props);
 
-  console.log("search icon", additionalProps);
   return (
     <svg
       width="24"

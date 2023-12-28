@@ -82,7 +82,6 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
   };
   //#endregion event listeners
 
-  console.log("props.columsn", props.columns);
   return (
     <div
       style={{

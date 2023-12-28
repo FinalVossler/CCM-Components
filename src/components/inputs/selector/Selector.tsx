@@ -13,13 +13,15 @@ export interface ISelectorOption {
 }
 
 interface ISelectorProps {
-  label: string;
+  label?: string;
   placeholder: string;
   options: ISelectorOption[];
   theme?: ITheme;
   isMulti?: boolean;
-  onChange?: (newValue: ISelectorOption) => void;
+  onChange?: (newValue: ISelectorOption[] | ISelectorOption) => void;
   minWidth?: number;
+  error?: string;
+  value?: ISelectorOption[] | ISelectorOption;
 }
 
 const animatedComponents = makeAnimated();
@@ -28,11 +30,16 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
   props: ISelectorProps
 ) => {
   const [menuIsOpen, setMenuOpen] = React.useState<boolean>(false);
+  const [value, setValue] = React.useState<ISelectorOption[] | ISelectorOption>(
+    []
+  );
 
   const theme: ITheme = useTheme();
   const styles = useStyles({ theme: props.theme || theme });
 
-  const handleOnChange = (newValue: ISelectorOption) => {
+  const handleOnChange = (newValue: ISelectorOption[] | ISelectorOption) => {
+    setValue(newValue);
+
     if (!props.isMulti) {
       setMenuOpen(false);
     }
@@ -51,10 +58,16 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
 
   return (
     <div
-      className={styles.selectorContainer}
-      style={{ minWidth: props.minWidth || 270 }}
+      className={
+        styles.selectorContainer +
+        (props.error ? " " + styles.erroredSelectorContainer : "")
+      }
+      style={{
+        minWidth: props.minWidth || 270,
+        ...(!props.label ? { padding: 0 } : {}),
+      }}
     >
-      <label className={styles.label}>{props.label}</label>
+      {props.label && <label className={styles.label}>{props.label}</label>}
 
       <Select
         closeMenuOnSelect={false}
@@ -91,7 +104,7 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
           },
           input: (styles) => ({
             ...styles,
-            color: theme.textMajor,
+            color: props.error ? theme.textDanger : theme.textMajor,
           }),
           menu: (styles) => ({
             ...styles,
@@ -99,7 +112,7 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
           }),
           singleValue: (styles) => ({
             ...styles,
-            color: theme.textMajor,
+            color: props.error ? theme.textDanger : theme.textMajor,
           }),
 
           option: (styles, { isFocused, isSelected }) => ({
@@ -121,6 +134,18 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
           }),
         }}
       />
+
+      <span
+        className={
+          props.label
+            ? styles.error
+            : props.isMulti && (value as ISelectorOption[]).length > 0
+            ? styles.errorWhenNoLabelButMultiAndSomethingSelected
+            : styles.errorWhenNoLabel
+        }
+      >
+        {props.error}
+      </span>
     </div>
   );
 };

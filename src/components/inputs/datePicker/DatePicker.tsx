@@ -10,13 +10,14 @@ import DateIcon from "../../icons/DateIcon";
 import ClearIcon from "../../icons/ClearIcon";
 
 interface IDatePickerProps {
-  label: string;
+  label?: string;
   placeholder: string;
   theme?: ITheme;
   showTimeSelect?: boolean;
   value?: Date;
   onChange?: (date: Date) => void;
   minWidth?: number;
+  error?: string;
 }
 
 const DatePicker: React.FunctionComponent<IDatePickerProps> = (
@@ -42,13 +43,28 @@ const DatePicker: React.FunctionComponent<IDatePickerProps> = (
 
   return (
     <div
-      className={styles.datePickerContainer}
-      style={{ minWidth: props.minWidth || 270 }}
+      className={
+        styles.datePickerContainer +
+        (props.error ? " " + styles.erroredDatePicker : "")
+      }
+      style={{
+        minWidth: props.minWidth || 270,
+        ...(!props.label ? { padding: 0 } : {}),
+      }}
     >
-      <label className={styles.label}>{props.label}</label>
+      {props.label && <label className={styles.label}>{props.label}</label>}
 
-      <DateIcon className={styles.dateIcon} />
-      <ClearIcon className={styles.clearIcon} onClick={handleReset} />
+      <DateIcon
+        className={
+          styles.dateIcon + (!props.label ? " " + styles.iconWhenNoLabel : "")
+        }
+      />
+      <ClearIcon
+        className={
+          styles.clearIcon + (!props.label ? " " + styles.iconWhenNoLabel : "")
+        }
+        onClick={handleReset}
+      />
 
       <ReactDatePicker
         selected={selectedDate}
@@ -59,6 +75,10 @@ const DatePicker: React.FunctionComponent<IDatePickerProps> = (
         showTimeSelect={Boolean(props.showTimeSelect)}
         {...(props.showTimeSelect ? { timeFormat: "HH mm" } : {})}
       />
+
+      <span className={props.label ? styles.error : styles.errorWhenNoLabel}>
+        {props.error}
+      </span>
     </div>
   );
 };

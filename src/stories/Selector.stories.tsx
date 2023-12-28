@@ -71,3 +71,92 @@ export const Multi: Story = {
     ],
   },
 };
+
+export const WithError: Story = {
+  args: {
+    label: "Unité",
+    placeholder: "Unité",
+    theme,
+    error: "Error message",
+    options: [
+      {
+        label: "Option 1",
+        value: "option1",
+      },
+      {
+        label: "Option 2",
+        value: "option2",
+      },
+      {
+        label: "Option 3",
+        value: "option3",
+      },
+    ],
+  },
+};
+
+export const WithoutLabel: Story = {
+  args: {
+    placeholder: "Unité",
+    theme,
+    options: [
+      {
+        label: "Option 1",
+        value: "option1",
+      },
+      {
+        label: "Option 2",
+        value: "option2",
+      },
+      {
+        label: "Option 3",
+        value: "option3",
+      },
+    ],
+  },
+};
+
+export const WithoutLabelButWithError: Story = {
+  args: {
+    placeholder: "Unité",
+    theme,
+    error: "Error message",
+    options: [
+      {
+        label: "Option 1",
+        value: "option1",
+      },
+      {
+        label: "Option 2",
+        value: "option2",
+      },
+      {
+        label: "Option 3",
+        value: "option3",
+      },
+    ],
+  },
+};
+
+export const WithoutLabelButWithErrorAndMulti: Story = {
+  args: {
+    placeholder: "Unité",
+    theme,
+    error: "Error message",
+    isMulti: true,
+    options: [
+      {
+        label: "Option 1",
+        value: "option1",
+      },
+      {
+        label: "Option 2",
+        value: "option2",
+      },
+      {
+        label: "Option 3",
+        value: "option3",
+      },
+    ],
+  },
+};
