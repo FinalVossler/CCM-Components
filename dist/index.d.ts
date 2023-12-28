@@ -7,4 +7,5 @@ import Button from "./components/button";
 import Table from "./components/table";
 import Status from "./components/status";
 import SideBar from "./components/sideBar";
-export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, Table, Status, SideBar, };
+import InfoBanner from "./components/infoBanner";
+export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, Table, Status, SideBar, InfoBanner, };

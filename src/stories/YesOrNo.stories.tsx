@@ -33,3 +33,11 @@ export const YesOrNoInput: Story = {
     theme,
   },
 };
+
+export const WithError: Story = {
+  args: {
+    label: "En attente de retour",
+    theme,
+    error: "Error message",
+  },
+};

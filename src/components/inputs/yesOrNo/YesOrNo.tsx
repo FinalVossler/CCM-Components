@@ -12,6 +12,7 @@ interface IYesOrNoProps {
   noLabel?: string;
   value?: boolean;
   minWidth?: number;
+  error?: string;
 }
 
 const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
@@ -45,7 +46,10 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
 
   return (
     <div
-      className={styles.yesOrNoContainer}
+      className={
+        styles.yesOrNoContainer +
+        (props.error ? " " + styles.erroredYesOrNotContainer : "")
+      }
       style={{ minWidth: props.minWidth || 170 }}
     >
       <label className={styles.label}>{props.label}</label>
@@ -75,6 +79,8 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
           <label className={styles.yesOrNoLabel}>{props.noLabel || "No"}</label>
         </div>
       </div>
+
+      <span className={styles.error}>{props.error}</span>
     </div>
   );
 };

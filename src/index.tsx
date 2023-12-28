@@ -7,6 +7,7 @@ import Button from "./components/button";
 import Table from "./components/table";
 import Status from "./components/status";
 import SideBar from "./components/sideBar";
+import InfoBanner from "./components/infoBanner";
 
 export {
   Input,
@@ -18,4 +19,5 @@ export {
   Table,
   Status,
   SideBar,
+  InfoBanner,
 };

@@ -7,6 +7,7 @@ interface IYesOrNoProps {
     noLabel?: string;
     value?: boolean;
     minWidth?: number;
+    error?: string;
 }
 declare const _default: React.MemoExoticComponent<(props: IYesOrNoProps) => React.JSX.Element>;
 export default _default;
