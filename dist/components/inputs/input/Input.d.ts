@@ -13,6 +13,7 @@ export interface InputProps {
     maxCharacters?: number;
     minWidth?: number;
     suffixIcon?: React.FunctionComponent<IIconProps>;
+    error?: string;
 }
 declare const _default: React.MemoExoticComponent<(props: InputProps) => React.JSX.Element>;
 export default _default;

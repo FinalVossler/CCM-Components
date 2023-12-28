@@ -18,6 +18,7 @@ export interface InputProps {
   maxCharacters?: number;
   minWidth?: number;
   suffixIcon?: React.FunctionComponent<IIconProps>;
+  error?: string;
 }
 
 const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
@@ -38,7 +39,8 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
   return (
     <div
       className={
-        props.fullWidth ? styles.fullWidthContainer : styles.inputContainer
+        (props.fullWidth ? styles.fullWidthContainer : styles.inputContainer) +
+        (props.error ? " " + styles.erroredInputContainer : "")
       }
       style={{
         minWidth: props.minWidth || 270,
@@ -90,6 +92,10 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
           )}
         </div>
       )}
+
+      <span className={props.label ? styles.error : styles.errorWhenNoLabel}>
+        {props.error}
+      </span>
     </div>
   );
 };

@@ -10,6 +10,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     borderRadius: 20,
     borderWidth: 1.5,
     borderStyle: "solid",
+    whiteSpace: "nowrap",
   },
   statusWarning: {
     extend: "status",

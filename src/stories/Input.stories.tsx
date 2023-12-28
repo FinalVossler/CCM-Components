@@ -51,7 +51,7 @@ export const WithSuffixIcon: Story = {
     theme,
 
     suffixIcon: (props) => (
-      <SearchIcon {...props} style={{ top: -1.5, position: "relative" }} />
+      <SearchIcon {...props} style={{ top: -1, position: "relative" }} />
     ),
   },
 };
@@ -71,5 +71,25 @@ export const withoutLabelButWithSuffixIcon: Story = {
     suffixIcon: (props) => (
       <SearchIcon {...props} style={{ top: -1.5, position: "relative" }} />
     ),
+  },
+};
+
+export const withError: Story = {
+  args: {
+    label: "With error",
+    placeholder: "Titre",
+    theme,
+    suffixIcon: (props) => (
+      <SearchIcon {...props} style={{ top: -1.5, position: "relative" }} />
+    ),
+    error: "Error message",
+  },
+};
+
+export const withErrorButWithoutLabel: Story = {
+  args: {
+    placeholder: "Titre",
+    theme,
+    error: "Error message",
   },
 };

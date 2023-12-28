@@ -12,6 +12,24 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     flex: 1,
     position: "relative",
     borderRadius: 5,
+    fontFamily: "Open Sans Regular",
+  },
+  erroredInputContainer: {
+    "& $input": {
+      borderColor: theme.textDanger,
+
+      borderWidth: 2,
+      "&:focus": {
+        borderWidth: 2,
+        borderColor: theme.textDanger,
+      },
+    },
+    "& $label": {
+      color: theme.textDanger,
+    },
+    "& path": {
+      fill: theme.textDanger + "!important",
+    },
   },
   fullWidthContainer: {
     extend: "inputContainer",
@@ -57,7 +75,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   iconsContainer: {
     position: "absolute",
     right: 15,
-    top: 44,
+    top: 42.5,
 
     display: "flex",
     justifyContent: "center",
@@ -65,8 +83,20 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   },
   iconsContainerWithoutLabel: {
     extend: "iconsContainer",
-    top: 6,
+    top: 5,
     right: 5,
+  },
+  error: {
+    color: theme.textDanger,
+    fontSize: 16,
+    paddingLeft: 3,
+    position: "absolute",
+    right: 12,
+    top: 12,
+  },
+  errorWhenNoLabel: {
+    extend: "error",
+    top: 5,
   },
 }));
 
