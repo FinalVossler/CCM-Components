@@ -8,6 +8,7 @@ import Table from "./components/table";
 import Status from "./components/status";
 import SideBar from "./components/sideBar";
 import InfoBanner from "./components/infoBanner";
+import Tabs from "./components/tabs";
 
 export {
   Input,
@@ -20,4 +21,5 @@ export {
   Status,
   SideBar,
   InfoBanner,
+  Tabs,
 };

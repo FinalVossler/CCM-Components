@@ -8,4 +8,5 @@ import Table from "./components/table";
 import Status from "./components/status";
 import SideBar from "./components/sideBar";
 import InfoBanner from "./components/infoBanner";
-export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, Table, Status, SideBar, InfoBanner, };
+import Tabs from "./components/tabs";
+export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, Table, Status, SideBar, InfoBanner, Tabs, };
