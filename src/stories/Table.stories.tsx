@@ -210,7 +210,7 @@ export const WithSearchForSomeColumns: Story = {
               <SearchIcon
                 {...props}
                 color={theme.textMinor}
-                style={{ position: "relative", top: -1.5 }}
+                style={{ position: "relative", top: -1.4 }}
               />
             ),
           },

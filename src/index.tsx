@@ -10,6 +10,10 @@ import SideBar from "./components/sideBar";
 import InfoBanner from "./components/infoBanner";
 import Tabs from "./components/tabs";
 import MoreButtons from "./components/moreButtons/index";
+import CCMIcon from "./components/ccmIcon/index";
+import SelectedAddresses from "./components/selectedAddresses/index";
+import SearchInput from "./components/inputs/searchInput/index";
+import Header from "./components/header/index";
 
 export {
   Input,
@@ -24,4 +28,8 @@ export {
   InfoBanner,
   Tabs,
   MoreButtons,
+  CCMIcon,
+  SelectedAddresses,
+  SearchInput,
+  Header,
 };

@@ -80,6 +80,11 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
   const handleCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.stopPropagation();
   };
+
+  const handleColumnSearch =
+    (column: ITableColumn<T>) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      column.handleSearch(e.target.value);
+    };
   //#endregion event listeners
 
   return (
@@ -147,7 +152,10 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
                   <React.Fragment>
                     <td className={styles.tableSearchColumn}>
                       {Boolean(column.handleSearch) && (
-                        <Input {...column.searchInputProps} />
+                        <Input
+                          {...column.searchInputProps}
+                          onChange={handleColumnSearch(column)}
+                        />
                       )}
                     </td>
                     <TableColumnResizer
