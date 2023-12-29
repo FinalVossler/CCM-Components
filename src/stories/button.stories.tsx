@@ -28,6 +28,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+export const Default: Story = {
+  args: {
+    label: "Clôturer la demande",
+    theme,
+    buttonType: ButtonTypeEnum.Default,
+  },
+};
+
 export const Confirm: Story = {
   args: {
     label: "Clôturer la demande",
@@ -56,5 +64,53 @@ export const WithPrefixedIcon: Story = {
         style={{ position: "relative", top: 2 }}
       />
     ),
+  },
+};
+
+export const WithoutBorderAndDefault: Story = {
+  args: {
+    label: "Without border",
+    theme,
+    buttonType: ButtonTypeEnum.Default,
+    prefixIcon: () => <PlusIcon style={{ position: "relative", top: 2 }} />,
+    hoverPrefix: () => (
+      <PlusIcon
+        color={theme.textReverse}
+        style={{ position: "relative", top: 2 }}
+      />
+    ),
+    withoutBorder: true,
+  },
+};
+
+export const WithoutBorderAndConfirm: Story = {
+  args: {
+    label: "Without border",
+    theme,
+    buttonType: ButtonTypeEnum.Confirm,
+    prefixIcon: () => <PlusIcon style={{ position: "relative", top: 2 }} />,
+    hoverPrefix: () => (
+      <PlusIcon
+        color={theme.textReverse}
+        style={{ position: "relative", top: 2 }}
+      />
+    ),
+    withoutBorder: true,
+  },
+};
+
+export const WithoutBorderAndCancel: Story = {
+  args: {
+    label: "Without border",
+    theme,
+    buttonType: ButtonTypeEnum.Cancel,
+    prefixIcon: () => <PlusIcon style={{ position: "relative", top: 2 }} />,
+    hoverPrefix: () => (
+      <PlusIcon
+        color={theme.textReverse}
+        style={{ position: "relative", top: 2 }}
+      />
+    ),
+    withoutBorder: true,
   },
 };

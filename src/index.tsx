@@ -9,6 +9,7 @@ import Status from "./components/status";
 import SideBar from "./components/sideBar";
 import InfoBanner from "./components/infoBanner";
 import Tabs from "./components/tabs";
+import MoreButtons from "./components/moreButtons/index";
 
 export {
   Input,
@@ -22,4 +23,5 @@ export {
   SideBar,
   InfoBanner,
   Tabs,
+  MoreButtons,
 };

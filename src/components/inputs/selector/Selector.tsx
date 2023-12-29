@@ -29,7 +29,6 @@ const animatedComponents = makeAnimated();
 const Selector: React.FunctionComponent<ISelectorProps> = (
   props: ISelectorProps
 ) => {
-  const [menuIsOpen, setMenuOpen] = React.useState<boolean>(false);
   const [value, setValue] = React.useState<ISelectorOption[] | ISelectorOption>(
     []
   );
@@ -41,19 +40,10 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
     setValue(newValue);
 
     if (!props.isMulti) {
-      setMenuOpen(false);
     }
     if (props.onChange) {
       props.onChange(newValue);
     }
-  };
-
-  const handleMenuOpen = () => {
-    setMenuOpen(true);
-  };
-
-  const handleMenuClose = () => {
-    setMenuOpen(false);
   };
 
   return (
@@ -70,15 +60,11 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
       {props.label && <label className={styles.label}>{props.label}</label>}
 
       <Select
-        closeMenuOnSelect={false}
         components={animatedComponents}
         isMulti={Boolean(props.isMulti)}
         options={props.options}
         onChange={handleOnChange}
-        onMenuOpen={handleMenuOpen}
-        onMenuClose={handleMenuClose}
-        menuIsOpen={menuIsOpen}
-        placeholder={props.placeholder}
+        value={value}
         styles={{
           container: (styles) => ({ ...styles, width: "100%" }),
           control: (styles, { isFocused }) => {

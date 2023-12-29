@@ -97,8 +97,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     padding: 10,
 
     "&:hover": {
-      backgroundColor: theme.borderDefaultMinor,
-      color: theme.textReverse,
+      backgroundColor: theme.textSuccess,
     },
   },
   sideBarOptionTitle: {

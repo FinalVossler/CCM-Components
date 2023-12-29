@@ -9,6 +9,7 @@ import IIconProps from "../icons/IIconProps";
 export enum ButtonTypeEnum {
   Confirm = "Confirm",
   Cancel = "Cancel",
+  Default = "Default",
 }
 
 export interface IButtonProps {
@@ -19,6 +20,7 @@ export interface IButtonProps {
   buttonType?: ButtonTypeEnum;
   prefixIcon?: React.FunctionComponent<IIconProps>;
   hoverPrefix?: React.FunctionComponent;
+  withoutBorder?: boolean;
 }
 
 const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
@@ -36,7 +38,9 @@ const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
         {
           [ButtonTypeEnum.Confirm]: styles.confirmButton,
           [ButtonTypeEnum.Cancel]: styles.cancelButton,
-        }[props.buttonType || ButtonTypeEnum.Confirm]
+          [ButtonTypeEnum.Default]: styles.defaultButton,
+        }[props.buttonType || ButtonTypeEnum.Confirm] +
+        (props.withoutBorder ? " " + styles.withoutBorder : "")
       }
       onMouseOver={handleOnMouseOver}
       onMouseOut={handleOnMouseOut}
