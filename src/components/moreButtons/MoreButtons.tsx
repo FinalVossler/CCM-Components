@@ -8,6 +8,12 @@ import Button from "../button";
 import IIconProps from "../icons/IIconProps";
 import { ButtonTypeEnum } from "../button/Button";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
+import VerticalDotsIcon from "../icons/VerticalDotsIcon";
+
+export enum MoreButtonsDotsTypeEnum {
+  Vertical = "Vertical",
+  Horizontal = "Horizontal",
+}
 
 interface IMoreButtonsButtons {
   icon: React.FunctionComponent<IIconProps>;
@@ -19,6 +25,7 @@ export interface IMoreButtonProps {
   theme?: ITheme;
   buttons: IMoreButtonsButtons[];
   style?: React.CSSProperties;
+  type?: MoreButtonsDotsTypeEnum;
 }
 
 const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
@@ -40,8 +47,6 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
     if (buttonsShowing && dotsRef.current) {
       const rec = dotsRef.current.getBoundingClientRect();
 
-      console.log("rec", rec);
-      console.log("dotsRef", dotsRef.current);
       if (
         rec.left > window.innerWidth / 2 &&
         rec.top > window.innerHeight / 2
@@ -79,9 +84,17 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
       onClick={handleShowButtons}
       {...(props.style ? { style: props.style } : {})}
     >
-      <span ref={dotsRef} className={styles.dots}>
-        ...
-      </span>
+      {(!props.type || props.type === MoreButtonsDotsTypeEnum.Horizontal) && (
+        <span ref={dotsRef} className={styles.dots}>
+          {"...".trim()}
+        </span>
+      )}
+
+      {props.type === MoreButtonsDotsTypeEnum.Vertical && (
+        <span ref={dotsRef} className={styles.verticalButtonsSpan}>
+          <VerticalDotsIcon color={theme.textPrimary} />
+        </span>
+      )}
 
       {buttonsShowing && props.buttons.length > 0 && (
         <div

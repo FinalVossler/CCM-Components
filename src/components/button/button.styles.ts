@@ -4,6 +4,9 @@ import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles((theme: ITheme) => ({
   defaultButton: {
+    display: "flex",
+    alignItems: "center",
+
     padding: 12,
     fontSize: 16,
     fontWeight: 600,

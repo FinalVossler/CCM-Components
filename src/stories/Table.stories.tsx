@@ -7,6 +7,12 @@ import { ITableColumn } from "../components/table/Table";
 import Status from "../components/status";
 import { StatusTypeEnum } from "../components/status/Status";
 import SearchIcon from "../components/icons/SearchIcon";
+import MoreButtons from "../components/moreButtons";
+import CrossIcon from "../components/icons/CrossIcon";
+import ClearIcon from "../components/icons/ClearIcon";
+import ParametersIcon from "../components/icons/ParametersIcon";
+import PlusIcon from "../components/icons/PlusIcon";
+import { MoreButtonsDotsTypeEnum } from "../components/moreButtons/MoreButtons";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -218,6 +224,70 @@ export const WithSearchForSomeColumns: Story = {
       }
       return c;
     }),
+    height: 350,
+    data: Array.from({ length: 30 })
+      .map((_, i) => i)
+      .reduce(
+        (acc: any[], _) =>
+          acc.concat(data.map((el, i) => ({ ...el, id: acc.length + i }))),
+        data
+      ),
+    theme,
+  },
+};
+
+export const WithOptionsAsLastColumn: Story = {
+  args: {
+    selectableElements: true,
+    columns: columns
+      .map((c) => {
+        const withSearch: boolean = Math.random() >= 0.5;
+        if (withSearch) {
+          return {
+            ...c,
+            handleSearch: () => {},
+            searchInputProps: {
+              placeholder: "Rechercher",
+              minWidth: 100,
+              suffixIcon: (props) => (
+                <SearchIcon
+                  {...props}
+                  color={theme.textMinor}
+                  style={{ position: "relative", top: -1.4 }}
+                />
+              ),
+            },
+          };
+        }
+        return c;
+      })
+      .concat([
+        {
+          name: "",
+          title: "",
+          render: (props) => {
+            return (
+              <MoreButtons
+                type={MoreButtonsDotsTypeEnum.Vertical}
+                buttons={[
+                  {
+                    icon: (props) => <CrossIcon {...props} />,
+                    text: "Delete",
+                  },
+                  {
+                    icon: (props) => <ClearIcon {...props} />,
+                    text: "Clear",
+                  },
+                  {
+                    icon: (props) => <PlusIcon {...props} />,
+                    text: "Params",
+                  },
+                ]}
+              />
+            );
+          },
+        },
+      ]),
     height: 350,
     data: Array.from({ length: 30 })
       .map((_, i) => i)

@@ -6,6 +6,7 @@ import MoreButtons from "../components/moreButtons/index";
 import DuplicateIcon from "../components/icons/DuplicateIcon";
 import CrossIcon from "../components/icons/CrossIcon";
 import MergeIcon from "../components/icons/MergeIcon";
+import { MoreButtonsDotsTypeEnum } from "../components/moreButtons/MoreButtons";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -111,6 +112,7 @@ export const BottomLeft: Story = {
     ],
   },
 };
+
 export const BottomRight: Story = {
   args: {
     theme,
@@ -119,6 +121,33 @@ export const BottomRight: Story = {
       bottom: 15,
       right: 15,
     },
+    buttons: [
+      {
+        icon: (props) => (
+          <CrossIcon {...props} style={{ position: "relative", top: 2 }} />
+        ),
+        text: "Annuler la demande",
+      },
+      {
+        icon: (props) => (
+          <MergeIcon {...props} style={{ position: "relative", top: 2 }} />
+        ),
+        text: "Fusionner",
+      },
+      {
+        icon: (props) => (
+          <DuplicateIcon {...props} style={{ position: "relative", top: 2 }} />
+        ),
+        text: "Dupliquer",
+      },
+    ],
+  },
+};
+
+export const Vertical: Story = {
+  args: {
+    theme,
+    type: MoreButtonsDotsTypeEnum.Vertical,
     buttons: [
       {
         icon: (props) => (

@@ -57,12 +57,9 @@ export const WithPrefixedIcon: Story = {
     label: "Confirmer la demande",
     theme,
     buttonType: ButtonTypeEnum.Confirm,
-    prefixIcon: () => <PlusIcon style={{ position: "relative", top: 2 }} />,
+    prefixIcon: () => <PlusIcon style={{ position: "relative" }} />,
     hoverPrefix: () => (
-      <PlusIcon
-        color={theme.textReverse}
-        style={{ position: "relative", top: 2 }}
-      />
+      <PlusIcon color={theme.textReverse} style={{ position: "relative" }} />
     ),
   },
 };
@@ -72,12 +69,9 @@ export const WithoutBorderAndDefault: Story = {
     label: "Without border",
     theme,
     buttonType: ButtonTypeEnum.Default,
-    prefixIcon: () => <PlusIcon style={{ position: "relative", top: 2 }} />,
+    prefixIcon: () => <PlusIcon style={{ position: "relative" }} />,
     hoverPrefix: () => (
-      <PlusIcon
-        color={theme.textReverse}
-        style={{ position: "relative", top: 2 }}
-      />
+      <PlusIcon color={theme.textReverse} style={{ position: "relative" }} />
     ),
     withoutBorder: true,
   },
@@ -88,12 +82,9 @@ export const WithoutBorderAndConfirm: Story = {
     label: "Without border",
     theme,
     buttonType: ButtonTypeEnum.Confirm,
-    prefixIcon: () => <PlusIcon style={{ position: "relative", top: 2 }} />,
+    prefixIcon: () => <PlusIcon style={{ position: "relative" }} />,
     hoverPrefix: () => (
-      <PlusIcon
-        color={theme.textReverse}
-        style={{ position: "relative", top: 2 }}
-      />
+      <PlusIcon color={theme.textReverse} style={{ position: "relative" }} />
     ),
     withoutBorder: true,
   },
@@ -104,12 +95,9 @@ export const WithoutBorderAndCancel: Story = {
     label: "Without border",
     theme,
     buttonType: ButtonTypeEnum.Cancel,
-    prefixIcon: () => <PlusIcon style={{ position: "relative", top: 2 }} />,
+    prefixIcon: () => <PlusIcon style={{ position: "relative" }} />,
     hoverPrefix: () => (
-      <PlusIcon
-        color={theme.textReverse}
-        style={{ position: "relative", top: 2 }}
-      />
+      <PlusIcon color={theme.textReverse} style={{ position: "relative" }} />
     ),
     withoutBorder: true,
   },

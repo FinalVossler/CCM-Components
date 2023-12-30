@@ -12,6 +12,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     justifyContent: "center",
     border: "1px solid " + theme.borderPrimary,
     position: "relative",
+    boxSizing: "border-box",
   },
   dots: {
     color: theme.textPrimary,
@@ -20,10 +21,24 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     fontSize: 28,
     left: -1,
   },
-
+  verticalDotsContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  verticalButtonsSpan: {
+    position: "relative",
+    top: 2,
+  },
+  dot: {
+    color: theme.textPrimary,
+    fontSize: 28,
+    height: 5,
+  },
   popupContainer: {
     position: "absolute",
-    width: 250,
+    width: "max-content",
     border: "1px solid " + theme.borderDefault,
     backgroundColor: theme.backgroundSection,
     borderRadius: 10,
@@ -31,26 +46,27 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     flexDirection: "column",
     alignItems: "flex-start",
     paddingLeft: 15,
+    paddingRight: 20,
     paddingTop: 5,
     paddingBottom: 5,
     zIndex: 1,
   },
 
   popupContainerTopRight: {
-    bottom: "100%",
-    left: "100%",
+    bottom: "70%",
+    left: "110%",
   },
   popupContainerBottomRight: {
-    top: "100%",
-    left: "100%",
+    top: "70%",
+    left: "110%",
   },
   popupContainerTopLeft: {
-    bottom: "100%",
-    right: "100%",
+    bottom: "70%",
+    right: "110%",
   },
   popupContainerBottomLeft: {
-    top: "100%",
-    right: "100%",
+    top: "70%",
+    right: "110%",
   },
 }));
 
