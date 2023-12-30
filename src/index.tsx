@@ -14,6 +14,8 @@ import CCMIcon from "./components/ccmIcon/index";
 import SelectedAddresses from "./components/selectedAddresses/index";
 import SearchInput from "./components/inputs/searchInput/index";
 import Header from "./components/header/index";
+import ModalButton from "./components/modal/ModalButton";
+import Modal from "./components/modal";
 
 export {
   Input,
@@ -32,4 +34,5 @@ export {
   SelectedAddresses,
   SearchInput,
   Header,
+  ModalButton,
 };

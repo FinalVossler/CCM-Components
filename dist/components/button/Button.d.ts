@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { ITheme } from "ccmtypes";
 import IIconProps from "../icons/IIconProps";
 export declare enum ButtonTypeEnum {
@@ -15,6 +15,7 @@ export interface IButtonProps {
     prefixIcon?: React.FunctionComponent<IIconProps>;
     hoverPrefix?: React.FunctionComponent;
     withoutBorder?: boolean;
+    style?: CSSProperties;
 }
 declare const _default: React.MemoExoticComponent<(props: IButtonProps) => React.JSX.Element>;
 export default _default;

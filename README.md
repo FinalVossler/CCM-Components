@@ -37,3 +37,4 @@
 - Ou trouver les îcones si on a besoin de plus que ce qui existe maintenant dans les maquettes
 - Les données à afficher sur la vue kanban ne m'ont pas l'air claires (La section todo, etc..)
 - C'est intéressant pour nous d'avoir ces 3 types de vues (table, kanban et calendrier) pour les activités, demandes et emails ?
+- J'ai vu que dans la modal, il y a des champs avec seulement une bordure en bas, ce qui ne ressemble pas à l'allure des champs ailleurs. Ça serait mieux d'avoir de la consistance partout histoire d'éviter à ajouter trop de conditions dans le code.

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { ITheme, theme } from "ccmtypes";
 
 import useStyles from "./button.styles";
@@ -21,6 +21,7 @@ export interface IButtonProps {
   prefixIcon?: React.FunctionComponent<IIconProps>;
   hoverPrefix?: React.FunctionComponent;
   withoutBorder?: boolean;
+  style?: CSSProperties;
 }
 
 const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
@@ -44,6 +45,8 @@ const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
       }
       onMouseOver={handleOnMouseOver}
       onMouseOut={handleOnMouseOut}
+      {...(props.onClick ? { onClick: props.onClick } : {})}
+      {...(props.style ? { style: props.style } : {})}
     >
       {((props.prefixIcon && !isHovered && props.hoverPrefix) ||
         (props.prefixIcon && !props.hoverPrefix)) && <props.prefixIcon />}
