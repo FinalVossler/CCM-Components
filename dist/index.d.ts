@@ -15,4 +15,7 @@ import SelectedAddresses from "./components/selectedAddresses/index";
 import SearchInput from "./components/inputs/searchInput/index";
 import Header from "./components/header/index";
 import ModalButton from "./components/modal/ModalButton";
-export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, Table, Status, SideBar, InfoBanner, Tabs, MoreButtons, CCMIcon, SelectedAddresses, SearchInput, Header, ModalButton, };
+import Modal from "./components/modal";
+import Info from "./components/info";
+import InfoSection from "./components/infoSection";
+export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, Table, Status, SideBar, InfoBanner, Tabs, MoreButtons, CCMIcon, SelectedAddresses, SearchInput, Header, ModalButton, Modal, Info, InfoSection, };

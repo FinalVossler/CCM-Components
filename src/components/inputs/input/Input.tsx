@@ -34,6 +34,9 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
     ) {
       return;
     }
+    if (props.onChange) {
+      props.onChange(e);
+    }
     setValue(e.target.value);
   };
   return (
@@ -56,7 +59,6 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
         onChange={handleOnChange}
         value={value}
         {...(props.onClick ? { onClick: props.onClick } : {})}
-        {...(props.onChange ? { onChange: props.onChange } : {})}
         {...(props.suffixIcon || props.maxCharacters
           ? {
               style: {

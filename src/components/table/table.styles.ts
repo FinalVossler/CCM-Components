@@ -3,11 +3,39 @@ import { ITheme } from "ccmtypes";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles((theme: ITheme) => ({
+  containedTableContainer: {
+    padding: 16,
+    paddingTop: 0,
+    paddingBottom: 0,
+    borderRadius: 8,
+    border: "1px solid " + theme.textMajor,
+    backgroundColor: theme.backgroundSurface,
+  },
+  containedTableHeader: {
+    display: "flex",
+    alignItems: "center",
+  },
+  showHideIndicatorPointingDown: {
+    color: theme.textMinor,
+    fontSize: 25,
+    cursor: "pointer",
+    transform: "rotateZ(90deg)",
+    position: "relative",
+    top: 3,
+    padding: 20,
+
+    "&:hover": {
+      color: theme.textMajor,
+    },
+  },
+  showHideIndicatorPointingUp: {
+    extend: "showHideIndicatorPointingDown",
+    transform: "rotateZ(-90deg)",
+  },
   tableContainer: {
     backgroundColor: theme.backgroundSection,
     color: theme.textMajor,
     width: "100%",
-    border: "1px solid " + theme.textMinor,
     fontFamily: "Open Sans Regular",
     borderCollapse: "collapse",
   },

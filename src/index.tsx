@@ -16,6 +16,8 @@ import SearchInput from "./components/inputs/searchInput/index";
 import Header from "./components/header/index";
 import ModalButton from "./components/modal/ModalButton";
 import Modal from "./components/modal";
+import Info from "./components/info";
+import InfoSection from "./components/infoSection";
 
 export {
   Input,
@@ -35,4 +37,7 @@ export {
   SearchInput,
   Header,
   ModalButton,
+  Modal,
+  Info,
+  InfoSection,
 };

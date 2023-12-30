@@ -8,6 +8,7 @@ import withThemeProvider from "../../hoc/withThemeProvider";
 import useStyles from "./table.styles";
 import Input from "../inputs/input";
 import { InputProps } from "../inputs/input/Input";
+import Title from "../title";
 
 export interface ITableElement {
   id: string | number;
@@ -21,12 +22,18 @@ export interface ITableColumn<T> {
   searchInputProps?: InputProps;
 }
 
+export interface IContainedTableProps {
+  title: string;
+  isContained: boolean;
+}
+
 export interface ITableProps<T extends ITableElement> {
   theme?: ITheme;
   columns: ITableColumn<T>[];
   data: T[];
   selectableElements?: boolean;
   height?: number;
+  containedProps?: IContainedTableProps;
 }
 
 const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
@@ -39,6 +46,7 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
   const [selectedElementsIds, setSelectedElementsIds] = React.useState<
     (string | number)[]
   >([]);
+  const [tableIsShown, setTableIsShown] = React.useState<boolean>(true);
   //#endregion state
 
   //#region hooks
@@ -85,136 +93,172 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
     (column: ITableColumn<T>) => (e: React.ChangeEvent<HTMLInputElement>) => {
       column.handleSearch(e.target.value);
     };
+
+  const handleTriggerShowTable = () => setTableIsShown(!tableIsShown);
   //#endregion event listeners
 
   return (
     <div
+      {...(props.containedProps?.isContained
+        ? { className: styles.containedTableContainer }
+        : {})}
       style={{
-        ...(props.height ? { maxHeight: props.height, overflowY: "auto" } : {}),
+        ...(tableIsShown ? { paddingBottom: 16 } : {}),
       }}
     >
-      <table className={styles.tableContainer} cellSpacing="0" cellPadding="0">
-        <thead className={styles.tableHeader}>
-          <tr className={styles.tableHeaderRow}>
-            {props.selectableElements && (
-              <React.Fragment>
-                <th
-                  className={styles.tableColumn}
-                  style={{ cursor: "pointer" }}
-                  onClick={handleSelectAll}
-                >
-                  <input
-                    className={styles.checkbox}
-                    type="checkbox"
-                    onChange={handleCheckboxClick}
-                    checked={allSelected}
-                  />
-                </th>
-
-                <TableColumnResizer id={-1} />
-              </React.Fragment>
-            )}
-            {props.columns.map((column, columnIndex) => {
-              return (
-                <React.Fragment key={columnIndex}>
-                  <th className={styles.tableHeaderColumn}>
-                    <span
-                      className={
-                        columnIndex === props.columns.length - 1
-                          ? styles.tableHeaderLastColumnTitle
-                          : styles.tableHeaderColumnTitle
-                      }
-                    >
-                      {column.title}
-                    </span>
-                  </th>
-
-                  <TableColumnResizer id={columnIndex} />
-                </React.Fragment>
-              );
-            })}
-          </tr>
-        </thead>
-
-        <tbody className={styles.tableBody}>
-          {props.columns.some((c) => Boolean(c.handleSearch)) && (
-            <tr className={styles.tableRow}>
+      {props.containedProps?.isContained && (
+        <div className={styles.containedTableHeader}>
+          <Title title={props.containedProps.title} />
+          <span
+            onClick={handleTriggerShowTable}
+            className={
+              tableIsShown
+                ? styles.showHideIndicatorPointingUp
+                : styles.showHideIndicatorPointingDown
+            }
+          >
+            {">"}
+          </span>
+        </div>
+      )}
+      <div
+        style={{
+          ...(props.height
+            ? { maxHeight: props.height, overflowY: "auto" }
+            : {}),
+          display: tableIsShown ? "block" : "none",
+          // ...(props.containedProps?.isContained ? { marginTop: 24 } : {}),
+        }}
+      >
+        <table
+          className={styles.tableContainer}
+          cellSpacing="0"
+          cellPadding="0"
+        >
+          <thead className={styles.tableHeader}>
+            <tr className={styles.tableHeaderRow}>
               {props.selectableElements && (
                 <React.Fragment>
-                  <td className={styles.tableColumn}></td>
-                  <TableColumnResizer
-                    id={Math.floor(Math.random() * 1000) + 1000}
-                  />
+                  <th
+                    className={styles.tableColumn}
+                    style={{ cursor: "pointer" }}
+                    onClick={handleSelectAll}
+                  >
+                    <input
+                      className={styles.checkbox}
+                      type="checkbox"
+                      onChange={handleCheckboxClick}
+                      checked={allSelected}
+                    />
+                  </th>
+
+                  <TableColumnResizer id={-1} />
                 </React.Fragment>
               )}
               {props.columns.map((column, columnIndex) => {
                 return (
-                  <React.Fragment>
-                    <td className={styles.tableSearchColumn}>
-                      {Boolean(column.handleSearch) && (
-                        <Input
-                          {...column.searchInputProps}
-                          onChange={handleColumnSearch(column)}
-                        />
-                      )}
-                    </td>
-                    <TableColumnResizer
-                      id={columnIndex + Math.floor(Math.random() * 1000) + 1000}
-                    />
+                  <React.Fragment key={columnIndex}>
+                    <th className={styles.tableHeaderColumn}>
+                      <span
+                        className={
+                          columnIndex === props.columns.length - 1
+                            ? styles.tableHeaderLastColumnTitle
+                            : styles.tableHeaderColumnTitle
+                        }
+                      >
+                        {column.title}
+                      </span>
+                    </th>
+
+                    <TableColumnResizer id={columnIndex} />
                   </React.Fragment>
                 );
               })}
             </tr>
-          )}
-          {props.data.map((element, elementIndex) => {
-            return (
-              <tr
-                key={elementIndex}
-                className={
-                  (elementIndex === props.data.length - 1
-                    ? styles.tableLastRow
-                    : styles.tableRow) +
-                  (selectedElementsIds.some((el) => el === element.id)
-                    ? " " + styles.tableSelectedRow
-                    : "")
-                }
-              >
+          </thead>
+
+          <tbody className={styles.tableBody}>
+            {props.columns.some((c) => Boolean(c.handleSearch)) && (
+              <tr className={styles.tableRow}>
                 {props.selectableElements && (
                   <React.Fragment>
-                    <td
-                      className={styles.tableColumn}
-                      onClick={handleTriggerSelectElement(element)}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <input
-                        className={styles.checkbox}
-                        type="checkbox"
-                        onChange={handleCheckboxClick}
-                        checked={selectedElementsIds.some(
-                          (el) => el === element.id
-                        )}
-                      />
-                    </td>
-
-                    <TableColumnResizer id={elementIndex - 10000} />
+                    <td className={styles.tableColumn}></td>
+                    <TableColumnResizer
+                      id={Math.floor(Math.random() * 1000) + 1000}
+                    />
                   </React.Fragment>
                 )}
                 {props.columns.map((column, columnIndex) => {
                   return (
                     <React.Fragment key={columnIndex}>
-                      <td className={styles.tableColumn}>
-                        {(!column.render && element[column.name]) || ""}
-                        {column.render && <column.render element={element} />}
+                      <td className={styles.tableSearchColumn}>
+                        {Boolean(column.handleSearch) && (
+                          <Input
+                            {...column.searchInputProps}
+                            onChange={handleColumnSearch(column)}
+                          />
+                        )}
                       </td>
-                      <TableColumnResizer id={elementIndex + 10000} />
+                      <TableColumnResizer
+                        id={
+                          columnIndex + Math.floor(Math.random() * 1000) + 1000
+                        }
+                      />
                     </React.Fragment>
                   );
                 })}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            )}
+            {props.data.map((element, elementIndex) => {
+              return (
+                <tr
+                  key={elementIndex}
+                  className={
+                    (elementIndex === props.data.length - 1
+                      ? styles.tableLastRow
+                      : styles.tableRow) +
+                    (selectedElementsIds.some((el) => el === element.id)
+                      ? " " + styles.tableSelectedRow
+                      : "")
+                  }
+                >
+                  {props.selectableElements && (
+                    <React.Fragment>
+                      <td
+                        className={styles.tableColumn}
+                        onClick={handleTriggerSelectElement(element)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <input
+                          className={styles.checkbox}
+                          type="checkbox"
+                          onChange={handleCheckboxClick}
+                          checked={selectedElementsIds.some(
+                            (el) => el === element.id
+                          )}
+                        />
+                      </td>
+
+                      <TableColumnResizer id={elementIndex - 10000} />
+                    </React.Fragment>
+                  )}
+                  {props.columns.map((column, columnIndex) => {
+                    return (
+                      <React.Fragment key={columnIndex}>
+                        <td className={styles.tableColumn}>
+                          {(!column.render && element[column.name]) || ""}
+                          {column.render && <column.render element={element} />}
+                        </td>
+                        <TableColumnResizer id={elementIndex + 10000} />
+                      </React.Fragment>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

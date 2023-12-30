@@ -13,12 +13,17 @@ export interface ITableColumn<T> {
     handleSearch?: (searchedText: string) => void;
     searchInputProps?: InputProps;
 }
+export interface IContainedTableProps {
+    title: string;
+    isContained: boolean;
+}
 export interface ITableProps<T extends ITableElement> {
     theme?: ITheme;
     columns: ITableColumn<T>[];
     data: T[];
     selectableElements?: boolean;
     height?: number;
+    containedProps?: IContainedTableProps;
 }
 declare const _default: React.MemoExoticComponent<(props: ITableProps<any>) => React.JSX.Element>;
 export default _default;
