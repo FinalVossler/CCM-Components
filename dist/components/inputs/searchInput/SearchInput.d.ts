@@ -11,5 +11,5 @@ export interface ISearchInputProps {
     onSelect?: (option: ISearchInputOption) => void;
     isLoading?: boolean;
 }
-declare const _default: React.MemoExoticComponent<(props: ISearchInputProps) => React.JSX.Element>;
+declare const _default: React.NamedExoticComponent<ISearchInputProps>;
 export default _default;

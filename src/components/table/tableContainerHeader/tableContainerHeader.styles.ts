@@ -48,6 +48,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     justifyContent: "flex-end",
     alignItems: "center",
     marginBottom: 16,
+    marginTop: 16,
     gap: 10,
     zIndex: 1,
   },

@@ -47,18 +47,14 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
         onChange={handleOnChange}
         value={selectedOption}
         styles={{
-          container: (styles) => ({
-            ...styles,
-            width: "100%",
-          }),
           control: (styles, { isFocused }) => {
             return {
               ...styles,
               outline: "none",
               boxShadow: "none",
               backgroundColor: "#353739",
-              height: 40,
-
+              height: 32,
+              minHeight: "initial",
               color: theme.textMajor,
               width: "100%",
               borderWidth: 1,
@@ -74,8 +70,9 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
             };
           },
           input: (styles) => ({
-            paddingLeft: 20,
             ...styles,
+
+            paddingLeft: 13,
             color: "white",
           }),
           menu: (styles) => ({
@@ -84,18 +81,27 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
           }),
           singleValue: (styles) => ({
             ...styles,
-            paddingLeft: 20,
+            paddingLeft: 13,
             color: "white",
           }),
           valueContainer: (styles) => ({
             ...styles,
-            paddingLeft: 20,
+            padding: 0,
+            margin: 0,
+            position: "relative",
+            paddingLeft: 13,
             color: theme.textMajor,
+          }),
+
+          container: (styles) => ({
+            ...styles,
+            width: "100%",
           }),
           placeholder: (styles) => ({
             ...styles,
-            paddingLeft: 20,
+            paddingLeft: 13,
             color: theme.textMajor,
+            position: "relative",
           }),
           indicatorsContainer: (styles) => ({ ...styles, display: "none" }),
           option: (styles, { isFocused, isSelected }) => ({

@@ -35,12 +35,7 @@ const TableContainerHeader: React.FunctionComponent<
 
   return (
     <div className={styles.tableContainerHeader}>
-      <div
-        className={styles.titleAndOptionsContainer}
-        style={{
-          ...(withOptions ? { paddingTop: 10, paddingBottom: 10 } : {}),
-        }}
-      >
+      <div className={styles.titleAndOptionsContainer}>
         <div className={styles.titleAndShowIndicator}>
           <h2 className={styles.tableTitle}>{props.title}</h2>
           <ShowHideIndicator

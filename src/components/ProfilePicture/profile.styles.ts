@@ -10,8 +10,8 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   },
   picture: {
     borderRadius: "50%",
-    width: 48,
-    height: 48,
+    width: 44,
+    height: 44,
     backgroundColor: theme.backgroundSection,
     display: "flex",
     alignItems: "center",
