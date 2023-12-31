@@ -71,7 +71,6 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     transition: "all .2s ease-in-out",
 
     "&:hover": {
-      fontWeight: 400,
       backgroundColor: "initial",
       border: "none",
       color: theme.textMajor,
