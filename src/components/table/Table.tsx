@@ -8,7 +8,11 @@ import withThemeProvider from "../../hoc/withThemeProvider";
 import useStyles from "./table.styles";
 import Input from "../inputs/input";
 import { InputProps } from "../inputs/input/Input";
-import ShowHideIndicator from "../showHideIndicator";
+import TableContainerHeader from "./tableContainerHeader";
+import { ISearchInputProps } from "../inputs/searchInput/SearchInput";
+import { IButtonProps } from "../button/Button";
+import Selector, { ISelectorProps } from "../inputs/selector/Selector";
+import DatePicker, { IDatePickerProps } from "../inputs/datePicker/DatePicker";
 
 export interface ITableElement {
   id: string | number;
@@ -22,9 +26,23 @@ export interface ITableColumn<T> {
   searchInputProps?: InputProps;
 }
 
+export enum TableFilterTypeEnum {
+  DatePicker = "DatePicker",
+  Selector = "Selector",
+}
+
+export interface ITableFilterProps {
+  filterType: TableFilterTypeEnum;
+  datePickerInputProps?: IDatePickerProps;
+  selectorInputProps?: ISelectorProps;
+}
+
 export interface IContainedTableProps {
   title: string;
   isContained: boolean;
+  searchInputProps?: ISearchInputProps;
+  buttonProps?: IButtonProps[];
+  filtersInputsProps?: ITableFilterProps[];
 }
 
 export interface ITableProps<T extends ITableElement> {
@@ -107,13 +125,14 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
       }}
     >
       {props.containedProps?.isContained && (
-        <div className={styles.containedTableHeader}>
-          <h2 className={styles.tableTitle}>{props.containedProps.title}</h2>
-          <ShowHideIndicator
-            handleTrigger={handleTriggerShowTable}
-            isShown={tableIsShown}
-          />
-        </div>
+        <TableContainerHeader
+          handleTriggerShowTable={handleTriggerShowTable}
+          tableIsShown={tableIsShown}
+          title={props.containedProps.title}
+          searchInputProps={props.containedProps.searchInputProps}
+          buttonsProps={props.containedProps.buttonProps}
+          filtersInputsProps={props.containedProps.filtersInputsProps}
+        />
       )}
       <div
         style={{
@@ -121,7 +140,6 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
             ? { maxHeight: props.height, overflowY: "auto" }
             : {}),
           display: tableIsShown ? "block" : "none",
-          // ...(props.containedProps?.isContained ? { marginTop: 24 } : {}),
         }}
       >
         <table

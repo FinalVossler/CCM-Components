@@ -57,7 +57,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   },
   errorWhenNoLabel: {
     extend: "error",
-    top: 7,
+    top: 4,
     right: 46,
   },
   errorWhenNoLabelButMultiAndSomethingSelected: {

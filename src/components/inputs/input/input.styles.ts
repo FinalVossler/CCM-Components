@@ -13,6 +13,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     position: "relative",
     borderRadius: 5,
     fontFamily: "Open Sans Regular",
+    boxSizing: "border-box",
   },
   erroredInputContainer: {
     "& $input": {

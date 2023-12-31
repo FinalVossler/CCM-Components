@@ -11,10 +11,6 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     border: "1px solid " + theme.textMajor,
     backgroundColor: theme.backgroundSurface,
   },
-  containedTableHeader: {
-    display: "flex",
-    alignItems: "center",
-  },
   tableContainer: {
     backgroundColor: theme.backgroundSection,
     color: theme.textMajor,
@@ -25,14 +21,6 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     "& .columnResizer": {
       minWidth: 15,
     },
-  },
-  tableTitle: {
-    fontSize: 24,
-    marginBottom: 8,
-    marginTop: 8,
-    fontWeight: 400,
-    fontFamily: "Open Sans SemiBold",
-    color: theme.textMajor,
   },
   tableHeader: {
     position: "sticky",

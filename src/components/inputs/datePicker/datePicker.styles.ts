@@ -12,6 +12,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     flex: 1,
     borderRadius: 5,
     fontFamily: "Open Sans Regular",
+    boxSizing: "border-box",
 
     position: "relative",
     "& .react-datepicker": {

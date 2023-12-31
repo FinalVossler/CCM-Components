@@ -1,6 +1,10 @@
 import React from "react";
 import { ITheme } from "ccmtypes";
 import { InputProps } from "../inputs/input/Input";
+import { ISearchInputProps } from "../inputs/searchInput/SearchInput";
+import { IButtonProps } from "../button/Button";
+import { ISelectorProps } from "../inputs/selector/Selector";
+import { IDatePickerProps } from "../inputs/datePicker/DatePicker";
 export interface ITableElement {
     id: string | number;
 }
@@ -13,9 +17,21 @@ export interface ITableColumn<T> {
     handleSearch?: (searchedText: string) => void;
     searchInputProps?: InputProps;
 }
+export declare enum TableFilterTypeEnum {
+    DatePicker = "DatePicker",
+    Selector = "Selector"
+}
+export interface ITableFilterProps {
+    filterType: TableFilterTypeEnum;
+    datePickerInputProps?: IDatePickerProps;
+    selectorInputProps?: ISelectorProps;
+}
 export interface IContainedTableProps {
     title: string;
     isContained: boolean;
+    searchInputProps?: ISearchInputProps;
+    buttonProps?: IButtonProps[];
+    filtersInputsProps?: ITableFilterProps[];
 }
 export interface ITableProps<T extends ITableElement> {
     theme?: ITheme;

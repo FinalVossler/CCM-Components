@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Table from "../components/table";
 import { theme } from "ccmtypes";
-import { ITableColumn } from "../components/table/Table";
+import { ITableColumn, TableFilterTypeEnum } from "../components/table/Table";
 import Status from "../components/status";
 import { StatusTypeEnum } from "../components/status/Status";
 import SearchIcon from "../components/icons/SearchIcon";
@@ -12,6 +12,7 @@ import CrossIcon from "../components/icons/CrossIcon";
 import ClearIcon from "../components/icons/ClearIcon";
 import PlusIcon from "../components/icons/PlusIcon";
 import { MoreButtonsDotsTypeEnum } from "../components/moreButtons/MoreButtons";
+import { ButtonTypeEnum } from "../components/button/Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -304,6 +305,242 @@ export const ContainedTable: Story = {
     containedProps: {
       title: "Activités",
       isContained: true,
+    },
+    selectableElements: true,
+    columns: columns
+      .map((c) => {
+        const withSearch: boolean = Math.random() >= 0.5;
+        if (withSearch) {
+          return {
+            ...c,
+            handleSearch: () => {},
+            searchInputProps: {
+              placeholder: "Rechercher",
+              minWidth: "100px",
+              suffixIcon: (props) => (
+                <SearchIcon
+                  {...props}
+                  color={theme.textMinor}
+                  style={{ position: "relative", top: -1.4 }}
+                />
+              ),
+            },
+          };
+        }
+        return c;
+      })
+      .concat([
+        {
+          name: "",
+          title: "",
+          render: (props) => {
+            return (
+              <MoreButtons
+                type={MoreButtonsDotsTypeEnum.Vertical}
+                buttons={[
+                  {
+                    icon: (props) => <CrossIcon {...props} />,
+                    text: "Delete",
+                  },
+                  {
+                    icon: (props) => <ClearIcon {...props} />,
+                    text: "Clear",
+                  },
+                  {
+                    icon: (props) => <PlusIcon {...props} />,
+                    text: "Params",
+                  },
+                ]}
+              />
+            );
+          },
+        },
+      ]),
+    height: 350,
+    data: Array.from({ length: 30 })
+      .map((_, i) => i)
+      .reduce(
+        (acc: any[], _) =>
+          acc.concat(data.map((el, i) => ({ ...el, id: acc.length + i }))),
+        data
+      ),
+    theme,
+  },
+};
+
+export const WithMainSearch: Story = {
+  args: {
+    containedProps: {
+      title: "Activités",
+      isContained: true,
+      searchInputProps: {
+        options: [],
+        placeholder: "Rechercher une activité",
+      },
+      buttonProps: [
+        {
+          label: "Nouvelle Activité",
+          buttonType: ButtonTypeEnum.Confirm,
+          withoutBorder: true,
+          prefixIcon: (props) => <PlusIcon {...props} />,
+        },
+      ],
+    },
+    selectableElements: true,
+    columns: columns
+      .map((c) => {
+        const withSearch: boolean = Math.random() >= 0.5;
+        if (withSearch) {
+          return {
+            ...c,
+            handleSearch: () => {},
+            searchInputProps: {
+              placeholder: "Rechercher",
+              minWidth: "100px",
+              suffixIcon: (props) => (
+                <SearchIcon
+                  {...props}
+                  color={theme.textMinor}
+                  style={{ position: "relative", top: -1.4 }}
+                />
+              ),
+            },
+          };
+        }
+        return c;
+      })
+      .concat([
+        {
+          name: "",
+          title: "",
+          render: (props) => {
+            return (
+              <MoreButtons
+                type={MoreButtonsDotsTypeEnum.Vertical}
+                buttons={[
+                  {
+                    icon: (props) => <CrossIcon {...props} />,
+                    text: "Delete",
+                  },
+                  {
+                    icon: (props) => <ClearIcon {...props} />,
+                    text: "Clear",
+                  },
+                  {
+                    icon: (props) => <PlusIcon {...props} />,
+                    text: "Params",
+                  },
+                ]}
+              />
+            );
+          },
+        },
+      ]),
+    height: 350,
+    data: Array.from({ length: 30 })
+      .map((_, i) => i)
+      .reduce(
+        (acc: any[], _) =>
+          acc.concat(data.map((el, i) => ({ ...el, id: acc.length + i }))),
+        data
+      ),
+    theme,
+  },
+};
+
+export const WithSearchAndFilters: Story = {
+  args: {
+    containedProps: {
+      title: "Demandes",
+      isContained: true,
+      searchInputProps: {
+        options: [],
+        placeholder: "Rechercher une demande",
+      },
+      buttonProps: [
+        {
+          label: "Nouvelle demande",
+          buttonType: ButtonTypeEnum.Confirm,
+          withoutBorder: true,
+          prefixIcon: (props) => <PlusIcon {...props} />,
+        },
+      ],
+      filtersInputsProps: [
+        {
+          filterType: TableFilterTypeEnum.DatePicker,
+          datePickerInputProps: {
+            placeholder: "Date de début",
+            maxWidth: "200px",
+            minWidth: "50px",
+          },
+        },
+        {
+          filterType: TableFilterTypeEnum.Selector,
+          selectorInputProps: {
+            placeholder: "Status",
+            maxWidth: "130px",
+            minWidth: "50px",
+            options: [
+              { value: "option1", label: "Option 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3 " },
+            ],
+          },
+        },
+        {
+          filterType: TableFilterTypeEnum.Selector,
+          selectorInputProps: {
+            placeholder: "Types",
+            maxWidth: "130px",
+            minWidth: "50px",
+            options: [
+              { value: "option1", label: "Option 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3 " },
+            ],
+          },
+        },
+        {
+          filterType: TableFilterTypeEnum.Selector,
+          selectorInputProps: {
+            placeholder: "Catégories",
+            maxWidth: "140px",
+            minWidth: "50px",
+            options: [
+              { value: "option1", label: "Long wounded category 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3 " },
+            ],
+          },
+        },
+        {
+          filterType: TableFilterTypeEnum.Selector,
+          selectorInputProps: {
+            placeholder: "Clients",
+            maxWidth: "130px",
+            minWidth: "50px",
+            options: [
+              { value: "option1", label: "Option 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3 " },
+            ],
+          },
+        },
+
+        {
+          filterType: TableFilterTypeEnum.Selector,
+          selectorInputProps: {
+            placeholder: "Mes demandes",
+            maxWidth: "200px",
+            minWidth: "50px",
+            options: [
+              { value: "option1", label: "CCM2323332" },
+              { value: "option2", label: "CCM2323332" },
+              { value: "option3", label: "CCM2323332 " },
+            ],
+          },
+        },
+      ],
     },
     selectableElements: true,
     columns: columns

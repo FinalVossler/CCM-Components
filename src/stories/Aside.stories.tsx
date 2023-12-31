@@ -68,18 +68,32 @@ const AsideExample = () => {
       </Section>
 
       <Section title="Details" theme={theme}>
-        <Input theme={theme} placeholder="Titre" fullWidth maxCharacters={40} />
+        <Input
+          theme={theme}
+          placeholder="Titre"
+          label="Titre"
+          maxCharacters={40}
+        />
         <br />
-        <Input placeholder="Sélectionner" theme={theme} />
+        <Input placeholder="Propriétaire" label="Propriétaire" theme={theme} />
         <br />
 
-        <Input placeholder="Sélectionner" theme={theme} />
+        <DatePicker placeholder="Date de fin cible" label="Date de fin cible" />
+
         <br />
 
-        <Input placeholder="Sélectionner" theme={theme} />
+        <Input placeholder="Sélectionner" label="Sélectionner" theme={theme} />
         <br />
 
-        <Input placeholder="Sélectionner" theme={theme} />
+        <Input
+          placeholder="Date d'envoi/réception"
+          label="Date d'envoi/réception"
+          theme={theme}
+        />
+
+        <br />
+
+        <Input placeholder="Source" label="Source" theme={theme} />
       </Section>
     </Aside>
   );

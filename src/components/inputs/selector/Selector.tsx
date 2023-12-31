@@ -12,7 +12,7 @@ export interface ISelectorOption {
   label: string;
 }
 
-interface ISelectorProps {
+export interface ISelectorProps {
   label?: string;
   placeholder: string;
   options: ISelectorOption[];
@@ -20,6 +20,7 @@ interface ISelectorProps {
   isMulti?: boolean;
   onChange?: (newValue: ISelectorOption[] | ISelectorOption) => void;
   minWidth?: string;
+  maxWidth?: string;
   error?: string;
   value?: ISelectorOption[] | ISelectorOption;
 }
@@ -54,6 +55,8 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
       }
       style={{
         minWidth: props.minWidth || 270,
+        ...(props.maxWidth ? { maxWidth: props.maxWidth } : {}),
+
         ...(!props.label ? { padding: 0 } : {}),
       }}
     >
@@ -68,6 +71,23 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
         value={value}
         styles={{
           container: (styles) => ({ ...styles, width: "100%" }),
+          valueContainer: (styles) => ({
+            ...styles,
+            padding: 0,
+            margin: 0,
+            bottom: 3,
+            position: "relative",
+          }),
+          placeholder: (styles) => ({
+            ...styles,
+            bottom: 1,
+            position: "relative",
+          }),
+          indicatorsContainer: (styles) => ({
+            ...styles,
+            position: "relative",
+            bottom: 3,
+          }),
           control: (styles, { isFocused }) => {
             return {
               ...styles,
@@ -77,6 +97,7 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
               color: theme.textMajor,
               width: "100%",
               height: 32,
+              minHeight: "initial",
               borderWidth: 1,
               boxSizing: "border-box",
               border:
@@ -100,6 +121,13 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
           singleValue: (styles) => ({
             ...styles,
             color: props.error ? theme.textDanger : theme.textMajor,
+            position: "relative",
+            bottom: 1.5,
+          }),
+          multiValue: (styles) => ({
+            ...styles,
+            position: "relative",
+            bottom: props.label ? 0 : props.error ? 1.1 : 0,
           }),
 
           option: (styles, { isFocused, isSelected }) => ({

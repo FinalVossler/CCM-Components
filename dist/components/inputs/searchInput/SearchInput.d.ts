@@ -4,7 +4,7 @@ export interface ISearchInputOption {
     value: string;
     label: string;
 }
-interface ISearchInputProps {
+export interface ISearchInputProps {
     placeholder: string;
     options: ISearchInputOption[];
     theme?: ITheme;

@@ -9,14 +9,15 @@ import withThemeProvider from "../../../hoc/withThemeProvider";
 import DateIcon from "../../icons/DateIcon";
 import ClearIcon from "../../icons/ClearIcon";
 
-interface IDatePickerProps {
-  label?: string;
+export interface IDatePickerProps {
   placeholder: string;
+  label?: string;
   theme?: ITheme;
   showTimeSelect?: boolean;
   value?: Date;
   onChange?: (date: Date) => void;
   minWidth?: string;
+  maxWidth?: string;
   error?: string;
 }
 
@@ -50,6 +51,7 @@ const DatePicker: React.FunctionComponent<IDatePickerProps> = (
       style={{
         minWidth: props.minWidth || 270,
         ...(!props.label ? { padding: 0 } : {}),
+        ...(props.maxWidth ? { maxWidth: props.maxWidth } : {}),
       }}
     >
       {props.label && <label className={styles.label}>{props.label}</label>}

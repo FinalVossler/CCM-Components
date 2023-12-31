@@ -4,7 +4,7 @@ export interface ISelectorOption {
     value: string;
     label: string;
 }
-interface ISelectorProps {
+export interface ISelectorProps {
     label?: string;
     placeholder: string;
     options: ISelectorOption[];
@@ -12,6 +12,7 @@ interface ISelectorProps {
     isMulti?: boolean;
     onChange?: (newValue: ISelectorOption[] | ISelectorOption) => void;
     minWidth?: string;
+    maxWidth?: string;
     error?: string;
     value?: ISelectorOption[] | ISelectorOption;
 }
