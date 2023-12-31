@@ -16,7 +16,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   sideBarContainer: {
     zIndex: 2,
     position: "relative",
-    backgroundColor: theme.backgroundSurface,
+    backgroundColor: theme.backgroundSectionMajor,
     padding: 12,
     boxSizing: "border-box",
     display: "flex",
