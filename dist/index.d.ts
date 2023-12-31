@@ -22,4 +22,5 @@ import ProfilePicture from "./components/ProfilePicture/index";
 import ShowHideIndicator from "./components/showHideIndicator/index";
 import Aside from "./components/aside/index";
 import Section from "./components/section/index";
-export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, Table, Status, SideBar, InfoBanner, Tabs, MoreButtons, CCMIcon, SelectedAddresses, SearchInput, Header, ModalButton, Modal, Info, InfoSection, ProfilePicture, ShowHideIndicator, Section, Aside, };
+import * as Icons from "./components/icons/";
+export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, Table, Status, SideBar, InfoBanner, Tabs, MoreButtons, CCMIcon, SelectedAddresses, SearchInput, Header, ModalButton, Modal, Info, InfoSection, ProfilePicture, ShowHideIndicator, Section, Aside, Icons, };

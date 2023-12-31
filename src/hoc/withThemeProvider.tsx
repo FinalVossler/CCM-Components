@@ -10,7 +10,10 @@ export interface IWithThemeProviderProps<T> {
 }
 
 const withThemeProvider =
-  <T extends Object>(Component: React.FunctionComponent<T>, theme: ITheme) =>
+  <T extends Object>(
+    Component: React.FunctionComponent<T>,
+    theme: ITheme
+  ): React.FunctionComponent<T> =>
   (props: T) => {
     return (
       <ThemeProvider theme={theme}>

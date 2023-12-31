@@ -5,5 +5,5 @@ export interface IHeader {
     right: React.FunctionComponent;
     left: React.FunctionComponent;
 }
-declare const _default: React.MemoExoticComponent<(props: IHeader) => React.JSX.Element>;
+declare const _default: React.FunctionComponent<IHeader>;
 export default _default;

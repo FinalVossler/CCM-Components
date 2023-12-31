@@ -22,6 +22,7 @@ import ProfilePicture from "./components/ProfilePicture/index";
 import ShowHideIndicator from "./components/showHideIndicator/index";
 import Aside from "./components/aside/index";
 import Section from "./components/section/index";
+import * as Icons from "./components/icons/";
 
 export {
   Input,
@@ -48,4 +49,5 @@ export {
   ShowHideIndicator,
   Section,
   Aside,
+  Icons,
 };
