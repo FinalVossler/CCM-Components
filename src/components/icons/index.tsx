@@ -1,3 +1,4 @@
+import IIconProps from "./IIconProps";
 import ClearIcon from "./ClearIcon";
 import ContactsIcon from "./ContactsIcon";
 import CreateContactIcon from "./CreateContactIcon";
@@ -6,7 +7,6 @@ import DashboardIcon from "./DashboardIcon";
 import DateIcon from "./DateIcon";
 import DuplicateIcon from "./DuplicateIcon";
 import FolderIcon from "./FolderIcon";
-import IIconProps from "./IIconProps";
 import MergeIcon from "./MergeIcon";
 import MessageIcon from "./MessageIcon";
 import NotificationIcon from "./NotificationIcon";
@@ -22,6 +22,7 @@ import SwiftIcon from "./SwiftIcon";
 import VerticalDotsIcon from "./VerticalDotsIcon";
 
 export {
+  IIconProps,
   ClearIcon,
   ContactsIcon,
   CreateContactIcon,
@@ -30,7 +31,6 @@ export {
   DateIcon,
   DuplicateIcon,
   FolderIcon,
-  IIconProps,
   MergeIcon,
   MessageIcon,
   NotificationIcon,

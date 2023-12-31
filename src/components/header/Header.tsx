@@ -27,4 +27,4 @@ const Header: React.FunctionComponent<IHeader> = (props: IHeader) => {
   );
 };
 
-export default withThemeProvider(Header, theme);
+export default React.memo(withThemeProvider(Header, theme));
