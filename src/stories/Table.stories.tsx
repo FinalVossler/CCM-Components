@@ -465,6 +465,7 @@ export const WithSearchAndFilters: Story = {
           prefixIcon: (props) => <PlusIcon {...props} />,
         },
       ],
+      filtersText: "Filtrer par:",
       filtersInputsProps: [
         {
           filterType: TableFilterTypeEnum.DatePicker,

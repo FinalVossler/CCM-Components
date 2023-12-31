@@ -43,6 +43,7 @@ export interface IContainedTableProps {
   searchInputProps?: ISearchInputProps;
   buttonProps?: IButtonProps[];
   filtersInputsProps?: ITableFilterProps[];
+  filtersText?: string;
 }
 
 export interface ITableProps<T extends ITableElement> {
@@ -132,6 +133,7 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
           searchInputProps={props.containedProps.searchInputProps}
           buttonsProps={props.containedProps.buttonProps}
           filtersInputsProps={props.containedProps.filtersInputsProps}
+          fitlersText={props.containedProps.filtersText}
         />
       )}
       <div

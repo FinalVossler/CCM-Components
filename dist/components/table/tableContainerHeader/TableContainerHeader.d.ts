@@ -11,6 +11,7 @@ export interface ITableContainerHeaderProps {
     searchInputProps?: ISearchInputProps;
     buttonsProps?: IButtonProps[];
     filtersInputsProps?: ITableFilterProps[];
+    fitlersText?: string;
 }
 declare const _default: React.NamedExoticComponent<ITableContainerHeaderProps>;
 export default _default;

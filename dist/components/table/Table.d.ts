@@ -32,6 +32,7 @@ export interface IContainedTableProps {
     searchInputProps?: ISearchInputProps;
     buttonProps?: IButtonProps[];
     filtersInputsProps?: ITableFilterProps[];
+    filtersText?: string;
 }
 export interface ITableProps<T extends ITableElement> {
     theme?: ITheme;

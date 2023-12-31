@@ -9,6 +9,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     position: "relative",
     zIndex: 2,
     flexDirection: "column",
+    fontFamily: "Open Sans Regular",
   },
   titleAndOptionsContainer: {
     display: "flex",
@@ -35,11 +36,17 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     gap: 10,
     zIndex: 2,
   },
+  filtersText: {
+    color: theme.textMajor,
+    fontSize: 14,
+    marginRight: 20,
+  },
   filtersContainer: {
     display: "flex",
     width: "100%",
     boxSizing: "border-box",
     justifyContent: "flex-end",
+    alignItems: "center",
     marginBottom: 16,
     gap: 10,
     zIndex: 1,

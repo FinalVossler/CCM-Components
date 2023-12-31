@@ -20,6 +20,7 @@ export interface ITableContainerHeaderProps {
   searchInputProps?: ISearchInputProps;
   buttonsProps?: IButtonProps[];
   filtersInputsProps?: ITableFilterProps[];
+  fitlersText?: string;
 }
 
 const TableContainerHeader: React.FunctionComponent<
@@ -62,6 +63,9 @@ const TableContainerHeader: React.FunctionComponent<
 
       {props.filtersInputsProps?.length && props.tableIsShown && (
         <div className={styles.filtersContainer}>
+          {props.fitlersText && (
+            <span className={styles.filtersText}>{props.fitlersText}</span>
+          )}
           {props.filtersInputsProps?.map((filter, filterIndex) => {
             if (filter.filterType === TableFilterTypeEnum.DatePicker) {
               return (
