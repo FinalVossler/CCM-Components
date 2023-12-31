@@ -8,7 +8,7 @@ interface IDatePickerProps {
     showTimeSelect?: boolean;
     value?: Date;
     onChange?: (date: Date) => void;
-    minWidth?: number;
+    minWidth?: string;
     error?: string;
 }
 declare const _default: React.MemoExoticComponent<(props: IDatePickerProps) => React.JSX.Element>;

@@ -19,7 +19,7 @@ interface ISelectorProps {
   theme?: ITheme;
   isMulti?: boolean;
   onChange?: (newValue: ISelectorOption[] | ISelectorOption) => void;
-  minWidth?: number;
+  minWidth?: string;
   error?: string;
   value?: ISelectorOption[] | ISelectorOption;
 }
@@ -63,6 +63,7 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
         components={animatedComponents}
         isMulti={Boolean(props.isMulti)}
         options={props.options}
+        placeholder={props.placeholder}
         onChange={handleOnChange}
         value={value}
         styles={{

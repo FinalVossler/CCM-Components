@@ -3,16 +3,15 @@ import { ITheme } from "ccmtypes";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles((theme: ITheme) => ({
-  infoSectionContainer: {
-    paddingTop: 6,
-    paddingBottom: 6,
+  asideContainer: {
     display: "flex",
     flexDirection: "column",
-    borderTop: "1px solid " + theme.textMajor,
-    borderBottom: "1px solid " + theme.textMajor,
-    width: "100%",
-    marginTop: 12,
-    marginBottom: 12,
+    paddingTop: 16,
+    paddingBottom: 16,
+    backgroundColor: theme.backgroundSection,
+    width: 515,
+    alignItems: "center",
+    boxSizing: "border-box",
   },
 }));
 

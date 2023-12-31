@@ -31,6 +31,8 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     marginBottom: 100,
     zIndex: 1,
     backgroundColor: theme.backgroundSurface,
+    borderRadius: 8,
+    border: "1px solid " + theme.borderDefault,
   },
   titleAndCloseContainer: {
     display: "flex",
@@ -63,6 +65,8 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     backgroundColor: theme.backgroundSectionMajor,
     padding: 16,
     borderTop: "1px solid " + theme.textMajor,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
   },
 }));
 

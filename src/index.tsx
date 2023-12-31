@@ -18,6 +18,10 @@ import ModalButton from "./components/modal/ModalButton";
 import Modal from "./components/modal";
 import Info from "./components/info";
 import InfoSection from "./components/infoSection";
+import ProfilePicture from "./components/ProfilePicture/index";
+import ShowHideIndicator from "./components/showHideIndicator/index";
+import Aside from "./components/aside/index";
+import Section from "./components/section/index";
 
 export {
   Input,
@@ -40,4 +44,8 @@ export {
   Modal,
   Info,
   InfoSection,
+  ProfilePicture,
+  ShowHideIndicator,
+  Section,
+  Aside,
 };

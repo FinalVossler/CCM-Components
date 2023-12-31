@@ -8,7 +8,7 @@ import withThemeProvider from "../../hoc/withThemeProvider";
 import useStyles from "./table.styles";
 import Input from "../inputs/input";
 import { InputProps } from "../inputs/input/Input";
-import Title from "../title";
+import ShowHideIndicator from "../showHideIndicator";
 
 export interface ITableElement {
   id: string | number;
@@ -108,17 +108,11 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
     >
       {props.containedProps?.isContained && (
         <div className={styles.containedTableHeader}>
-          <Title title={props.containedProps.title} />
-          <span
-            onClick={handleTriggerShowTable}
-            className={
-              tableIsShown
-                ? styles.showHideIndicatorPointingUp
-                : styles.showHideIndicatorPointingDown
-            }
-          >
-            {">"}
-          </span>
+          <h2 className={styles.tableTitle}>{props.containedProps.title}</h2>
+          <ShowHideIndicator
+            handleTrigger={handleTriggerShowTable}
+            isShown={tableIsShown}
+          />
         </div>
       )}
       <div

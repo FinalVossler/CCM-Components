@@ -11,7 +11,7 @@ export interface InputProps {
     onClick?: () => void;
     onChange?: React.ChangeEventHandler<HTMLInputElement>;
     maxCharacters?: number;
-    minWidth?: number;
+    minWidth?: string;
     suffixIcon?: React.FunctionComponent<IIconProps>;
     error?: string;
 }

@@ -15,34 +15,29 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     display: "flex",
     alignItems: "center",
   },
-  showHideIndicatorPointingDown: {
-    color: theme.textMinor,
-    fontSize: 25,
-    cursor: "pointer",
-    transform: "rotateZ(90deg)",
-    position: "relative",
-    top: 3,
-    padding: 20,
-
-    "&:hover": {
-      color: theme.textMajor,
-    },
-  },
-  showHideIndicatorPointingUp: {
-    extend: "showHideIndicatorPointingDown",
-    transform: "rotateZ(-90deg)",
-  },
   tableContainer: {
     backgroundColor: theme.backgroundSection,
     color: theme.textMajor,
     width: "100%",
     fontFamily: "Open Sans Regular",
     borderCollapse: "collapse",
+
+    "& .columnResizer": {
+      minWidth: 15,
+    },
+  },
+  tableTitle: {
+    fontSize: 24,
+    marginBottom: 8,
+    marginTop: 8,
+    fontWeight: 400,
+    fontFamily: "Open Sans SemiBold",
+    color: theme.textMajor,
   },
   tableHeader: {
     position: "sticky",
     top: -0.5,
-    backgroundColor: theme.backgroundSectionMajor,
+    backgroundColor: theme.backgroundSectionStrong,
     boxShadow: "0px 0px 1px 0px " + theme.textMajor,
     zIndex: 1,
   },

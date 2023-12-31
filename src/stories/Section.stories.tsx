@@ -2,24 +2,29 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { theme } from "ccmtypes";
-import Info from "../components/info";
-import InfoSection from "../components/infoSection";
+import Section from "../components/section";
+import ProfilePicture from "../components/ProfilePicture";
+import { InfoSectionExample } from "./InfoSection.stories";
 
-export const InfoSectionExample = () => {
+const SectionExample = () => {
   return (
-    <InfoSection>
-      <Info title="Référence du dossier" value="CCM24545"></Info>
-      <Info title="Type de la demande" value="Réclamation"></Info>
-      <Info title="Boite mail générique" value="hk.kh.pro@gmail.com"></Info>
-      <Info title="Unité" value="FCS - Head Client Service - France"></Info>
-    </InfoSection>
+    <Section title="Demande" theme={theme}>
+      <ProfilePicture
+        firstName="Hamza"
+        lastName="Khalifa"
+        withFullFirstNameAndLast
+        action={{ actionTitle: "Suivre le dossier", onClick: () => {} }}
+      />
+      <br />
+      <InfoSectionExample />
+    </Section>
   );
 };
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Example/InfoSectionExample",
-  component: InfoSectionExample,
+  title: "Example/SectionExample",
+  component: SectionExample,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
   },
@@ -29,14 +34,12 @@ const meta = {
   argTypes: {
     theme: {},
   },
-} satisfies Meta<typeof InfoSectionExample>;
+} satisfies Meta<typeof SectionExample>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Basic: Story = {
-  args: {
-    theme,
-  },
+export const Default: Story = {
+  args: {},
 };

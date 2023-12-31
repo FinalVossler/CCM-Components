@@ -11,7 +11,7 @@ interface ISelectorProps {
     theme?: ITheme;
     isMulti?: boolean;
     onChange?: (newValue: ISelectorOption[] | ISelectorOption) => void;
-    minWidth?: number;
+    minWidth?: string;
     error?: string;
     value?: ISelectorOption[] | ISelectorOption;
 }

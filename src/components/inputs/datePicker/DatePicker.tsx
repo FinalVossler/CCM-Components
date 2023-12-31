@@ -16,7 +16,7 @@ interface IDatePickerProps {
   showTimeSelect?: boolean;
   value?: Date;
   onChange?: (date: Date) => void;
-  minWidth?: number;
+  minWidth?: string;
   error?: string;
 }
 

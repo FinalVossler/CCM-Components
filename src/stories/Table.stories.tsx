@@ -210,7 +210,7 @@ export const WithSearchForSomeColumns: Story = {
           handleSearch: () => {},
           searchInputProps: {
             placeholder: "Rechercher",
-            minWidth: 100,
+            minWidth: "100px",
             suffixIcon: (props) => (
               <SearchIcon
                 {...props}
@@ -247,7 +247,7 @@ export const WithOptionsAsLastColumn: Story = {
             handleSearch: () => {},
             searchInputProps: {
               placeholder: "Rechercher",
-              minWidth: 100,
+              minWidth: "100px",
               suffixIcon: (props) => (
                 <SearchIcon
                   {...props}
@@ -315,7 +315,7 @@ export const ContainedTable: Story = {
             handleSearch: () => {},
             searchInputProps: {
               placeholder: "Rechercher",
-              minWidth: 100,
+              minWidth: "100px",
               suffixIcon: (props) => (
                 <SearchIcon
                   {...props}
