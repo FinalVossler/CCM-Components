@@ -22,7 +22,13 @@ import ProfilePicture from "./components/ProfilePicture/index";
 import ShowHideIndicator from "./components/showHideIndicator/index";
 import Aside from "./components/aside/index";
 import Section from "./components/section/index";
-import * as Icons from "./components/icons/";
+import * as CCMIcons from "./components/icons/";
+
+import { ButtonTypeEnum } from "./components/button/Button";
+import { MoreButtonsDotsTypeEnum } from "./components/moreButtons/MoreButtons";
+import { TableFilterTypeEnum } from "./components/table/Table";
+import { StatusTypeEnum } from "./components/status/Status";
+import { InfoBannerTypeEnum } from "./components/infoBanner/InfoBanner";
 
 export {
   Input,
@@ -49,5 +55,10 @@ export {
   ShowHideIndicator,
   Section,
   Aside,
-  Icons,
+  CCMIcons,
+  ButtonTypeEnum,
+  MoreButtonsDotsTypeEnum,
+  TableFilterTypeEnum,
+  StatusTypeEnum,
+  InfoBannerTypeEnum,
 };
