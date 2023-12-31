@@ -18,6 +18,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     position: "relative",
     backgroundColor: theme.backgroundSectionMajor,
     padding: 12,
+    paddingTop: 2.5,
     boxSizing: "border-box",
     display: "flex",
     flexDirection: "column",
@@ -30,8 +31,8 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     extend: "sideBarContainer",
     width: 40,
     padding: 0,
-    paddingTop: 12,
     paddingBottom: 12,
+    paddingTop: 2.5,
 
     "& $sideBarSectionTitle": {
       opacity: 0,
@@ -53,6 +54,8 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     width: 40,
     height: 40,
     cursor: "pointer",
+    position: "relative",
+    top: 5,
   },
   sideBarTriggerIcon: {
     transition: "transform .2s ease-in-out",
@@ -62,7 +65,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   },
   sideBarLine: {
     width: "100%",
-    borderBottom: "1px solid " + theme.textMinor,
+    borderBottom: "1px solid " + theme.borderDefault,
     marginTop: 16,
     marginBottom: 10,
   },
