@@ -28,4 +28,6 @@ import { MoreButtonsDotsTypeEnum } from "./components/moreButtons/MoreButtons";
 import { TableFilterTypeEnum } from "./components/table/Table";
 import { StatusTypeEnum } from "./components/status/Status";
 import { InfoBannerTypeEnum } from "./components/infoBanner/InfoBanner";
-export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, Table, Status, SideBar, InfoBanner, Tabs, MoreButtons, CCMIcon, SelectedAddresses, SearchInput, Header, ModalButton, Modal, Info, InfoSection, ProfilePicture, ShowHideIndicator, Section, Aside, CCMIcons, ButtonTypeEnum, MoreButtonsDotsTypeEnum, TableFilterTypeEnum, StatusTypeEnum, InfoBannerTypeEnum, };
+import { ITableColumn, ITableElement, ITableFilterProps } from "./components/table/Table";
+import { ITableContainerHeaderProps } from "./components/table/tableContainerHeader/TableContainerHeader";
+export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, Table, ITableColumn, ITableContainerHeaderProps, ITableElement, ITableFilterProps, Status, SideBar, InfoBanner, Tabs, MoreButtons, CCMIcon, SelectedAddresses, SearchInput, Header, ModalButton, Modal, Info, InfoSection, ProfilePicture, ShowHideIndicator, Section, Aside, CCMIcons, ButtonTypeEnum, MoreButtonsDotsTypeEnum, TableFilterTypeEnum, StatusTypeEnum, InfoBannerTypeEnum, };
