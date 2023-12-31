@@ -7,6 +7,7 @@ import CCMIcon from "../components/ccmIcon";
 import SearchInput from "../components/inputs/searchInput";
 import SelectedAddresses from "../components/selectedAddresses";
 import NotificationIcon from "../components/icons/NotificationIcon";
+import ProfilePicture from "../components/ProfilePicture";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -44,6 +45,15 @@ export const Basic: Story = {
           <SelectedAddresses
             title="Sélection boites mail"
             numberOfSelectedAddressesTitle="2 sélectionnées"
+          />
+          <div style={{ width: 16 }}></div>
+          <ProfilePicture
+            firstName="Hamza"
+            lastName="Khalifa"
+            action={{
+              actionTitle: "Vue gestionnaire",
+              onClick: () => {},
+            }}
           />
           <NotificationIcon style={{ marginLeft: 15, cursor: "pointer" }} />
         </div>
