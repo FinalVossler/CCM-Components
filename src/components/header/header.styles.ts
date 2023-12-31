@@ -12,6 +12,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     backgroundColor: theme.backgroundSection,
     height: 64,
     padding: "0px 16px",
+    borderBottom: "1px solid " + theme.borderDefault,
   },
   right: {
     display: "flex",
