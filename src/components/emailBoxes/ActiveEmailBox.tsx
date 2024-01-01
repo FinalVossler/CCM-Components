@@ -7,7 +7,7 @@ import { CrossIcon } from "../icons";
 import React from "react";
 import withThemeProvider from "../../hoc/withThemeProvider";
 
-interface IActiveEmailBoxProps {
+interface IActiveEmailBoxProps extends React.PropsWithChildren {
   box: IEmailBox;
   theme?: ITheme;
   onChangeViewType: (viewType: EmailBoxViewTypeEnum) => void;
@@ -67,6 +67,8 @@ const ActiveEmailBox: React.FunctionComponent<IActiveEmailBoxProps> = (
           />
         </div>
       </div>
+
+      {props.children}
     </div>
   );
 };

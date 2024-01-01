@@ -1,9 +1,12 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { theme } from "ccmtypes";
+import { ITheme, theme } from "ccmtypes";
 import EmailBoxes from "../components/emailBoxes";
 import { EmailBoxViewTypeEnum } from "../components/emailBoxes/EmailBoxes";
+import { createUseStyles } from "react-jss";
+import Input from "../components/inputs/input";
+import Selector from "../components/inputs/selector";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -36,5 +39,41 @@ export const Basic: Story = {
       label: "Nouveau Mail",
       withoutBorder: true,
     },
+    EmailFormComponent: () => <EmailFormExample />,
   },
+};
+
+const useStyles = createUseStyles((theme: ITheme) => ({
+  emailFormContainer: {
+    display: "flex",
+    flexDirection: "column",
+    marginTop: 10,
+
+    "& >div": {
+      paddingTop: 5,
+      paddingBottom: 0,
+    },
+  },
+  buttonsContainer: {
+    display: "flex",
+    alignItems: "center",
+  },
+}));
+
+interface IEmailFormExampleProps {}
+
+const EmailFormExample: React.FunctionComponent<IEmailFormExampleProps> = (
+  props: IEmailFormExampleProps
+) => {
+  const styles = useStyles({ theme });
+
+  return (
+    <div className={styles.emailFormContainer}>
+      <Selector label="De *" options={[]} placeholder="De" />
+      <Selector label="A *" options={[]} placeholder="A" />
+      <Selector label="cc" options={[]} placeholder="cc" />
+      <Selector label="cci" options={[]} placeholder="cci" />
+      <Input label="Object *" placeholder="Object" />
+    </div>
+  );
 };

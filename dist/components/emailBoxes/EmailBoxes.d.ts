@@ -15,6 +15,7 @@ export interface IEmailBoxesProps {
     boxes: IEmailBox[];
     sendEmailButtonProps: IButtonProps;
     newEmailBoxTitle: string;
+    EmailFormComponent: React.FunctionComponent<any>;
 }
 declare const _default: React.NamedExoticComponent<IEmailBoxesProps>;
 export default _default;

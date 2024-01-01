@@ -69,6 +69,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     padding: 5,
     fontWeight: 600,
     transition: "all .2s ease-in-out",
+    overflow: "visible",
 
     "&:hover": {
       backgroundColor: "initial",

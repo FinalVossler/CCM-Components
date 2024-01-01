@@ -25,6 +25,7 @@ export interface IEmailBoxesProps {
   boxes: IEmailBox[];
   sendEmailButtonProps: IButtonProps;
   newEmailBoxTitle: string;
+  EmailFormComponent: React.FunctionComponent<any>;
 }
 
 const EmailBoxes: React.FunctionComponent<IEmailBoxesProps> = (
@@ -94,7 +95,9 @@ const EmailBoxes: React.FunctionComponent<IEmailBoxesProps> = (
               key={boxIndex}
               box={box}
               theme={theme}
-            />
+            >
+              <props.EmailFormComponent />
+            </ActiveEmailBox>
           );
         }
       })}
