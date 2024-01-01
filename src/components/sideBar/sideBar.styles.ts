@@ -4,7 +4,7 @@ import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles((theme: ITheme) => ({
   layer: {
-    zIndex: 1,
+    zIndex: 3,
     position: "fixed",
     width: "calc(100vw * 2)",
     height: "calc(100vh * 2)",

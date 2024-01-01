@@ -12,6 +12,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     width: 515,
     alignItems: "center",
     boxSizing: "border-box",
+    height: "fit-content",
   },
 }));
 
