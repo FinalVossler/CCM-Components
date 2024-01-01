@@ -105,7 +105,7 @@ const EmailBoxes: React.FunctionComponent<IEmailBoxesProps> = (
         {...props.sendEmailButtonProps}
         style={{
           position: "relative",
-          bottom: 4,
+          bottom: 5,
           fontSize: 20,
           marginRight: 10,
           marginLeft: 10,
