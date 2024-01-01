@@ -36,6 +36,11 @@ import {
 } from "./components/table/Table";
 import { ITableContainerHeaderProps } from "./components/table/tableContainerHeader/TableContainerHeader";
 import Title from "./components/title/index";
+import EmailBoxes from "./components/emailBoxes/index";
+import {
+  EmailBoxViewTypeEnum,
+  IEmailBox,
+} from "./components/emailBoxes/EmailBoxes";
 
 export {
   Input,
@@ -73,4 +78,7 @@ export {
   Aside,
   CCMIcons,
   Title,
+  EmailBoxes,
+  EmailBoxViewTypeEnum,
+  IEmailBox,
 };

@@ -1,6 +1,6 @@
 interface IIconProps {
   className?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLDivElement | HTMLOrSVGElement>) => void;
   color?: string;
   style?: React.CSSProperties;
 }

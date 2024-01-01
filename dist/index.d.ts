@@ -31,4 +31,6 @@ import { InfoBannerTypeEnum } from "./components/infoBanner/InfoBanner";
 import { ITableColumn, ITableElement, ITableFilterProps } from "./components/table/Table";
 import { ITableContainerHeaderProps } from "./components/table/tableContainerHeader/TableContainerHeader";
 import Title from "./components/title/index";
-export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, ButtonTypeEnum, Table, ITableColumn, ITableContainerHeaderProps, ITableElement, ITableFilterProps, TableFilterTypeEnum, Status, StatusTypeEnum, SideBar, InfoBanner, InfoBannerTypeEnum, Tabs, MoreButtons, MoreButtonsDotsTypeEnum, CCMIcon, SelectedAddresses, SearchInput, Header, ModalButton, Modal, Info, InfoSection, ProfilePicture, ShowHideIndicator, Section, Aside, CCMIcons, Title, };
+import EmailBoxes from "./components/emailBoxes/index";
+import { EmailBoxViewTypeEnum, IEmailBox } from "./components/emailBoxes/EmailBoxes";
+export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, ButtonTypeEnum, Table, ITableColumn, ITableContainerHeaderProps, ITableElement, ITableFilterProps, TableFilterTypeEnum, Status, StatusTypeEnum, SideBar, InfoBanner, InfoBannerTypeEnum, Tabs, MoreButtons, MoreButtonsDotsTypeEnum, CCMIcon, SelectedAddresses, SearchInput, Header, ModalButton, Modal, Info, InfoSection, ProfilePicture, ShowHideIndicator, Section, Aside, CCMIcons, Title, EmailBoxes, EmailBoxViewTypeEnum, IEmailBox, };

@@ -6,7 +6,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   defaultButton: {
     display: "flex",
     alignItems: "center",
-
+    whiteSpace: "nowrap",
     padding: 12,
     fontSize: 16,
     fontWeight: 600,
