@@ -13,7 +13,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     alignItems: "flex-end",
     overflow: "auto",
     maxWidth: "100vw",
-    zIndex: 2,
+    zIndex: 11,
   },
   reducedEmailBoxContainer: {
     padding: 12,
