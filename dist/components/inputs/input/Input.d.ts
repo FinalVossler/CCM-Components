@@ -14,6 +14,7 @@ export interface InputProps {
     minWidth?: string;
     suffixIcon?: React.FunctionComponent<IIconProps>;
     error?: string;
+    maxWidth?: string;
 }
-declare const _default: React.MemoExoticComponent<(props: InputProps) => React.JSX.Element>;
+declare const _default: React.NamedExoticComponent<InputProps>;
 export default _default;

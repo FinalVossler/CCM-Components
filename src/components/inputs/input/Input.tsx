@@ -19,6 +19,7 @@ export interface InputProps {
   minWidth?: string;
   suffixIcon?: React.FunctionComponent<IIconProps>;
   error?: string;
+  maxWidth?: string;
 }
 
 const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
@@ -47,6 +48,8 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
       }
       style={{
         minWidth: props.minWidth || 270,
+        ...(props.maxWidth ? { maxWidth: props.maxWidth } : {}),
+
         ...(!props.label ? { padding: 0 } : {}),
       }}
     >
