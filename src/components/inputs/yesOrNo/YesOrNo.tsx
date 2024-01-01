@@ -11,7 +11,8 @@ interface IYesOrNoProps {
   yesLabel?: string;
   noLabel?: string;
   value?: boolean;
-  minWidth?: number;
+  minWidth?: string;
+  maxWidth?: string;
   error?: string;
 }
 
@@ -50,7 +51,10 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
         styles.yesOrNoContainer +
         (props.error ? " " + styles.erroredYesOrNotContainer : "")
       }
-      style={{ minWidth: props.minWidth || 170 }}
+      style={{
+        minWidth: props.minWidth || 170,
+        ...(props.maxWidth ? { maxWidth: props.maxWidth } : {}),
+      }}
     >
       <label className={styles.label}>{props.label}</label>
 
