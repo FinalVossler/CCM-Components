@@ -35,6 +35,7 @@ import {
   ITableFilterProps,
 } from "./components/table/Table";
 import { ITableContainerHeaderProps } from "./components/table/tableContainerHeader/TableContainerHeader";
+import Title from "./components/title/index";
 
 export {
   Input,
@@ -71,4 +72,5 @@ export {
   Section,
   Aside,
   CCMIcons,
+  Title,
 };
