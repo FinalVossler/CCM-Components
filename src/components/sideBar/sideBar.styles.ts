@@ -14,7 +14,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     opacity: 0.7,
   },
   sideBarContainer: {
-    zIndex: 2,
+    zIndex: 10,
     position: "relative",
     backgroundColor: theme.backgroundSectionMajor,
     padding: 12,

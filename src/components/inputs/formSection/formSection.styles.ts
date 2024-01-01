@@ -5,7 +5,6 @@ import { createUseStyles } from "react-jss";
 const useStyles = createUseStyles((theme: ITheme) => ({
   formSectionContainer: {
     backgroundColor: theme.backgroundSurface,
-    margin: 12,
     display: "flex",
     flexDirection: "column",
     border: "1px solid " + theme.borderDefaultMinor,

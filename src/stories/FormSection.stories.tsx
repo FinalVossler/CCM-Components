@@ -17,6 +17,9 @@ const FormSection = () => {
         display: "flex",
         flexDirection: "column",
         position: "relative",
+        padding: 12,
+        boxSizing: "border-box",
+        gap: 12,
       }}
     >
       <FormSectionComponent title="Réclamation">
