@@ -10,6 +10,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     border: "1px solid " + theme.borderDefaultMinor,
     boxSizing: "border-box",
     padding: 12,
+    borderRadius: 8,
   },
   inputsContainer: {
     display: "flex",

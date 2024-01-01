@@ -8,7 +8,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     paddingTop: 0,
     paddingBottom: 0,
     borderRadius: 8,
-    border: "1px solid " + theme.textMajor,
+    border: "1px solid " + theme.borderDefaultMinor,
     backgroundColor: theme.backgroundSurface,
   },
   tableContainer: {
