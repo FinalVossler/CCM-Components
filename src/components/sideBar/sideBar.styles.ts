@@ -108,7 +108,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     alignItems: "center",
     flexDirection: "row",
     borderRadius: 40,
-    padding: 10,
+    padding: 5,
 
     "&:hover": {
       backgroundColor: theme.textSuccess,
