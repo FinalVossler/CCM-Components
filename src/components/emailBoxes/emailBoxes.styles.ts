@@ -50,7 +50,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     display: "flex",
     flexDirection: "column",
     backgroundColor: theme.backgroundSurface,
-    height: 600,
+    height: 700,
     width: 800,
     minWidth: 800,
     borderTopRightRadius: 8,
@@ -58,6 +58,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     boxShadow: "1px 1px 10px 1px black",
     marginTop: 10,
     marginLeft: 4,
+    overflow: "auto",
   },
   activeEmailBoxFullScreenContainer: {
     extend: "activeEmailBoxContainer",

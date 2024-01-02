@@ -1,8 +1,9 @@
 import React from "react";
 import FroalaEditorComponent from "react-froala-wysiwyg";
 import FroalaEditorView from "react-froala-wysiwyg/FroalaEditorView";
+import "froala-editor/css/froala_editor.pkgd.min.css";
 import "froala-editor/js/plugins.pkgd.min.js";
-import "froala-editor/js/languages/fr.js";
+import "froala-editor/css/themes/dark.css";
 
 import useAdaptToInitialValue from "./hooks/useAdaptToInitialValue";
 import useCustomToolbarButtons from "./hooks/useCustomToolbarButtons";
@@ -11,8 +12,6 @@ import useBuildConfig from "./hooks/useBuildConfig";
 import useDragAndDropImages from "./hooks/useDragAndDropImages";
 import useOnChange from "./hooks/useOnChange";
 
-import "froala-editor/css/froala_style.min.css";
-import "froala-editor/css/froala_editor.pkgd.min.css";
 import { ITheme, theme } from "ccmtypes";
 import useStyles from "./froala.styles";
 

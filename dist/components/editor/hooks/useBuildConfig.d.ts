@@ -1,3 +1,4 @@
+import React from "react";
 declare const useBuildConfig: () => ({ froalaEditorRef, toggleEditorFullScreen, props, language, setReadOnlyValue, parentContainerDivRef, froalaKey, }: {
     froalaEditorRef: any;
     toggleEditorFullScreen: any;
@@ -8,6 +9,7 @@ declare const useBuildConfig: () => ({ froalaEditorRef, toggleEditorFullScreen, 
     froalaKey: any;
 }) => {
     key: any;
+    theme: string;
     immediateReactModelUpdate: boolean;
     documentReady: boolean;
     heightMin: number;
@@ -24,7 +26,7 @@ declare const useBuildConfig: () => ({ froalaEditorRef, toggleEditorFullScreen, 
     toolbarButtons: string[];
     events: {
         contentChanged: () => void;
-        keydown: (e: any) => void;
+        keydown: (e: React.KeyboardEvent<HTMLDivElement>) => void;
         focus: (e: any, editor: any) => void;
         keypress: (e: any) => void;
         initialized: (e: any, editor: any) => Promise<void>;

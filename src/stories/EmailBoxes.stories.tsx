@@ -7,6 +7,8 @@ import { EmailBoxViewTypeEnum } from "../components/emailBoxes/EmailBoxes";
 import { createUseStyles } from "react-jss";
 import Input from "../components/inputs/input";
 import Selector from "../components/inputs/selector";
+import FroalaEditorComponent from "react-froala-wysiwyg";
+import Froala from "../components/editor";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -67,6 +69,9 @@ const EmailFormExample: React.FunctionComponent<IEmailFormExampleProps> = (
 ) => {
   const styles = useStyles({ theme });
 
+  const froalaEditorRef: React.MutableRefObject<FroalaEditorComponent> =
+    React.useRef<FroalaEditorComponent>(null);
+
   return (
     <div className={styles.emailFormContainer}>
       <Selector label="De *" options={[]} placeholder="De" />
@@ -74,6 +79,10 @@ const EmailFormExample: React.FunctionComponent<IEmailFormExampleProps> = (
       <Selector label="cc" options={[]} placeholder="cc" />
       <Selector label="cci" options={[]} placeholder="cci" />
       <Input label="Object *" placeholder="Object" />
+
+      <br />
+
+      <Froala ref={froalaEditorRef} />
     </div>
   );
 };

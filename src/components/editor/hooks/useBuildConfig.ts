@@ -61,6 +61,7 @@ const useBuildConfig = () => {
 
       return {
         key: froalaKey || "",
+        theme: "dark",
         immediateReactModelUpdate: true,
         documentReady: true,
         heightMin: 250,
@@ -252,7 +253,11 @@ const useBuildConfig = () => {
               }
             });
           },
-          keydown: function (e) {
+          keydown: function (e: React.KeyboardEvent<HTMLDivElement>) {
+            if (e.ctrlKey || e.metaKey) {
+              return;
+            }
+
             const isALowerCaseCharacterKeyCode = (keyCode) => {
               return keyCode >= 65 && keyCode <= 90;
             };

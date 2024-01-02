@@ -1,6 +1,6 @@
 {
   "name": "ccmcomponents",
-  "version": "1.0.52",
+  "version": "1.0.53",
   "description": "",
   "keywords": [],
   "author": "Hamza Khalifa",
@@ -49,7 +49,8 @@
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-froala-wysiwyg": "^4.1.4"
   },
   "jest": {
     "preset": "ts-jest",
@@ -66,7 +67,6 @@
     "ccmtypes": "^1.2.6",
     "react-datepicker": "^4.25.0",
     "react-dropzone": "^14.2.3",
-    "react-froala-wysiwyg": "^4.1.4",
     "react-jss": "^10.10.0",
     "react-select": "^5.8.0",
     "react-table-column-resizer": "^1.2.3"
