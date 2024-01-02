@@ -12,6 +12,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     fontFamily: "Open Sans Regular",
     alignItems: "flex-end",
     overflow: "auto",
+    overflowY: "hidden",
     maxWidth: "100vw",
     zIndex: 11,
   },

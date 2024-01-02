@@ -82,6 +82,7 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
             ...styles,
             bottom: 1,
             position: "relative",
+            whiteSpace: "nowrap",
           }),
           indicatorsContainer: (styles) => ({
             ...styles,

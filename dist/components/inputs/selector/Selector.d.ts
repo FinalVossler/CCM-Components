@@ -16,5 +16,5 @@ export interface ISelectorProps {
     error?: string;
     value?: ISelectorOption[] | ISelectorOption;
 }
-declare const _default: React.MemoExoticComponent<(props: ISelectorProps) => React.JSX.Element>;
+declare const _default: React.NamedExoticComponent<ISelectorProps>;
 export default _default;
