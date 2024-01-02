@@ -9,7 +9,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     backgroundColor: theme.backgroundSectionMajor,
     padding: 16,
     flexDirection: "column",
-    width: 417,
+    width: 387,
     boxSizing: "border-box",
     marginTop: 12,
     marginBottom: 12,
