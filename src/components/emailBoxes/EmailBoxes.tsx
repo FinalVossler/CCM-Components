@@ -107,7 +107,7 @@ const EmailBoxes: React.FunctionComponent<IEmailBoxesProps> = (
           position: "relative",
           bottom: 5,
           fontSize: 20,
-          marginRight: 10,
+          marginRight: 25,
           marginLeft: 10,
         }}
         prefixIcon={(props) => <PlusIcon {...props} />}

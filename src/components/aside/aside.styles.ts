@@ -9,7 +9,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     paddingTop: 16,
     paddingBottom: 16,
     backgroundColor: theme.backgroundSection,
-    width: 515,
+    width: 465,
     alignItems: "center",
     boxSizing: "border-box",
     height: "fit-content",
