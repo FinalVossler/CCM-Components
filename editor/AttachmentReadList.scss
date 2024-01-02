@@ -1,0 +1,27 @@
+.missingAttachment-box {
+  margin-left: 20px;
+  color: red;
+
+  .missingAttachment-icon {
+    width: 16px;
+    margin-right: 5px;
+  }
+}
+
+.downloadAllAttachments-zipButton {
+  margin-left: 5px;
+}
+
+.draggableAttachment {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: 7px;
+  z-index: 1;
+
+  .attachmentDragTool {
+    position: relative;
+    bottom: 4px;
+    cursor: grab;
+  }
+}

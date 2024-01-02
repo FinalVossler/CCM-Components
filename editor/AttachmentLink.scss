@@ -1,0 +1,17 @@
+.attachment-link {
+  margin-right: 4px;
+
+  .attachment-icon {
+    width: 16px;
+  }
+
+  .attachment-loading {
+    margin-right: 4px;
+    margin-bottom: -3px;
+  }
+}
+
+.attachment-link-container {
+  display: flex;
+  align-items: center;
+}
