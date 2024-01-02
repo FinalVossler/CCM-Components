@@ -44,39 +44,27 @@ export const SideBarBasic: Story = {
 
         options: [
           {
-            icon: () => (
-              <SearchIcon style={{ position: "relative", left: 4 }} />
-            ),
+            icon: () => <SearchIcon style={{ position: "relative" }} />,
             title: "Recherche avancée",
           },
           {
-            icon: () => (
-              <MessageIcon style={{ position: "relative", left: 3.5 }} />
-            ),
+            icon: () => <MessageIcon style={{ position: "relative" }} />,
             title: "Envoyer un mail",
           },
           {
-            icon: () => (
-              <SwiftIcon style={{ position: "relative", left: 3.5 }} />
-            ),
+            icon: () => <SwiftIcon style={{ position: "relative" }} />,
             title: "Envoyer un swift",
           },
           {
-            icon: () => (
-              <RequestIcon style={{ position: "relative", left: 3.5 }} />
-            ),
+            icon: () => <RequestIcon style={{ position: "relative" }} />,
             title: "Nouvelle demande",
           },
           {
-            icon: () => (
-              <RequestIcon style={{ position: "relative", left: 3.5 }} />
-            ),
+            icon: () => <RequestIcon style={{ position: "relative" }} />,
             title: "Créer une réclamation",
           },
           {
-            icon: () => (
-              <CreateContactIcon style={{ position: "relative", left: 3.5 }} />
-            ),
+            icon: () => <CreateContactIcon style={{ position: "relative" }} />,
             title: "Créer un contact",
           },
         ],
@@ -85,19 +73,19 @@ export const SideBarBasic: Story = {
         title: "Menu principale",
         options: [
           {
-            icon: () => <DashboardIcon />,
+            icon: () => <DashboardIcon style={{ left: 10 }} />,
             title: "Tableau de bord",
           },
           {
-            icon: () => <ContactsIcon />,
+            icon: () => <ContactsIcon style={{ left: 10 }} />,
             title: "Contacts",
           },
           {
-            icon: () => <FolderIcon />,
+            icon: () => <FolderIcon style={{ left: 10 }} />,
             title: "Mes dossiers",
           },
           {
-            icon: () => <StatsIcon />,
+            icon: () => <StatsIcon style={{ left: 10 }} />,
             title: "Statistiques",
           },
         ],
@@ -106,11 +94,11 @@ export const SideBarBasic: Story = {
         title: "Autre",
         options: [
           {
-            icon: () => <ProfileIcon />,
+            icon: () => <ProfileIcon style={{ left: 10 }} />,
             title: "Profil",
           },
           {
-            icon: () => <ParametersIcon />,
+            icon: () => <ParametersIcon style={{ left: 10 }} />,
             title: "Paramètres",
           },
         ],

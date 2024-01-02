@@ -25,11 +25,13 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     fontFamily: "Open Sans Regular",
     width: 306,
     transition: "all .15s ease-in-out",
-    overflow: "hidden",
+    overflow: "auto",
+
+    overflowX: "hidden",
   },
   sideBarClosedContainer: {
     extend: "sideBarContainer",
-    width: 40,
+    width: 60,
     padding: 0,
     paddingBottom: 12,
     paddingTop: 2.5,
@@ -46,6 +48,11 @@ const useStyles = createUseStyles((theme: ITheme) => ({
       paddingRight: 0,
       paddingLeft: 0,
     },
+
+    "& svg": {
+      left: 13,
+      position: "relative",
+    },
   },
   sideBarTriggerIconContainer: {
     display: "flex",
@@ -56,6 +63,10 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     cursor: "pointer",
     position: "relative",
     top: 5,
+
+    "& svg": {
+      height: 40,
+    },
   },
   sideBarTriggerIcon: {
     transition: "transform .2s ease-in-out",
