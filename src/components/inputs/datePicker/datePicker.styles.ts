@@ -166,6 +166,11 @@ const useStyles = createUseStyles((theme: ITheme) => ({
       color: theme.textReverse + "!important",
       backgroundColor: theme.textMajor + "!important",
     },
+
+    "& .react-datepicker__day--keyboard-selected": {
+      color: theme.textReverse + "!important",
+      backgroundColor: theme.textMajor + "!important",
+    },
   },
 }));
 
