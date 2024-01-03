@@ -17,7 +17,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   },
   layer: {
     backgroundColor: theme.backgroundSurface,
-    opacity: 0.3,
+    opacity: 0.5,
     position: "absolute",
     top: 0,
     left: 0,

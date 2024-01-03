@@ -45,8 +45,6 @@ const Modal: React.FunctionComponent<IModalProps> = (props: IModalProps) => {
     }
   };
 
-  console.log("props child", props.children);
-
   return (
     <div className={styles.modalContainer}>
       <div className={styles.layer} onClick={handleClose}></div>

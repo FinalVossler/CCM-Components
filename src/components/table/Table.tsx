@@ -11,8 +11,9 @@ import { InputProps } from "../inputs/input/Input";
 import TableContainerHeader from "./tableContainerHeader";
 import { ISearchInputProps } from "../inputs/searchInput/SearchInput";
 import { IButtonProps } from "../button/Button";
-import Selector, { ISelectorProps } from "../inputs/selector/Selector";
-import DatePicker, { IDatePickerProps } from "../inputs/datePicker/DatePicker";
+import { ISelectorProps } from "../inputs/selector/Selector";
+import { IDatePickerProps } from "../inputs/datePicker/DatePicker";
+import TableItemRow from "./tableItemRow";
 
 export interface ITableElement {
   id: string | number;
@@ -87,7 +88,7 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
     }
   };
 
-  const handleTriggerSelectElement =
+  const handleTriggerSelectElement = React.useCallback(
     (element: T) => (e: React.MouseEvent<HTMLTableCellElement>) => {
       const selectedElementIdIndex = selectedElementsIds.findIndex(
         (el) => el === element.id
@@ -102,11 +103,16 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
         }
         setSelectedElementsIds(newSelectedElementsIds);
       }
-    };
+    },
+    [selectedElementsIds, setSelectedElementsIds]
+  );
 
-  const handleCheckboxClick = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.stopPropagation();
-  };
+  const handleCheckboxClick = React.useCallback(
+    () => (e: React.ChangeEvent<HTMLInputElement>) => {
+      e.stopPropagation();
+    },
+    []
+  );
 
   const handleColumnSearch =
     (column: ITableColumn<T>) => (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -193,7 +199,7 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
 
           <tbody className={styles.tableBody}>
             {props.columns.some((c) => Boolean(c.handleSearch)) && (
-              <tr className={styles.tableRow}>
+              <tr className={styles.tableSearchRow}>
                 {props.selectableElements && (
                   <React.Fragment>
                     <td className={styles.tableColumn}></td>
@@ -225,49 +231,17 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
             )}
             {props.data.map((element, elementIndex) => {
               return (
-                <tr
-                  key={elementIndex}
-                  className={
-                    (elementIndex === props.data.length - 1
-                      ? styles.tableLastRow
-                      : styles.tableRow) +
-                    (selectedElementsIds.some((el) => el === element.id)
-                      ? " " + styles.tableSelectedRow
-                      : "")
-                  }
-                >
-                  {props.selectableElements && (
-                    <React.Fragment>
-                      <td
-                        className={styles.tableColumn}
-                        onClick={handleTriggerSelectElement(element)}
-                        style={{ cursor: "pointer" }}
-                      >
-                        <input
-                          className={styles.checkbox}
-                          type="checkbox"
-                          onChange={handleCheckboxClick}
-                          checked={selectedElementsIds.some(
-                            (el) => el === element.id
-                          )}
-                        />
-                      </td>
-
-                      <TableColumnResizer id={elementIndex - 10000} />
-                    </React.Fragment>
-                  )}
-                  {props.columns.map((column, columnIndex) => {
-                    return (
-                      <React.Fragment key={columnIndex}>
-                        <td className={styles.tableColumn}>
-                          {(!column.render && element[column.name]) || ""}
-                          {column.render && <column.render element={element} />}
-                        </td>
-                        <TableColumnResizer id={elementIndex + 10000} />
-                      </React.Fragment>
-                    );
-                  })}
-                </tr>
+                <TableItemRow
+                  data={props.data}
+                  elementIndex={elementIndex}
+                  handleTriggerSelectElement={handleTriggerSelectElement}
+                  columns={props.columns}
+                  theme={props.theme}
+                  selectedElementsIds={selectedElementsIds}
+                  element={element}
+                  selectableElements={props.selectableElements}
+                  handleCheckboxClick={handleCheckboxClick}
+                />
               );
             })}
           </tbody>
@@ -281,7 +255,7 @@ interface ITableColumnResizer {
   id: number;
 }
 
-const TableColumnResizer = (props: ITableColumnResizer) => {
+export const TableColumnResizer = (props: ITableColumnResizer) => {
   return (
     <ColumnResizer
       disabled={false}

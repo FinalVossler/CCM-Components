@@ -78,6 +78,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     "& input": {
       borderColor: theme.textDanger,
       color: theme.textDanger,
+      boxSizing: "border-box",
 
       borderWidth: 2,
       "&:focus": {
@@ -133,6 +134,38 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     extend: "error",
     top: 4,
     right: 70,
+  },
+  pickersContainer: {
+    display: "flex",
+    alignItems: "center",
+    gap: 4,
+    width: "100%",
+
+    "& >div": {},
+
+    "& .react-datepicker__tab-loop": {
+      position: "absolute",
+    },
+
+    "& .react-datepicker": {
+      display: "flex",
+    },
+
+    "& .react-datepicker__day": {
+      "&:hover": {
+        color: theme.textReverse,
+      },
+    },
+
+    "& .react-datepicker__day--selected": {
+      color: theme.textReverse,
+      backgroundColor: theme.textMajor,
+    },
+
+    "& .react-datepicker__time-list-item--selected": {
+      color: theme.textReverse + "!important",
+      backgroundColor: theme.textMajor + "!important",
+    },
   },
 }));
 

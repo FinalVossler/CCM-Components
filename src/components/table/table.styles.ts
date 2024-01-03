@@ -52,7 +52,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     overflow: "auto",
     marginTop: 30,
   },
-  tableRow: {
+  tableSearchRow: {
     height: 48,
     borderBottom: "1px solid " + theme.textMajor,
 
@@ -65,19 +65,6 @@ const useStyles = createUseStyles((theme: ITheme) => ({
 
     "& .column_resizer_own_class:last-child": {
       border: "none",
-    },
-  },
-  tableLastRow: {
-    extend: "tableRow",
-    borderBottom: "none",
-  },
-  tableSelectedRow: {
-    extend: "tableRow",
-    backgroundColor: theme.textMajor,
-    color: theme.textMinor,
-
-    "& .column_resizer_own_class": {
-      borderRight: "1px solid transparent",
     },
   },
   tableColumn: {

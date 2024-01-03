@@ -70,3 +70,50 @@ export const WithoutLabelButWithError: Story = {
     error: "Error message",
   },
 };
+
+export const DateRange: Story = {
+  args: {
+    label: "Date de fin de cible",
+    placeholder: "fin cible",
+    theme,
+    showTimeSelect: false,
+    isARangePicker: true,
+  },
+};
+
+export const DateRangeWithTime: Story = {
+  args: {
+    label: "Résolution estimée",
+    placeholder: "estimation",
+    theme,
+    showTimeSelect: true,
+    isARangePicker: true,
+  },
+};
+
+export const DateRangeWithError: Story = {
+  args: {
+    label: "Résolution estimée",
+    placeholder: "estimation",
+    theme,
+    error: "Error message",
+    isARangePicker: true,
+  },
+};
+
+export const DateRangeWithoutLabel: Story = {
+  args: {
+    placeholder: "estimation",
+    theme,
+    isARangePicker: true,
+  },
+};
+
+export const DateRangeWithoutLabelButWithError: Story = {
+  args: {
+    placeholder: "estimation",
+    theme,
+    error: "Error message",
+    isARangePicker: true,
+  },
+};
