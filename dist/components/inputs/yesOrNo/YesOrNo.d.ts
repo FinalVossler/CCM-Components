@@ -9,6 +9,7 @@ interface IYesOrNoProps {
     minWidth?: string;
     maxWidth?: string;
     error?: string;
+    onChange?: (value: boolean) => void;
 }
 declare const _default: React.NamedExoticComponent<IYesOrNoProps>;
 export default _default;

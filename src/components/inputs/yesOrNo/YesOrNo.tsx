@@ -14,6 +14,7 @@ interface IYesOrNoProps {
   minWidth?: string;
   maxWidth?: string;
   error?: string;
+  onChange?: (value: boolean) => void;
 }
 
 const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
@@ -31,13 +32,23 @@ const YesOrNo: React.FunctionComponent<IYesOrNoProps> = (
     if (newValue && isNoChecked) {
       setIsNoChecked(false);
     }
+
+    if (props.onChange) {
+      props.onChange(newValue);
+    }
   };
 
   const handleNoClick = () => {
+    let newYesValue: boolean = isYesChecked;
     const newValue: boolean = !isNoChecked;
     setIsNoChecked(newValue);
     if (newValue && isYesChecked) {
       setIsYesChecked(false);
+      newYesValue = false;
+    }
+
+    if (props.onChange) {
+      props.onChange(newYesValue);
     }
   };
 
