@@ -11,5 +11,5 @@ export interface IModalProps extends React.PropsWithChildren {
     confirmText?: string;
     theme?: ITheme;
 }
-declare const _default: React.MemoExoticComponent<(props: IModalProps) => React.JSX.Element>;
+declare const _default: React.NamedExoticComponent<IModalProps>;
 export default _default;

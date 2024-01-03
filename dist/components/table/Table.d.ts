@@ -42,5 +42,9 @@ export interface ITableProps<T extends ITableElement> {
     height?: number;
     containedProps?: IContainedTableProps;
 }
-declare const _default: React.MemoExoticComponent<(props: ITableProps<any>) => React.JSX.Element>;
+interface ITableColumnResizer {
+    id: number;
+}
+export declare const TableColumnResizer: (props: ITableColumnResizer) => React.JSX.Element;
+declare const _default: React.NamedExoticComponent<ITableProps<any>>;
 export default _default;
