@@ -72,7 +72,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     maxWidth: "initial",
     marginTop: 0,
     marginLeft: 0,
-    zIndex: 1,
+    zIndex: 100,
 
     "& $activeEmailBoxTitleAndIcons": {
       borderRadius: 0,
