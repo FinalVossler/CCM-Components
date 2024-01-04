@@ -1,10 +1,9 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { ITheme, theme } from "ccmtypes";
 
 import useStyles from "./modal.styles";
 import { useTheme } from "react-jss";
 import withThemeProvider from "../../hoc/withThemeProvider";
-import CrossIcon from "../icons/CrossIcon";
 import Button from "../button";
 import { ButtonTypeEnum } from "../button/Button";
 import ClearIcon from "../icons/ClearIcon";
@@ -21,6 +20,7 @@ export interface IModalProps extends React.PropsWithChildren {
   confirmText?: string;
 
   theme?: ITheme;
+  children: ReactNode;
 }
 
 const Modal: React.FunctionComponent<IModalProps> = (props: IModalProps) => {

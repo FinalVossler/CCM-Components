@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { ITheme, theme } from "ccmtypes";
 import { useTheme } from "react-jss";
 
@@ -7,6 +7,7 @@ import withThemeProvider from "../../hoc/withThemeProvider";
 
 export interface IAsideProps extends React.PropsWithChildren {
   theme?: ITheme;
+  children?: ReactNode;
 }
 
 const Aside: React.FunctionComponent<IAsideProps> = (props: IAsideProps) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { ITheme, theme } from "ccmtypes";
 import { useTheme } from "react-jss";
 
@@ -9,6 +9,7 @@ import ShowHideIndicator from "../showHideIndicator";
 export interface ISectionProps extends React.PropsWithChildren {
   title: string;
   theme?: ITheme;
+  children: ReactNode;
 }
 
 const Section: React.FunctionComponent<ISectionProps> = (

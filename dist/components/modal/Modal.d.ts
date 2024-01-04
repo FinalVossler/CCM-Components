@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { ITheme } from "ccmtypes";
 export interface IModalProps extends React.PropsWithChildren {
     title: string;
@@ -10,6 +10,7 @@ export interface IModalProps extends React.PropsWithChildren {
     cancelText?: string;
     confirmText?: string;
     theme?: ITheme;
+    children: ReactNode;
 }
 declare const _default: React.NamedExoticComponent<IModalProps>;
 export default _default;
