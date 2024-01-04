@@ -13,6 +13,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     borderRadius: 5,
     position: "relative",
     fontFamily: "Open Sans Regular",
+    boxSizing: "border-box",
   },
   erroredYesOrNotContainer: {
     "& $label": {
