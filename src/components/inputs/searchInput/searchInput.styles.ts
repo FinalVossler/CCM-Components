@@ -37,7 +37,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     display: "flex",
     alignItems: "center",
     color: theme.textReverse,
-    padding: 10,
+    padding: 4,
     backgroundColor: theme.textMajor,
     width: "100%",
     borderRadius: 8,
@@ -49,7 +49,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   singleSearchOption: {
     display: "flex",
     alignItems: "center",
-    margin: "3px 5px",
+    margin: "2px 5px",
   },
   searchOptionCheckbox: {
     cursor: "pointer",

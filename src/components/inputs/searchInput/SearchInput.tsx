@@ -157,7 +157,7 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
             ...styles,
             backgroundColor: "#353739",
             marginTop:
-              props.searchOptions && props.searchOptions.length > 0 ? 50 : 0,
+              props.searchOptions && props.searchOptions.length > 0 ? 38 : 0,
           }),
           singleValue: (styles) => ({
             ...styles,
