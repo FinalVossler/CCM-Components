@@ -31,6 +31,7 @@ export interface ISearchInputProps {
   onSearchOptionsChanges?: (
     newSelectedSearchOptions: ISearchInputSearchOptions[]
   ) => void;
+  noOptionMessage?: string;
 }
 
 const animatedComponents = makeAnimated();
@@ -122,6 +123,7 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
         placeholder={props.placeholder}
         onChange={handleOnChange}
         value={selectedOption}
+        noOptionsMessage={() => props.noOptionMessage || "No Options"}
         styles={{
           control: (styles, { isFocused }) => {
             return {

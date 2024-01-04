@@ -18,6 +18,7 @@ export interface ISearchInputProps {
     selectedSearchOptions?: ISearchInputSearchOptions[];
     searchOptions?: ISearchInputSearchOptions[];
     onSearchOptionsChanges?: (newSelectedSearchOptions: ISearchInputSearchOptions[]) => void;
+    noOptionMessage?: string;
 }
 declare const _default: React.NamedExoticComponent<ISearchInputProps>;
 export default _default;
