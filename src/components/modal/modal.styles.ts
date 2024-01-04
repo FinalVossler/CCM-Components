@@ -40,6 +40,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     justifyContent: "space-between",
     alignItems: "center",
     padding: 32,
+    paddingBottom: 10,
   },
   contentContainer: {
     padding: 32,

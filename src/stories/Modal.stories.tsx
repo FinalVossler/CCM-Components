@@ -34,6 +34,8 @@ export const Default: Story = {
       title: "Vous êtes sur le point de clôturer la réclamation",
       cancelText: "Annuler",
       confirmText: "Valider",
+      //@ts-ignore
+      children: () => null,
     },
   },
 };
