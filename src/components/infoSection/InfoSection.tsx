@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { ITheme, theme } from "ccmtypes";
 
 import useStyles from "./infoSection.styles";
@@ -7,6 +7,7 @@ import withThemeProvider from "../../hoc/withThemeProvider";
 
 export interface IInfoProps extends React.PropsWithChildren {
   theme?: ITheme;
+  children?: ReactNode;
 }
 
 const InfoSection: React.FunctionComponent<IInfoProps> = (
