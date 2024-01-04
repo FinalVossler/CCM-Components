@@ -15,7 +15,7 @@ export interface IDatePickerProps {
   theme?: ITheme;
   showTimeSelect?: boolean;
   value?: Date | Date[];
-  onChange?: (date: Date) => void;
+  onChange?: (date: Date | Date[]) => void;
   minWidth?: string;
   maxWidth?: string;
   error?: string;
