@@ -7,6 +7,13 @@ import makeAnimated from "react-select/animated";
 import useStyles from "./searchInput.styles";
 import withThemeProvider from "../../../hoc/withThemeProvider";
 import SearchIcon from "../../icons/SearchIcon";
+import useOnClickOutside from "../../../hooks/useOnClickOutside";
+
+export interface ISearchInputSearchOptions {
+  label: string;
+  checked: boolean;
+  name: string;
+}
 
 export interface ISearchInputOption {
   value: string;
@@ -19,6 +26,11 @@ export interface ISearchInputProps {
   theme?: ITheme;
   onSelect?: (option: ISearchInputOption) => void;
   isLoading?: boolean;
+  selectedSearchOptions?: ISearchInputSearchOptions[];
+  searchOptions?: ISearchInputSearchOptions[];
+  onSearchOptionsChanges?: (
+    newSelectedSearchOptions: ISearchInputSearchOptions[]
+  ) => void;
 }
 
 const animatedComponents = makeAnimated();
@@ -27,19 +39,71 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
   props: ISearchInputProps
 ) => {
   const [selectedOption, setSelectedOption] = React.useState(null);
+  const [selectedSearchOptions, setSelectedSearchOptions] = React.useState<
+    ISearchInputSearchOptions[]
+  >(props.selectedSearchOptions || []);
+  const [searchOptionsShown, setSearchOptionsShown] =
+    React.useState<boolean>(false);
 
+  const searchInputContainerRef: React.MutableRefObject<HTMLDivElement> =
+    React.useRef<HTMLDivElement>(null);
   const theme: ITheme = useTheme();
   const styles = useStyles({ theme: props.theme || theme });
+
+  React.useEffect(() => {
+    if (
+      props.onSearchOptionsChanges &&
+      JSON.stringify(props.selectedSearchOptions) !==
+        JSON.stringify(selectedSearchOptions)
+    ) {
+      props.onSearchOptionsChanges(selectedSearchOptions);
+    }
+  }, [selectedSearchOptions]);
+
+  React.useEffect(() => {
+    if (
+      props.selectedSearchOptions &&
+      JSON.stringify(props.selectedSearchOptions) !==
+        JSON.stringify(selectedSearchOptions)
+    ) {
+      setSelectedSearchOptions(props.selectedSearchOptions);
+    }
+  }, [props.selectedSearchOptions]);
+
+  useOnClickOutside(searchInputContainerRef, () =>
+    setSearchOptionsShown(false)
+  );
 
   const handleOnChange = (option) => {
     if (props.onSelect) {
       props.onSelect(option);
     }
   };
+  const handleSelectOrUnselectSearchOption = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (e.target.checked) {
+      setSelectedSearchOptions(
+        selectedSearchOptions.filter((el) => el.name !== e.target.name)
+      );
+    } else {
+      if (!selectedSearchOptions.find((el) => el.name === e.target.name)) {
+        setSelectedSearchOptions([
+          ...selectedSearchOptions,
+          props.searchOptions.find((el) => el.name === e.target.name),
+        ]);
+      }
+    }
+  };
+  const handleOnFocus = () => {
+    setSearchOptionsShown(true);
+  };
+
   return (
-    <div className={styles.searchInputContainer}>
+    <div className={styles.searchInputContainer} ref={searchInputContainerRef}>
       <SearchIcon className={styles.searchIcon} />
       <Select
+        onFocus={handleOnFocus}
         isLoading={props.isLoading}
         components={animatedComponents}
         options={props.options}
@@ -78,6 +142,8 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
           menu: (styles) => ({
             ...styles,
             backgroundColor: "#353739",
+            marginTop:
+              props.searchOptions && props.searchOptions.length > 0 ? 50 : 0,
           }),
           singleValue: (styles) => ({
             ...styles,
@@ -121,6 +187,24 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
           }),
         }}
       />
+
+      {props.searchOptions &&
+        props.searchOptions.length > 0 &&
+        searchOptionsShown && (
+          <div className={styles.searchOptionsContainer}>
+            {props.searchOptions.map((searchOption, optionIndex) => (
+              <div className={styles.singleSearchOption} key={optionIndex}>
+                <span>{searchOption.label}</span>
+                <input
+                  type="checkbox"
+                  name={searchOption.name}
+                  onChange={handleSelectOrUnselectSearchOption}
+                  className={styles.searchOptionCheckbox}
+                />
+              </div>
+            ))}
+          </div>
+        )}
     </div>
   );
 };
