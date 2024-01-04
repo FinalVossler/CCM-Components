@@ -42,6 +42,9 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     width: "100%",
     borderRadius: 8,
     boxSizing: "border-box",
+    position: "absolute",
+    top: 32,
+    left: 0,
   },
   singleSearchOption: {
     display: "flex",
