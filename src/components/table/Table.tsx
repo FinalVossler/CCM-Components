@@ -66,7 +66,7 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
   const [selectedElementsIds, setSelectedElementsIds] = React.useState<
     (string | number)[]
   >([]);
-  const [tableIsShown, setTableIsShown] = React.useState<boolean>(true);
+  const [tableIsShown, setTableIsShown] = React.useState<boolean>(false);
   //#endregion state
 
   //#region hooks

@@ -38,6 +38,7 @@ const animatedComponents = makeAnimated();
 const SearchInput: React.FunctionComponent<ISearchInputProps> = (
   props: ISearchInputProps
 ) => {
+  const [menuIsOpen, setMenuIsOpen] = React.useState<boolean>(false);
   const [selectedOption, setSelectedOption] = React.useState(null);
   const [selectedSearchOptions, setSelectedSearchOptions] = React.useState<
     ISearchInputSearchOptions[]
@@ -47,8 +48,14 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
 
   const searchInputContainerRef: React.MutableRefObject<HTMLDivElement> =
     React.useRef<HTMLDivElement>(null);
+  const selectorRef = React.useRef(null);
+
   const theme: ITheme = useTheme();
   const styles = useStyles({ theme: props.theme || theme });
+  useOnClickOutside(searchInputContainerRef, () => {
+    setSearchOptionsShown(false);
+    setMenuIsOpen(false);
+  });
 
   React.useEffect(() => {
     if (
@@ -70,15 +77,16 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
     }
   }, [props.selectedSearchOptions]);
 
-  useOnClickOutside(searchInputContainerRef, () =>
-    setSearchOptionsShown(false)
-  );
-
+  //#region events handlers
   const handleOnChange = (option) => {
     if (props.onSelect) {
       props.onSelect(option);
     }
+    setMenuIsOpen(false);
+    selectorRef.current.blur();
+    setSelectedOption(option);
   };
+
   const handleSelectOrUnselectSearchOption = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -96,13 +104,17 @@ const SearchInput: React.FunctionComponent<ISearchInputProps> = (
     }
   };
   const handleOnFocus = () => {
+    setMenuIsOpen(true);
     setSearchOptionsShown(true);
   };
+  //#endregion events handlers
 
   return (
     <div className={styles.searchInputContainer} ref={searchInputContainerRef}>
       <SearchIcon className={styles.searchIcon} />
       <Select
+        ref={selectorRef}
+        menuIsOpen={menuIsOpen}
         onFocus={handleOnFocus}
         isLoading={props.isLoading}
         components={animatedComponents}

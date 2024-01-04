@@ -5,5 +5,5 @@ export interface IInfoProps {
     title: string;
     value: string;
 }
-declare const _default: React.MemoExoticComponent<(props: IInfoProps) => React.JSX.Element>;
+declare const _default: React.NamedExoticComponent<IInfoProps>;
 export default _default;

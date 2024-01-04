@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { ITheme, theme } from "ccmtypes";
 
 import useStyles from "./info.styles";
