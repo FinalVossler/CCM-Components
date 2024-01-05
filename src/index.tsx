@@ -38,6 +38,7 @@ import { ITableContainerHeaderProps } from "./components/table/tableContainerHea
 import Title from "./components/title/index";
 import EmailBoxes from "./components/emailBoxes/index";
 import Froala from "./components/editor/index";
+import Textarea from "./components/textarea/index";
 import {
   EmailBoxViewTypeEnum,
   IEmailBox,
@@ -83,4 +84,5 @@ export {
   EmailBoxViewTypeEnum,
   IEmailBox,
   Froala,
+  Textarea,
 };
