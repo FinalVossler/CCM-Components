@@ -33,5 +33,6 @@ import { ITableContainerHeaderProps } from "./components/table/tableContainerHea
 import Title from "./components/title/index";
 import EmailBoxes from "./components/emailBoxes/index";
 import Froala from "./components/editor/index";
+import Textarea from "./components/textarea/index";
 import { EmailBoxViewTypeEnum, IEmailBox } from "./components/emailBoxes/EmailBoxes";
-export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, ButtonTypeEnum, Table, ITableColumn, ITableContainerHeaderProps, ITableElement, ITableFilterProps, TableFilterTypeEnum, Status, StatusTypeEnum, SideBar, InfoBanner, InfoBannerTypeEnum, Tabs, MoreButtons, MoreButtonsDotsTypeEnum, CCMIcon, SelectedAddresses, SearchInput, Header, ModalButton, Modal, Info, InfoSection, ProfilePicture, ShowHideIndicator, Section, Aside, CCMIcons, Title, EmailBoxes, EmailBoxViewTypeEnum, IEmailBox, Froala, };
+export { Input, FormSection, YesOrNo, DatePicker, Selector, Button, ButtonTypeEnum, Table, ITableColumn, ITableContainerHeaderProps, ITableElement, ITableFilterProps, TableFilterTypeEnum, Status, StatusTypeEnum, SideBar, InfoBanner, InfoBannerTypeEnum, Tabs, MoreButtons, MoreButtonsDotsTypeEnum, CCMIcon, SelectedAddresses, SearchInput, Header, ModalButton, Modal, Info, InfoSection, ProfilePicture, ShowHideIndicator, Section, Aside, CCMIcons, Title, EmailBoxes, EmailBoxViewTypeEnum, IEmailBox, Froala, Textarea, };
