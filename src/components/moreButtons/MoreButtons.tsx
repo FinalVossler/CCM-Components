@@ -109,6 +109,7 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
                 label={button.text}
                 buttonType={ButtonTypeEnum.Default}
                 withoutBorder
+                onClick={button.onClick}
               ></Button>
             );
           })}

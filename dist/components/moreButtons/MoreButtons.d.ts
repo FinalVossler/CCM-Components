@@ -16,5 +16,5 @@ export interface IMoreButtonProps {
     style?: React.CSSProperties;
     type?: MoreButtonsDotsTypeEnum;
 }
-declare const _default: React.MemoExoticComponent<(props: IMoreButtonProps) => React.JSX.Element>;
+declare const _default: React.NamedExoticComponent<IMoreButtonProps>;
 export default _default;
