@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { ITheme, theme } from "ccmtypes";
 
 import useStyles from "./textarea.styles";
@@ -9,6 +9,7 @@ export interface ITextareProps {
   theme?: ITheme;
   textareaProps?: React.TextareaHTMLAttributes<HTMLTextAreaElement>;
   label?: string;
+  minWidth?: string;
 }
 
 const Textarea: React.FunctionComponent<ITextareProps> = (
@@ -18,7 +19,10 @@ const Textarea: React.FunctionComponent<ITextareProps> = (
   const styles = useStyles({ theme: props.theme || theme });
 
   return (
-    <div className={styles.textareaContainer}>
+    <div
+      className={styles.textareaContainer}
+      style={{ ...(props.minWidth ? { minWidth: props.minWidth } : {}) }}
+    >
       {props.label && <span className={styles.label}>{props.label}</span>}
       <textarea
         className={styles.textarea}
