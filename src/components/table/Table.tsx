@@ -147,7 +147,11 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
           ...(props.height
             ? { maxHeight: props.height, overflowY: "auto" }
             : {}),
-          display: tableIsShown ? "block" : "none",
+          display: tableIsShown
+            ? "block"
+            : props.containedProps
+            ? "none"
+            : "block",
         }}
       >
         <table
