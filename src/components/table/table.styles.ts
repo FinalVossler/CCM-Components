@@ -35,6 +35,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   tableHeaderColumn: {
     height: "100%",
     fontSize: 13,
+    whiteSpace: "nowrap",
   },
   tableHeaderColumnTitle: {
     borderRight: "2px solid " + theme.textMinor,
@@ -42,6 +43,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     textAlign: "start",
     display: "block",
     paddingLeft: 18,
+    paddingRight: 18,
   },
   tableHeaderLastColumnTitle: {
     extend: "tableHeaderColumnTitle",

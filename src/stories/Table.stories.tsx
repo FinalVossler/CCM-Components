@@ -13,6 +13,7 @@ import ClearIcon from "../components/icons/ClearIcon";
 import PlusIcon from "../components/icons/PlusIcon";
 import { MoreButtonsDotsTypeEnum } from "../components/moreButtons/MoreButtons";
 import { ButtonTypeEnum } from "../components/button/Button";
+import { CCMIcons } from "..";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -602,5 +603,208 @@ export const WithSearchAndFilters: Story = {
         data
       ),
     theme,
+  },
+};
+
+export interface IRequest {
+  title: string;
+  lastMailOrSwiftId: number;
+  ownerEmployeeId: number;
+  clientName: string;
+  reference: string;
+  requesterFullName: string;
+  requestTypeId: number;
+  statusId: number;
+  priorityId: number;
+  groupbingIndicator: string;
+  escalationsCount: number;
+  amount: number;
+  creationDate: string;
+  otherReference: string;
+  genericEmailAddressId: number;
+}
+
+const requestColumns: ITableColumn<IRequest>[] = [
+  {
+    name: "title",
+    title: "Titre",
+  },
+  {
+    name: "lastMailOrSwiftId",
+    title: "Dernier Mail ou Swift",
+  },
+  {
+    name: "ownerEmployeeId",
+    title: "Collaborateur",
+  },
+  {
+    name: "clientName",
+    title: "Nom des clients",
+  },
+  {
+    name: "reference",
+    title: "Référence interne",
+  },
+  {
+    name: "requesterFullName",
+    title: "Demandeur",
+  },
+  {
+    name: "requestTypeId",
+    title: "Type de la demande",
+  },
+  {
+    name: "statusId",
+    title: "Statut",
+  },
+  {
+    name: "priorityId",
+    title: "Priorité",
+  },
+  {
+    name: "groupingIndicator",
+    title: "Indicateur de groupe",
+  },
+  {
+    name: "escalationsCount",
+    title: "Escalade",
+  },
+  {
+    name: "amount",
+    title: "Montant",
+  },
+  {
+    name: "creationDate",
+    title: "Ouverte depuis",
+  },
+  {
+    name: "otherReference",
+    title: "Autre référence",
+  },
+  {
+    name: "genericEmailAddressId",
+    title: "Boite générique",
+  },
+];
+
+const requests: IRequest[] = Array.from({ length: 10 }).map((_, i) => ({
+  title: "Request " + i,
+  amount: Math.random() * 100,
+  clientName: "Client " + i,
+  creationDate: new Date().toString(),
+  escalationsCount: Math.floor(Math.random() * 100),
+  genericEmailAddressId: 10,
+  groupbingIndicator: "Grouping",
+  lastMailOrSwiftId: Math.floor(Math.random() * 10000),
+  otherReference: "Other reference",
+  ownerEmployeeId: Math.floor(Math.random() * 100000),
+  priorityId: Math.floor(Math.random() * 100000),
+  reference: "Reference",
+  requesterFullName: "Hamza Khalifa",
+  requestTypeId: Math.floor(Math.random() * 100000),
+  statusId: Math.floor(Math.random() * 100000),
+}));
+
+export const WithRealProps: Story = {
+  args: {
+    theme: theme,
+    selectableElements: true,
+    columns: requestColumns,
+    height: 350,
+    data: requests,
+    containedProps: {
+      title: "Demandes",
+      isContained: true,
+      searchInputProps: {
+        options: [],
+        placeholder: "Rechercher une demande",
+      },
+      buttonProps: [
+        {
+          label: "Nouvelle demande",
+          buttonType: ButtonTypeEnum.Confirm,
+          withoutBorder: true,
+          prefixIcon: (props) => <CCMIcons.PlusIcon {...props} />,
+          onClick: () => {},
+        },
+      ],
+      filtersText: "Filtrer par:",
+      filtersInputsProps: [
+        {
+          filterType: TableFilterTypeEnum.DatePicker,
+          datePickerInputProps: {
+            placeholder: "Date de début",
+            maxWidth: "200px",
+            minWidth: "50px",
+          },
+        },
+        {
+          filterType: TableFilterTypeEnum.Selector,
+          selectorInputProps: {
+            placeholder: "Status",
+            maxWidth: "130px",
+            minWidth: "50px",
+            options: [
+              { value: "option1", label: "Option 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3 " },
+            ],
+          },
+        },
+        {
+          filterType: TableFilterTypeEnum.Selector,
+          selectorInputProps: {
+            placeholder: "Types",
+            maxWidth: "130px",
+            minWidth: "50px",
+            options: [
+              { value: "option1", label: "Option 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3 " },
+            ],
+          },
+        },
+        {
+          filterType: TableFilterTypeEnum.Selector,
+          selectorInputProps: {
+            placeholder: "Catégories",
+            maxWidth: "140px",
+            minWidth: "50px",
+            options: [
+              { value: "option1", label: "Long wounded category 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3 " },
+            ],
+          },
+        },
+        {
+          filterType: TableFilterTypeEnum.Selector,
+          selectorInputProps: {
+            placeholder: "Clients",
+            maxWidth: "130px",
+            minWidth: "50px",
+            options: [
+              { value: "option1", label: "Option 1" },
+              { value: "option2", label: "Option 2" },
+              { value: "option3", label: "Option 3 " },
+            ],
+          },
+        },
+
+        {
+          filterType: TableFilterTypeEnum.Selector,
+          selectorInputProps: {
+            placeholder: "Mes demandes",
+            maxWidth: "200px",
+            minWidth: "50px",
+            options: [
+              { value: "option1", label: "CCM2323332" },
+              { value: "option2", label: "CCM2323332" },
+              { value: "option3", label: "CCM2323332 " },
+            ],
+          },
+        },
+      ],
+    },
   },
 };

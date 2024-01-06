@@ -5,6 +5,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   tableRow: {
     height: 48,
     borderBottom: "1px solid " + theme.textMajor,
+    whiteSpace: "nowrap",
 
     "& .column_resizer_own_class": {
       borderRight: "1px solid transparent",
