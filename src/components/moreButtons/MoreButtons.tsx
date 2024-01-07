@@ -81,6 +81,7 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
   const handleClickButton =
     (button: IMoreButtonsButton) =>
     (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.stopPropagation();
       setButtonsShowing(false);
       if (button.onClick) {
         button.onClick(e);
@@ -90,10 +91,11 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
   return (
     <div
       className={styles.moreButtonsContainer}
+      onClick={handleShowButtons}
       {...(props.style ? { style: props.style } : {})}
     >
       {(!props.type || props.type === MoreButtonsDotsTypeEnum.Horizontal) && (
-        <span ref={dotsRef} onClick={handleShowButtons} className={styles.dots}>
+        <span ref={dotsRef} className={styles.dots}>
           {"...".trim()}
         </span>
       )}
