@@ -1,5 +1,6 @@
 import React from "react";
 import { ITheme, theme } from "ccmtypes";
+import { Tooltip } from "react-tooltip";
 
 import useStyles from "./moreButtons.styles";
 import { useTheme } from "react-jss";
@@ -26,6 +27,7 @@ export interface IMoreButtonProps {
   buttons: IMoreButtonsButton[];
   style?: React.CSSProperties;
   type?: MoreButtonsDotsTypeEnum;
+  tooltipMessage?: string;
 }
 
 const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
@@ -92,6 +94,12 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
     <div
       className={styles.moreButtonsContainer}
       onClick={handleShowButtons}
+      {...(props.tooltipMessage
+        ? {
+            "data-tooltip-id": props.tooltipMessage,
+            "data-tooltip-content": props.tooltipMessage,
+          }
+        : {})}
       {...(props.style ? { style: props.style } : {})}
     >
       {(!props.type || props.type === MoreButtonsDotsTypeEnum.Horizontal) && (
@@ -125,6 +133,8 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
           })}
         </div>
       )}
+
+      {props.tooltipMessage && <Tooltip id={props.tooltipMessage} />}
     </div>
   );
 };

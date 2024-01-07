@@ -1,5 +1,6 @@
 import React from "react";
 import { ITheme, theme } from "ccmtypes";
+import { Tooltip } from "react-tooltip";
 
 import useStyles from "./sideBar.styles";
 import { useTheme } from "react-jss";
@@ -73,7 +74,11 @@ const SideBar: React.FunctionComponent<ISideBarProps> = (
                     className={styles.sideBarOptionContainer}
                     {...(option.onClick ? { onClick: option.onClick } : {})}
                   >
-                    <div className={styles.sideBarOption}>
+                    <div
+                      data-tooltip-id={"optionTooltip" + option.title}
+                      data-tooltip-content={option.title}
+                      className={styles.sideBarOption}
+                    >
                       <option.icon className={styles.sideBarIcon} />
                       <span className={styles.sideBarOptionTitle}>
                         {option.title}
@@ -86,6 +91,15 @@ const SideBar: React.FunctionComponent<ISideBarProps> = (
           );
         })}
       </div>
+
+      {!isOpen &&
+        props.sideBarSections
+          .reduce((acc, section) => acc.concat(section.options), [])
+          .map((option: ISideBarOption) => {
+            return (
+              <Tooltip id={"optionTooltip" + option.title} place="right" />
+            );
+          })}
     </React.Fragment>
   );
 };

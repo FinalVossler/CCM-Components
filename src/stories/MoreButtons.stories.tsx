@@ -170,3 +170,30 @@ export const Vertical: Story = {
     ],
   },
 };
+
+export const TopLeftWithTooltip: Story = {
+  args: {
+    theme,
+    tooltipMessage: "This is the tooltip content",
+    buttons: [
+      {
+        icon: (props) => (
+          <CrossIcon {...props} style={{ position: "relative", top: 2 }} />
+        ),
+        text: "Annuler la demande",
+      },
+      {
+        icon: (props) => (
+          <MergeIcon {...props} style={{ position: "relative", top: 2 }} />
+        ),
+        text: "Fusionner",
+      },
+      {
+        icon: (props) => (
+          <DuplicateIcon {...props} style={{ position: "relative", top: 2 }} />
+        ),
+        text: "Dupliquer",
+      },
+    ],
+  },
+};

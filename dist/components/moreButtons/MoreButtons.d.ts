@@ -15,6 +15,7 @@ export interface IMoreButtonProps {
     buttons: IMoreButtonsButton[];
     style?: React.CSSProperties;
     type?: MoreButtonsDotsTypeEnum;
+    tooltipMessage?: string;
 }
 declare const _default: React.NamedExoticComponent<IMoreButtonProps>;
 export default _default;

@@ -1,6 +1,6 @@
 {
   "name": "ccmcomponents",
-  "version": "1.0.83",
+  "version": "1.0.84",
   "description": "",
   "keywords": [],
   "author": "Hamza Khalifa",
@@ -69,6 +69,7 @@
     "react-dropzone": "^14.2.3",
     "react-jss": "^10.10.0",
     "react-select": "^5.8.0",
-    "react-table-column-resizer": "^1.2.3"
+    "react-table-column-resizer": "^1.2.3",
+    "react-tooltip": "^5.25.1"
   }
 }

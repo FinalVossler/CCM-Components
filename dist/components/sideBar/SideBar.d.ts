@@ -15,5 +15,5 @@ export interface ISideBarProps {
     theme?: ITheme;
     sideBarSections: ISideBarSection[];
 }
-declare const _default: React.MemoExoticComponent<(props: ISideBarProps) => React.JSX.Element>;
+declare const _default: React.NamedExoticComponent<ISideBarProps>;
 export default _default;
