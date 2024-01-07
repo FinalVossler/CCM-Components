@@ -18,6 +18,7 @@ export enum EmailBoxViewTypeEnum {
 export interface IEmailBox {
   viewType: EmailBoxViewTypeEnum;
   title: string;
+  id?: string;
 }
 
 export interface IEmailBoxesProps {
@@ -26,6 +27,7 @@ export interface IEmailBoxesProps {
   sendEmailButtonProps: IButtonProps;
   newEmailBoxTitle: string;
   EmailFormComponent: React.FunctionComponent<any>;
+  onRemoveBox?: (box: IEmailBox) => void;
 }
 
 const EmailBoxes: React.FunctionComponent<IEmailBoxesProps> = (
@@ -54,11 +56,14 @@ const EmailBoxes: React.FunctionComponent<IEmailBoxesProps> = (
     const newBoxes = [...boxes];
     newBoxes.splice(boxIndex, 1);
     setBoxes(newBoxes);
+    if (props.onRemoveBox) {
+      props.onRemoveBox(boxes[boxIndex]);
+    }
   };
 
-  const handleAddNewBox = () => {
+  const handleAddNewBox = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (props.sendEmailButtonProps.onClick) {
-      props.sendEmailButtonProps.onClick();
+      props.sendEmailButtonProps.onClick(e);
     } else {
       setBoxes([
         ...boxes,

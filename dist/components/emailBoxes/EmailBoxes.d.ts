@@ -9,6 +9,7 @@ export declare enum EmailBoxViewTypeEnum {
 export interface IEmailBox {
     viewType: EmailBoxViewTypeEnum;
     title: string;
+    id?: string;
 }
 export interface IEmailBoxesProps {
     theme?: ITheme;
@@ -16,6 +17,7 @@ export interface IEmailBoxesProps {
     sendEmailButtonProps: IButtonProps;
     newEmailBoxTitle: string;
     EmailFormComponent: React.FunctionComponent<any>;
+    onRemoveBox?: (box: IEmailBox) => void;
 }
 declare const _default: React.NamedExoticComponent<IEmailBoxesProps>;
 export default _default;
