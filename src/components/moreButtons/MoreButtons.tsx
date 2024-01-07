@@ -1,6 +1,6 @@
 import React from "react";
 import { ITheme, theme } from "ccmtypes";
-import { Tooltip } from "react-tooltip";
+import { PlacesType, Tooltip } from "react-tooltip";
 
 import useStyles from "./moreButtons.styles";
 import { useTheme } from "react-jss";
@@ -28,6 +28,7 @@ export interface IMoreButtonProps {
   style?: React.CSSProperties;
   type?: MoreButtonsDotsTypeEnum;
   tooltipMessage?: string;
+  toolTipPosition?: PlacesType;
 }
 
 const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
@@ -135,7 +136,10 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
       )}
 
       {props.tooltipMessage && (
-        <Tooltip id={props.tooltipMessage.replace(/[\s, ']/g, "")} />
+        <Tooltip
+          id={props.tooltipMessage.replace(/[\s, ']/g, "")}
+          {...(props.toolTipPosition ? { place: props.toolTipPosition } : {})}
+        />
       )}
     </div>
   );
