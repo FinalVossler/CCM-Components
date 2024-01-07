@@ -96,7 +96,7 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
       onClick={handleShowButtons}
       {...(props.tooltipMessage
         ? {
-            "data-tooltip-id": props.tooltipMessage,
+            "data-tooltip-id": props.tooltipMessage.replace(/[\s, ']/g, ""),
             "data-tooltip-content": props.tooltipMessage,
           }
         : {})}
@@ -134,7 +134,9 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
         </div>
       )}
 
-      {props.tooltipMessage && <Tooltip id={props.tooltipMessage} />}
+      {props.tooltipMessage && (
+        <Tooltip id={props.tooltipMessage.replace(/[\s, ']/g, "")} />
+      )}
     </div>
   );
 };

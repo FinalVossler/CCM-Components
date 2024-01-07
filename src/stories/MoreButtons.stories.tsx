@@ -148,6 +148,8 @@ export const Vertical: Story = {
   args: {
     theme,
     type: MoreButtonsDotsTypeEnum.Vertical,
+    tooltipMessage: "This is the tooltip content",
+
     buttons: [
       {
         icon: (props) => (
