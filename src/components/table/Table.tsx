@@ -14,6 +14,7 @@ import { IButtonProps } from "../button/Button";
 import { ISelectorProps } from "../inputs/selector/Selector";
 import { IDatePickerProps } from "../inputs/datePicker/DatePicker";
 import TableItemRow from "./tableItemRow";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 export interface ITableElement {
   id: string | number;
@@ -50,10 +51,12 @@ export interface IContainedTableProps {
 export interface ITableProps<T extends ITableElement> {
   theme?: ITheme;
   columns: ITableColumn<T>[];
+  shownColumns?: ITableColumn<T>[];
   data: T[];
   selectableElements?: boolean;
   height?: number;
   containedProps?: IContainedTableProps;
+  hideColumnText?: string;
 }
 
 const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
@@ -67,11 +70,21 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
     (string | number)[]
   >([]);
   const [tableIsShown, setTableIsShown] = React.useState<boolean>(false);
+  const [shownColumns, setShowColumns] = React.useState<ITableColumn<T>[]>([
+    ...(props.shownColumns || props.columns),
+  ]);
   //#endregion state
 
   //#region hooks
   const theme: ITheme = useTheme();
   const styles = useStyles({ theme: props.theme || theme });
+  const toggleColumnShown = (column: ITableColumn<T>) => {
+    if (shownColumns.find((el) => el.name === column.name)) {
+      setShowColumns(shownColumns.filter((el) => el.name !== column.name));
+    } else {
+      setShowColumns([...shownColumns, column]);
+    }
+  };
   //#endregion hooks
 
   //#region event listeners
@@ -120,6 +133,8 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
     };
 
   const handleTriggerShowTable = () => setTableIsShown(!tableIsShown);
+  const handleShownColumn = (column: ITableColumn<T>) => () =>
+    setShowColumns([...shownColumns, column]);
   //#endregion event listeners
 
   return (
@@ -154,6 +169,23 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
             : "block",
         }}
       >
+        <div className={styles.hiddenColumnsContainer}>
+          {props.columns.map((column, columnIndex) => {
+            if (shownColumns.find((el) => el.name === column.name)) {
+              return null;
+            } else {
+              return (
+                <span
+                  key={columnIndex}
+                  className={styles.hiddenColumn}
+                  onClick={handleShownColumn(column)}
+                >
+                  {column.title}
+                </span>
+              );
+            }
+          })}
+        </div>
         <table
           className={styles.tableContainer}
           cellSpacing="0"
@@ -179,23 +211,18 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
                   <TableColumnResizer id={-1} />
                 </React.Fragment>
               )}
-              {props.columns.map((column, columnIndex) => {
+              {shownColumns.map((column, columnIndex) => {
                 return (
-                  <React.Fragment key={columnIndex}>
-                    <th className={styles.tableHeaderColumn}>
-                      <span
-                        className={
-                          columnIndex === props.columns.length - 1
-                            ? styles.tableHeaderLastColumnTitle
-                            : styles.tableHeaderColumnTitle
-                        }
-                      >
-                        {column.title}
-                      </span>
-                    </th>
-
-                    <TableColumnResizer id={columnIndex} />
-                  </React.Fragment>
+                  <TableHeaderColum
+                    column={column}
+                    columnIndex={columnIndex}
+                    columns={props.columns}
+                    shownColumns={shownColumns}
+                    theme={theme}
+                    key={columnIndex}
+                    toggleColumnShown={toggleColumnShown}
+                    hideColumnText={props.hideColumnText}
+                  />
                 );
               })}
             </tr>
@@ -212,7 +239,7 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
                     />
                   </React.Fragment>
                 )}
-                {props.columns.map((column, columnIndex) => {
+                {shownColumns.map((column, columnIndex) => {
                   return (
                     <React.Fragment key={columnIndex}>
                       <td className={styles.tableSearchColumn}>
@@ -239,12 +266,13 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
                   data={props.data}
                   elementIndex={elementIndex}
                   handleTriggerSelectElement={handleTriggerSelectElement}
-                  columns={props.columns}
+                  columns={shownColumns}
                   theme={props.theme}
                   selectedElementsIds={selectedElementsIds}
                   element={element}
                   selectableElements={props.selectableElements}
                   handleCheckboxClick={handleCheckboxClick}
+                  key={elementIndex}
                 />
               );
             })}
@@ -255,14 +283,79 @@ const Table: React.FunctionComponent<ITableProps<ITableElement | any>> = <
   );
 };
 
+interface ITableHeaderColumn<T> {
+  columnIndex: number;
+  theme: ITheme;
+  columns: ITableColumn<T>[];
+  shownColumns: ITableColumn<T>[];
+  column: ITableColumn<T>;
+  toggleColumnShown: (column: ITableColumn<T>) => void;
+  hideColumnText?: string;
+}
+
+const TableHeaderColum: React.FunctionComponent<
+  ITableHeaderColumn<ITableElement>
+> = <T extends ITableElement>(props: ITableHeaderColumn<T>) => {
+  const [optionsAreShown, setOptionsAreShown] = React.useState<boolean>(false);
+
+  const optionsRef: React.MutableRefObject<HTMLTableHeaderCellElement> =
+    React.useRef<HTMLTableHeaderCellElement>(null);
+  const styles = useStyles({ theme: props.theme });
+
+  useOnClickOutside(optionsRef, () => setOptionsAreShown(false));
+
+  const handleToggleOptionsAreShown = (
+    e: React.MouseEvent<HTMLOrSVGElement>
+  ) => {
+    e.stopPropagation();
+    setOptionsAreShown((optionsAreShown) => !optionsAreShown);
+  };
+
+  const handleToggleColumnIsShown = () => {
+    props.toggleColumnShown(props.column);
+    setOptionsAreShown(false);
+  };
+
+  return (
+    <React.Fragment key={props.columnIndex}>
+      <th className={styles.tableHeaderColumn} ref={optionsRef}>
+        <span
+          onClick={handleToggleOptionsAreShown}
+          className={
+            props.columnIndex === props.shownColumns.length - 1
+              ? styles.tableHeaderLastColumnTitle
+              : styles.tableHeaderColumnTitle
+          }
+        >
+          {props.column.title}
+        </span>
+
+        {optionsAreShown && (
+          <div className={styles.tableHeaderColumnOptions}>
+            <span
+              className={styles.singleOption}
+              onClick={handleToggleColumnIsShown}
+            >
+              {props.hideColumnText || "Hide"}
+            </span>
+          </div>
+        )}
+      </th>
+
+      <TableColumnResizer id={props.columnIndex} />
+    </React.Fragment>
+  );
+};
+
 interface ITableColumnResizer {
   id: number;
+  disabled?: boolean;
 }
 
 export const TableColumnResizer = (props: ITableColumnResizer) => {
   return (
     <ColumnResizer
-      disabled={false}
+      disabled={Boolean(props.disabled)}
       maxWidth={null}
       id={props.id + 10000}
       resizeStart={() => {}}

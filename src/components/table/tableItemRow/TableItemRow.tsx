@@ -56,7 +56,7 @@ const ItemRow: React.FunctionComponent<IItemRow<ITableElement>> = <
             />
           </td>
 
-          <TableColumnResizer id={props.elementIndex - 10000} />
+          <TableColumnResizer id={props.elementIndex - 10000} disabled />
         </React.Fragment>
       )}
       {props.columns.map((column, columnIndex) => {
@@ -66,7 +66,7 @@ const ItemRow: React.FunctionComponent<IItemRow<ITableElement>> = <
               {(!column.render && props.element[column.name]) || ""}
               {column.render && <column.render element={props.element} />}
             </td>
-            <TableColumnResizer id={props.elementIndex + 10000} />
+            <TableColumnResizer id={props.elementIndex + 10000} disabled />
           </React.Fragment>
         );
       })}

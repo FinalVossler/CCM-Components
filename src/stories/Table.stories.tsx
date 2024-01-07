@@ -705,11 +705,12 @@ const requests: IRequest[] = Array.from({ length: 10 }).map((_, i) => ({
   statusId: Math.floor(Math.random() * 100000),
 }));
 
-export const WithRealProps: Story = {
+export const WithDefaultShownColumns: Story = {
   args: {
     theme: theme,
     selectableElements: true,
     columns: requestColumns,
+    shownColumns: requestColumns.slice(0, requestColumns.length / 2),
     height: 350,
     data: requests,
     containedProps: {

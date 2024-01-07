@@ -36,6 +36,25 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     height: "100%",
     fontSize: 13,
     whiteSpace: "nowrap",
+    position: "relative",
+  },
+  tableHeaderColumnOptions: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: theme.backgroundSurface,
+    width: 100,
+    color: theme.textMajor,
+    position: "absolute",
+    left: 18,
+    top: 40,
+    boxShadow: "1px 1px 10px 1px black",
+  },
+  singleOption: {
+    with: "100%",
+    cursor: "pointer",
+    backgroundColor: theme.textMajor,
+    color: theme.textReverse,
+    border: "1px solid " + theme.textReverse,
   },
   tableHeaderColumnTitle: {
     borderRight: "2px solid " + theme.textMinor,
@@ -43,7 +62,8 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     textAlign: "start",
     display: "block",
     paddingLeft: 18,
-    paddingRight: 18,
+    marginRight: 18,
+    cursor: "pointer",
   },
   tableHeaderLastColumnTitle: {
     extend: "tableHeaderColumnTitle",
@@ -78,6 +98,21 @@ const useStyles = createUseStyles((theme: ITheme) => ({
   tableSearchColumn: {
     extend: "tableColumn",
     paddingLeft: 0,
+  },
+
+  hiddenColumnsContainer: {
+    display: "flex",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  hiddenColumn: {
+    padding: 10,
+    backgroundColor: theme.backgroundSurface,
+    color: theme.textMajor,
+    border: "1px solid " + theme.borderDefaultMinor,
+    borderRadius: 8,
+    cursor: "pointer",
+    marginRight: 10,
   },
   checkbox: {
     border: "2px solid " + theme.textMinor,

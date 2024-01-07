@@ -37,13 +37,16 @@ export interface IContainedTableProps {
 export interface ITableProps<T extends ITableElement> {
     theme?: ITheme;
     columns: ITableColumn<T>[];
+    shownColumns?: ITableColumn<T>[];
     data: T[];
     selectableElements?: boolean;
     height?: number;
     containedProps?: IContainedTableProps;
+    hideColumnText?: string;
 }
 interface ITableColumnResizer {
     id: number;
+    disabled?: boolean;
 }
 export declare const TableColumnResizer: (props: ITableColumnResizer) => React.JSX.Element;
 declare const _default: React.NamedExoticComponent<ITableProps<any>>;
