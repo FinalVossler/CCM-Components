@@ -5,14 +5,14 @@ export declare enum MoreButtonsDotsTypeEnum {
     Vertical = "Vertical",
     Horizontal = "Horizontal"
 }
-interface IMoreButtonsButtons {
+interface IMoreButtonsButton {
     icon: React.FunctionComponent<IIconProps>;
     text: string;
-    onClick?: () => void;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 export interface IMoreButtonProps {
     theme?: ITheme;
-    buttons: IMoreButtonsButtons[];
+    buttons: IMoreButtonsButton[];
     style?: React.CSSProperties;
     type?: MoreButtonsDotsTypeEnum;
 }

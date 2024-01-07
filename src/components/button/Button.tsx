@@ -16,7 +16,7 @@ export interface IButtonProps {
   label: string;
   theme?: ITheme;
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   buttonType?: ButtonTypeEnum;
   prefixIcon?: React.FunctionComponent<IIconProps>;
   hoverPrefix?: React.FunctionComponent;

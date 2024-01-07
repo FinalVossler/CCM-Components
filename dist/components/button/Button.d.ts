@@ -10,12 +10,12 @@ export interface IButtonProps {
     label: string;
     theme?: ITheme;
     disabled?: boolean;
-    onClick?: () => void;
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     buttonType?: ButtonTypeEnum;
     prefixIcon?: React.FunctionComponent<IIconProps>;
     hoverPrefix?: React.FunctionComponent;
     withoutBorder?: boolean;
     style?: CSSProperties;
 }
-declare const _default: React.MemoExoticComponent<(props: IButtonProps) => React.JSX.Element>;
+declare const _default: React.NamedExoticComponent<IButtonProps>;
 export default _default;

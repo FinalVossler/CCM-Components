@@ -49,7 +49,7 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     paddingRight: 20,
     paddingTop: 5,
     paddingBottom: 5,
-    zIndex: 1,
+    zIndex: 2,
   },
 
   popupContainerTopRight: {

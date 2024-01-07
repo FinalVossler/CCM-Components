@@ -15,15 +15,15 @@ export enum MoreButtonsDotsTypeEnum {
   Horizontal = "Horizontal",
 }
 
-interface IMoreButtonsButtons {
+interface IMoreButtonsButton {
   icon: React.FunctionComponent<IIconProps>;
   text: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export interface IMoreButtonProps {
   theme?: ITheme;
-  buttons: IMoreButtonsButtons[];
+  buttons: IMoreButtonsButton[];
   style?: React.CSSProperties;
   type?: MoreButtonsDotsTypeEnum;
 }
@@ -78,6 +78,13 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
     setButtonsShowing(true);
   };
 
+  const handleClickButton =
+    (button: IMoreButtonsButton) =>
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      button.onClick(e);
+      setButtonsShowing(false);
+    };
+
   return (
     <div
       className={styles.moreButtonsContainer}
@@ -109,7 +116,7 @@ const MoreButton: React.FunctionComponent<IMoreButtonProps> = (
                 label={button.text}
                 buttonType={ButtonTypeEnum.Default}
                 withoutBorder
-                onClick={button.onClick}
+                onClick={handleClickButton(button)}
               ></Button>
             );
           })}
