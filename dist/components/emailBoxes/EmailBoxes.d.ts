@@ -16,7 +16,9 @@ export interface IEmailBoxesProps {
     boxes: IEmailBox[];
     sendEmailButtonProps: IButtonProps;
     newEmailBoxTitle: string;
-    EmailFormComponent: React.FunctionComponent<any>;
+    EmailFormComponent: React.FunctionComponent<{
+        emailBox: IEmailBox;
+    }>;
     onRemoveBox?: (box: IEmailBox) => void;
 }
 declare const _default: React.NamedExoticComponent<IEmailBoxesProps>;

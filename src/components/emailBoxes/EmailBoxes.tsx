@@ -26,7 +26,7 @@ export interface IEmailBoxesProps {
   boxes: IEmailBox[];
   sendEmailButtonProps: IButtonProps;
   newEmailBoxTitle: string;
-  EmailFormComponent: React.FunctionComponent<any>;
+  EmailFormComponent: React.FunctionComponent<{ emailBox: IEmailBox }>;
   onRemoveBox?: (box: IEmailBox) => void;
 }
 
@@ -101,7 +101,7 @@ const EmailBoxes: React.FunctionComponent<IEmailBoxesProps> = (
               box={box}
               theme={theme}
             >
-              <props.EmailFormComponent />
+              <props.EmailFormComponent emailBox={box} />
             </ActiveEmailBox>
           );
         }
