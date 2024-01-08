@@ -12,6 +12,7 @@ export interface IDatePickerProps {
     maxWidth?: string;
     error?: string;
     isARangePicker?: boolean;
+    disabled?: boolean;
 }
 declare const _default: React.NamedExoticComponent<IDatePickerProps>;
 export default _default;

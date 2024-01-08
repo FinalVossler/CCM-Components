@@ -28,6 +28,11 @@ const useStyles = createUseStyles((theme: ITheme) => ({
       fill: theme.textMajor,
     },
   },
+  disabledButton: {
+    backgroundColor: theme.backgroundGrey + "!important",
+    borderColor: theme.backgroundGrey + "!important",
+    color: theme.textMajor + "!important",
+  },
   confirmButton: {
     extend: "defaultButton",
     color: theme.textPrimary,

@@ -15,6 +15,12 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     fontFamily: "Open Sans Regular",
     boxSizing: "border-box",
   },
+  disabledInputContainer: {
+    "& input": {
+      backgroundColor: theme.backgroundGrey,
+    },
+  },
+
   erroredInputContainer: {
     "& $input": {
       borderColor: theme.textDanger,

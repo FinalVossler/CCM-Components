@@ -74,6 +74,9 @@ const useStyles = createUseStyles((theme: ITheme) => ({
       },
     },
   },
+  datePickerContainerDisabled: {
+    backgroundColor: theme.backgroundGrey + "!important",
+  },
   erroredDatePicker: {
     "& input": {
       borderColor: theme.textDanger,

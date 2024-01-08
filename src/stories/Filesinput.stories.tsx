@@ -36,6 +36,17 @@ export const SingleFile: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    theme,
+    buttonProps: {
+      label: "Ajouter une pièce jointe ici",
+    },
+    isMulti: false,
+    disabled: true,
+  },
+};
+
 export const MultipleFiles: Story = {
   args: {
     theme,

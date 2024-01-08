@@ -15,6 +15,7 @@ export interface InputProps {
     suffixIcon?: React.FunctionComponent<IIconProps>;
     error?: string;
     maxWidth?: string;
+    disabled?: boolean;
 }
 declare const _default: React.NamedExoticComponent<InputProps>;
 export default _default;

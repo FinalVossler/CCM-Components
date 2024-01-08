@@ -15,6 +15,7 @@ export interface ISelectorProps {
     maxWidth?: string;
     error?: string;
     value?: ISelectorOption[] | ISelectorOption;
+    disabled?: boolean;
 }
 declare const _default: React.NamedExoticComponent<ISelectorProps>;
 export default _default;

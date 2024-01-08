@@ -36,6 +36,15 @@ export const Default: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    label: "Clôturer la demande",
+    theme,
+    buttonType: ButtonTypeEnum.Default,
+    disabled: true,
+  },
+};
+
 export const Confirm: Story = {
   args: {
     label: "Clôturer la demande",

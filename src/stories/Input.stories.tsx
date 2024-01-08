@@ -35,6 +35,16 @@ export const Basic: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    label: "Titre de la réclamation",
+    placeholder: "Titre",
+    theme,
+    disabled: true,
+    value: "disabled value",
+  },
+};
+
 export const MaxCharacters: Story = {
   args: {
     label: "Titre de la réclamation",

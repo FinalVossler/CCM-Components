@@ -23,6 +23,7 @@ export interface ISelectorProps {
   maxWidth?: string;
   error?: string;
   value?: ISelectorOption[] | ISelectorOption;
+  disabled?: boolean;
 }
 
 const animatedComponents = makeAnimated();
@@ -69,6 +70,7 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
         placeholder={props.placeholder}
         onChange={handleOnChange}
         value={value}
+        isDisabled={Boolean(props.disabled)}
         styles={{
           container: (styles) => ({ ...styles, width: "100%" }),
           valueContainer: (styles) => ({
@@ -94,7 +96,9 @@ const Selector: React.FunctionComponent<ISelectorProps> = (
               ...styles,
               outline: "none",
               boxShadow: "none",
-              backgroundColor: theme.backgroundSurface,
+              backgroundColor: props.disabled
+                ? theme.backgroundGrey
+                : theme.backgroundSurface,
               color: theme.textMajor,
               width: "100%",
               height: 32,

@@ -38,6 +38,16 @@ export const Basic: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    label: "Date de fin de cible",
+    placeholder: "fin cible",
+    theme,
+    showTimeSelect: false,
+    disabled: true,
+  },
+};
+
 export const WithTime: Story = {
   args: {
     label: "Résolution estimée",

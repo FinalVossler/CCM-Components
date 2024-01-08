@@ -41,7 +41,8 @@ const Button: React.FunctionComponent<IButtonProps> = (props: IButtonProps) => {
           [ButtonTypeEnum.Cancel]: styles.cancelButton,
           [ButtonTypeEnum.Default]: styles.defaultButton,
         }[props.buttonType || ButtonTypeEnum.Confirm] +
-        (props.withoutBorder ? " " + styles.withoutBorder : "")
+        (props.withoutBorder ? " " + styles.withoutBorder : "") +
+        (props.disabled ? " " + styles.disabledButton : "")
       }
       onMouseOver={handleOnMouseOver}
       onMouseOut={handleOnMouseOut}

@@ -20,6 +20,7 @@ export interface InputProps {
   suffixIcon?: React.FunctionComponent<IIconProps>;
   error?: string;
   maxWidth?: string;
+  disabled?: boolean;
 }
 
 const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
@@ -44,7 +45,8 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
     <div
       className={
         (props.fullWidth ? styles.fullWidthContainer : styles.inputContainer) +
-        (props.error ? " " + styles.erroredInputContainer : "")
+        (props.error ? " " + styles.erroredInputContainer : "") +
+        (props.disabled ? " " + styles.disabledInputContainer : "")
       }
       style={{
         minWidth: props.minWidth || 270,
@@ -61,6 +63,7 @@ const Input: React.FunctionComponent<InputProps> = (props: InputProps) => {
         placeholder={props.placeholder}
         onChange={handleOnChange}
         value={value}
+        disabled={Boolean(props.disabled)}
         {...(props.onClick ? { onClick: props.onClick } : {})}
         {...(props.suffixIcon || props.maxCharacters
           ? {

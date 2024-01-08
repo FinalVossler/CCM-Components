@@ -20,6 +20,7 @@ export interface IDatePickerProps {
   maxWidth?: string;
   error?: string;
   isARangePicker?: boolean;
+  disabled?: boolean;
 }
 
 const DatePicker: React.FunctionComponent<IDatePickerProps> = (
@@ -83,10 +84,14 @@ const DatePicker: React.FunctionComponent<IDatePickerProps> = (
             Array.isArray(selectedDate) ? selectedDate[0] : selectedDate
           }
           onChange={handleOnChange(0)}
-          className={styles.datePickerContainer}
+          className={
+            styles.datePickerContainer +
+            (props.disabled ? " " + styles.datePickerContainerDisabled : "")
+          }
           dateFormat={"dd/MM/yyyy" + (props.showTimeSelect ? " hh:mm aa" : "")}
           placeholderText={props.placeholder}
           showTimeSelect={Boolean(props.showTimeSelect)}
+          disabled={Boolean(props.disabled)}
           {...(props.showTimeSelect ? { timeFormat: "HH mm" } : {})}
         />
 

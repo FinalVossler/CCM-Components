@@ -12,6 +12,8 @@ export interface IFilesInputProps {
   theme?: ITheme;
   buttonProps: IButtonProps;
   isMulti?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
 }
 
 const FilesInput: React.FunctionComponent<IFilesInputProps> = (
@@ -41,18 +43,26 @@ const FilesInput: React.FunctionComponent<IFilesInputProps> = (
   };
 
   const handleOnChangeFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (props.onChange) {
+      props.onChange(e);
+    }
     setFiles(Array.from(e.target.files));
   };
 
   return (
     <div className={styles.filesInputContainer}>
-      <Button {...props.buttonProps} onClick={handleButtonClick} />
+      <Button
+        {...props.buttonProps}
+        onClick={handleButtonClick}
+        disabled={Boolean(props.disabled)}
+      />
       <input
         type="file"
         hidden
         onChange={handleOnChangeFiles}
         multiple={Boolean(props.isMulti)}
         ref={inputRef}
+        disabled={props.disabled}
       />
 
       <div className={styles.filesContainer}>
