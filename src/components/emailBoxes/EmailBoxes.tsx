@@ -38,12 +38,14 @@ const EmailBoxes: React.FunctionComponent<IEmailBoxesProps> = (
   const theme: ITheme = useTheme();
   const styles = useStyles({ theme: props.theme || theme });
 
+  // Set the internal email boxes to the external ones when the external ones change
   React.useEffect(() => {
-    // Keep control of the ui to the
+    // But Keep control of the ui to the email box
     setBoxes([
       ...props.boxes.map((box) => ({
         ...box,
-        viewType: boxes.find((b) => b.id === box.id)?.viewType || box.viewType,
+        viewType:
+          boxes.find((b) => b.id && b.id === box.id)?.viewType || box.viewType,
       })),
     ]);
   }, [props.boxes]);
