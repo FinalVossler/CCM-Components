@@ -39,7 +39,13 @@ const EmailBoxes: React.FunctionComponent<IEmailBoxesProps> = (
   const styles = useStyles({ theme: props.theme || theme });
 
   React.useEffect(() => {
-    setBoxes([...props.boxes]);
+    // Keep control of the ui to the
+    setBoxes([
+      ...props.boxes.map((box) => ({
+        ...box,
+        viewType: boxes.find((b) => b.id === box.id)?.viewType || box.viewType,
+      })),
+    ]);
   }, [props.boxes]);
 
   const handleChangeViewType =
