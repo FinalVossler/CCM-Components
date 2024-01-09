@@ -16,6 +16,25 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     fontFamily: "Open Sans Regular",
     boxSizing: "border-box",
   },
+
+  errorerTextareaContainer: {
+    "& textarea": {
+      borderColor: theme.textDanger,
+      color: theme.textDanger,
+
+      borderWidth: 2,
+      "&:focus": {
+        borderWidth: 2,
+        borderColor: theme.textDanger,
+      },
+    },
+    "& $label": {
+      color: theme.textDanger,
+    },
+    "& path": {
+      fill: theme.textDanger + "!important",
+    },
+  },
   label: {
     marginBottom: 4,
     color: theme.textMajor,
@@ -30,6 +49,19 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     width: "100%",
     boxSizing: "border-box",
     maxWidh: "100%",
+  },
+
+  error: {
+    color: theme.textDanger,
+    fontSize: 16,
+    paddingLeft: 3,
+    position: "absolute",
+    right: 12,
+    top: 12,
+  },
+  errorWhenNoLabel: {
+    extend: "error",
+    top: 5,
   },
 }));
 

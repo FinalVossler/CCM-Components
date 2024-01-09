@@ -10,6 +10,7 @@ export interface ITextareProps {
   textareaProps?: React.TextareaHTMLAttributes<HTMLTextAreaElement>;
   label?: string;
   minWidth?: string;
+  error?: string;
 }
 
 const Textarea: React.FunctionComponent<ITextareProps> = (
@@ -20,7 +21,10 @@ const Textarea: React.FunctionComponent<ITextareProps> = (
 
   return (
     <div
-      className={styles.textareaContainer}
+      className={
+        styles.textareaContainer +
+        (props.error ? " " + styles.errorerTextareaContainer : "")
+      }
       style={{ ...(props.minWidth ? { minWidth: props.minWidth } : {}) }}
     >
       {props.label && <span className={styles.label}>{props.label}</span>}
@@ -28,6 +32,10 @@ const Textarea: React.FunctionComponent<ITextareProps> = (
         className={styles.textarea}
         {...(props.textareaProps || {})}
       ></textarea>
+
+      <span className={props.label ? styles.error : styles.errorWhenNoLabel}>
+        {props.error}
+      </span>
     </div>
   );
 };

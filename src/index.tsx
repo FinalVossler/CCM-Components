@@ -39,6 +39,7 @@ import Title from "./components/title/index";
 import EmailBoxes from "./components/emailBoxes/index";
 import Froala from "./components/editor/index";
 import Textarea from "./components/textarea/index";
+import FilesInput from "./components/filesInput/index";
 import {
   EmailBoxViewTypeEnum,
   IEmailBox,
@@ -85,4 +86,5 @@ export {
   IEmailBox,
   Froala,
   Textarea,
+  FilesInput,
 };

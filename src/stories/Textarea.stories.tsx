@@ -33,3 +33,15 @@ export const Basic: Story = {
     },
   },
 };
+
+export const Errored: Story = {
+  args: {
+    theme,
+    label: "Basic",
+    error: "Text is required",
+    textareaProps: {
+      placeholder: "Basic",
+      style: { padding: 10 },
+    },
+  },
+};

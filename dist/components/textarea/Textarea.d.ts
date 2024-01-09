@@ -5,6 +5,7 @@ export interface ITextareProps {
     textareaProps?: React.TextareaHTMLAttributes<HTMLTextAreaElement>;
     label?: string;
     minWidth?: string;
+    error?: string;
 }
 declare const _default: React.NamedExoticComponent<ITextareProps>;
 export default _default;
