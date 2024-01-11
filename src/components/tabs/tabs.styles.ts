@@ -12,6 +12,8 @@ const useStyles = createUseStyles((theme: ITheme) => ({
     overflow: "auto",
     borderBottom: "1px solid " + theme.borderDefault,
     fontFamily: "Open Sans Regular",
+    minHeight: 59.56,
+    boxSizing: "border-box",
   },
   tabOption: {
     marginRight: 10,

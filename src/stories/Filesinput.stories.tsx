@@ -2,9 +2,6 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { theme } from "ccmtypes";
-import Button from "../components/button";
-import { ButtonTypeEnum } from "../components/button/Button";
-import PlusIcon from "../components/icons/PlusIcon";
 import FilesInput from "../components/filesInput";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
