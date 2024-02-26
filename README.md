@@ -1,4 +1,4 @@
-# Boilerplate for a react package.
+# CCM Component library.
 
 # To publish to npm registery:
 
@@ -21,20 +21,6 @@
 - I had to add this line in package.json for the types to be visible in another typescript project
   "types": "dist/index.d.ts",
 
-# To begin testing your component with storybook:
+# To setup and begin testing your component with storybook:
 
 - `npx storybook@latest init`
-
-# Questions:
-
-- Il se passe quoi quand on hover sur un bouton (animation ?)
-- Le design des paginations des tables
-- Le design d'un input lorsqu'il est disabled
-- Le design d'un bouton lorsqu'il est disabled
-- Le design des inputs en erreurs
-- Vous n'avez pas à développer le design des dates picker et des sélecteurs
-- Est ce que les colonnes seront resizables
-- Ou trouver les îcones si on a besoin de plus que ce qui existe maintenant dans les maquettes
-- Les données à afficher sur la vue kanban ne m'ont pas l'air claires (La section todo, etc..)
-- C'est intéressant pour nous d'avoir ces 3 types de vues (table, kanban et calendrier) pour les activités, demandes et emails ?
-- J'ai vu que dans la modal, il y a des champs avec seulement une bordure en bas, ce qui ne ressemble pas à l'allure des champs ailleurs. Ça serait mieux d'avoir de la consistance partout histoire d'éviter à ajouter trop de conditions dans le code.
